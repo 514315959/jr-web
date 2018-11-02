@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/weui.min.css">
+    <link rel="stylesheet" href="./css/jquery-weui.min.css">
+    <script src="./js/base.js"></script>
+    <title>信息录入</title>
+    <style>
+        .header img,
+        .jieshao img {
+            width: 100%
+        }
+        
+        .header .hd-back {
+            position: relative;
+        }
+        
+        .header .title,
+        .header .hd-time {
+            position: absolute;
+        }
+        
+        .header .title {
+            bottom: 1.2rem;
+            left: 2.3rem;
+            color: white;
+            font-size: 0.4rem;
+            padding: 0.1rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+        }
+        
+        .header .hd-time {
+            bottom: 0.5rem;
+            left: 2.3rem;
+            font-size: 0.3rem;
+            padding: 0.1rem;
+            /* background-color: #5bffcc; */
+            border-radius: 0.2rem;
+            color: white
+            /* color: #6e2695; */
+            /* box-shadow: 0px 5px 0px 0px #7253cd */
+        }
+        
+        .bm .weui-cell {
+            padding: 0.2rem 0.2rem;
+            font-size: 0.3rem;
+            border: 1px solid #e6e6e6;
+            border-radius: 0.2rem;
+        }
+        
+        .bm .weui-cells {
+            padding: 0 0.3rem;
+        }
+        
+        .bm .weui-cells::before {
+            border: none;
+        }
+        
+        .bm .weui-cells::after {
+            border: none;
+        }
+        
+        .bm .weui-cell::before {
+            border: none;
+        }
+        
+        .weui-cell {
+            margin-bottom: 0.2rem;
+        }
+        
+        .bm .sub {
+            font-size: 0.3rem;
+            background-color: #e0004a;
+            margin-top: 0.2rem;
+        }
+        
+        .weui-btn_primary:not(.weui-btn_disabled):active {
+            color: hsla(0, 0%, 100%, .6);
+            background-color: #f00c58
+        }
+        
+        .weui-toast--text {
+            font-size: 0.3rem
+        }
+        
+        .getcode {
+            border: none;
+            background-color: #e0004a;
+            color: white;
+            font-size: 0.3rem;
+            padding: 0.1rem;
+            border-radius: 0.2rem;
+            outline: none
+        }
+        
+        .getcode:active {
+            background-color: #f00c58
+        }
+        
+        .weui-cell .tag p {
+            width: 1.6rem;
+            text-align: right
+        }
+        
+        .weui-cells {
+            margin-top: 0.1rem
+        }
+        
+        .qrcode-pay {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            z-index: 10;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        
+        .qrcode-pay .mask {
+            background-color: rgba(10, 10, 10, 0.781);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        
+        .qrcode-pay .info .qrcode {
+            width: 4rem;
+            height: 4rem;
+            margin: 0 auto;
+            position: absolute;
+            z-index: 11;
+            left: 0;
+            right: 0;
+            top: 25%
+        }
+        
+        .qrcode-pay .info .qrcode img {
+            width: 100%;
+            height: 100%;
+        }
+        .qrcode-pay .close .weui-icon-cancel{
+            color: white;
+            font-size: 0.6rem
+        }
+        .qrcode-pay .close{
+            position: absolute;
+            z-index: 11;
+            right: 0.3rem;
+            top: 0.3rem
+        }
+        .qrcode-pay .info .info-text{
+            width: 100%;
+            position: absolute;
+            z-index: 11;
+            bottom: 29%
+        }
+        .qrcode-pay .info .info-text p{
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-size: 0.3rem
+        }
+        .qrcode-pay .info .info-text p.tag1{
+            font-size: 0.35rem
+        }
+        .qrcode-pay .info .info-text p.tag2{
+            margin-top: 0.2rem
+        }
+    </style>
+</head>
+
+<body ontouchstart>
+    <div class="header">
+        <div class="hd-back">
+            <img src="./images/luru4.jpg" alt="">
+            <!-- <p class="title">某某商场线下活动</p>
+            <p class="hd-time">2018-12-12-2018-12-15</p> -->
+        </div>
+        <img src="./images/luru2.jpg" alt="">
+    </div>
+    <div class="bm">
+        <div class="weui-cells">
+            <div class="weui-cell">
+                <div class="tag">
+                    <p>商家编码：</p>
+                </div>
+                <div class="weui-cell__bd">
+                    <input name="mchCode" class="weui-input" type="text" placeholder="请输入商家编码">
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="tag">
+                    <p>录卡人：</p>
+                </div>
+                <div class="weui-cell__bd">
+                    <input name="lkName" class="weui-input" type="text" placeholder="请输入录卡人">
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="tag">
+                    <p>卡号：</p>
+                </div>
+                <div class="weui-cell__bd">
+                    <input name="card" class="weui-input" type="text" placeholder="请输入卡号">
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="tag">
+                    <p>客户姓名：</p>
+                </div>
+                <div class="weui-cell__bd">
+                    <input name="username" class="weui-input" type="text" placeholder="请输入客户姓名">
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="tag">
+                    <p>手机号码：</p>
+                </div>
+                <div class="weui-cell__bd">
+                    <input maxlength="11" name="phone" class="weui-input" type="tel" placeholder="请输入客户手机号">
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="tag">
+                    <p>验证码：</p>
+                </div>
+                <div class="weui-cell__bd">
+                    <input name="mbCode" class="weui-input" type="number" placeholder="请输入短信验证码">
+                </div>
+                <div>
+                    <button id="getcode" class="getcode">获取短信验证码</button>
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="tag">
+                    <p>客户地址：</p>
+                </div>
+                <div class="weui-cell__bd">
+                    <input name="des" class="weui-input" type="text" placeholder="请输入客户地址">
+                </div>
+            </div>
+            <a id="sub" href="javascript:;" class="weui-btn weui-btn_primary sub">提交</a>
+        </div>
+    </div>
+    <div class="jieshao">
+        <img src="./images/03.png" alt="">
+    </div>
+    <div class="qrcode-pay" id="payinfo">
+        <div class="mask"></div>
+        <div class="close" id="close">
+            <i class="weui-icon-cancel"></i>
+        </div>
+        <div class="info">
+            <div class="qrcode">
+                <img src="./images/timg.jpg" alt="">
+            </div>
+            <div class="info-text">
+                <p class="tag1">微信扫一扫支付</p>
+                <p class="tag2">支付金额：50元</p>
+            </div>
+        </div>
+    </div>
+    <script src="./js/jquery-2.1.4.js"></script>
+    <script src="./js/jquery-weui.js"></script>
+    <script>
+        var hdid = ''; // 扫码获得活动id
+        var time = 0; // 默认短信验证码倒计时
+        // 提交数据
+        $('#sub').click(() => {
+                var username = $('[name="username"]').val();
+                var phone = $('[name="phone"]').val();
+                var mchCode = $('[name="mchCode"]').val();
+                var lkName = $('[name="lkName"]').val();
+                var card = $('[name="card"]').val();
+                var mbCode = $('[name="mbCode"]').val();
+                var des = $('[name="des"]').val();
+                if (mchCode == '') {
+                    $.toast('请输入商家编码', 'text');
+                    return false;
+                }
+                if (lkName == '') {
+                    $.toast('请输入录卡人', 'text');
+                    return false;
+                }
+                if (card == '') {
+                    $.toast('请输入卡号', 'text');
+                    return false;
+                }
+                if (username == '') {
+                    $.toast('请输入客户姓名', 'text');
+                    return false;
+                }
+                if (phone == '') {
+                    $.toast('请输入客户手机号码', 'text');
+                    return false;
+                } else {
+                    if (!/^[1][3,4,5,7,8][0-9]{9}$/.test(phone)) {
+                        $.toast('手机号码格式错误', 'text');
+                        return false;
+                    }
+                }
+                if (mbCode == '') {
+                    $.toast('请输入短信验证码', 'text');
+                    return false;
+                }
+                if (des == '') {
+                    $.toast('请输入客户地址', 'text');
+                    return false;
+                }
+                // 模拟提交
+                $.showLoading('提交中...');
+                setTimeout(() => {
+                        $.hideLoading();
+                        $.toast('提交成功');
+                        $('#payinfo').show()
+                    }, 1500)
+                    // 正式提交
+                    // $.showLoading('提交中...');
+                    // $.ajax({
+                    //     method: 'post',
+                    //     url: '',
+                    //     data: {
+                    //         hdid: hdid,
+                    //         username: username,
+                    //         phone: phone,
+                    //         mchCode: mchCode,
+                    //         lkName: lkName,
+                    //         card: card,
+                    //         mbCode: mbCode,
+                    //         des: des
+                    //     },
+                    //     // dataType:'json',// 后台自定
+                    //     success: (d) => {
+                    //         $.hideLoading(); //隐藏加载框
+                    //         //此处判断由返回的数据d具体决定
+                    //         if (true) {
+                    //             $.toast('提交成功'); // 具体提示自定
+                    //             $('input').val(''); //刷新数据
+                    //             $('#payinfo').show()
+                    //         } else {
+                    //             $.toast('提交失败',"cancel"); // 具体提示自定
+                    //         }
+                    //     },
+                    //     error: () => {
+                    //         $.hideLoading(); //隐藏加载框
+                    //         $.toast('服务器错误，稍后再试。',"cancel"); // 具体提示自定
+                    //     }
+                    // })
+            })
+            // 获取验证码
+        $('#getcode').click(() => {
+            var phone = $('[name="phone"]').val();
+            if (phone == '') {
+                $.toast('请输入客户手机号码', 'text');
+                return false;
+            } else {
+                if (!/^[1][3,4,5,7,8][0-9]{9}$/.test(phone)) {
+                    $.toast('手机号码格式错误', 'text');
+                    return false;
+                }
+            }
+            // 模拟提交
+            if (time <= 0) {
+                var code = Math.floor(Math.random() * (99999 - 10000) + 10000)
+                $.toast(code);
+                time = 60
+                timecount()
+            } else {
+                $.toast('提交频繁，稍后再试', "text");
+            }
+            // 正式提交
+            // if (time <= 0) {
+            //     $.ajax({
+            //         method: 'post',
+            //         url: '',
+            //         data: {
+            //             phone: phone,
+            //         },
+            //         // dataType:'json',// 后台自定
+            //         success: (d) => {
+            //             //此处判断由返回的数据d具体决定
+            //             if (true) {
+            //                 $.toast('提交成功'); // 具体提示自定
+            //                 time = 60
+            //                 timecount()
+            //             } else {
+            //                 $.toast('提交失败', "cancel"); // 具体提示自定
+            //             }
+            //         },
+            //         error: () => {
+            //             $.toast('服务器错误，稍后再试。', "cancel"); // 具体提示自定
+            //         }
+            //     })
+            // } else {
+            //     $.toast('提交频繁，稍后再试', "text");
+            // }
+        })
+
+        function timecount() {
+            var t = setInterval(function() {
+                if (time > 0) {
+                    $('#getcode').text(time + '秒')
+                    time--;
+                } else {
+                    clearInterval(t);
+                    $('#getcode').text('获取短信验证码')
+                }
+            }, 1000)
+        }
+        $('#close').click(function(){
+            $('#payinfo').hide()
+        })
+    </script>
+</body>
+
+</html>

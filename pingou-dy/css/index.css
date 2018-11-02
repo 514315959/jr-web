@@ -1,0 +1,442 @@
+body,
+html {
+    font-family: "微软雅黑"
+}
+
+.swiper-container {
+    height: 5.4rem;
+    position: relative;
+}
+.swiper-container .guajian{
+    position: absolute;
+    top: 0;
+    right: 0.5rem;
+    z-index: 2;
+    background-color:white; 
+    width: 0.8rem;
+    height: 0.8rem;
+}
+.swiper-container .guajian .icon-remai1{
+    font-size: 1rem;
+    color: #ef2324;
+}
+.swiper-container .guajian .icon-remai1::before{
+    position: relative;
+    left: -0.1rem;
+    top: -0.03rem
+}
+.guajian2{
+    background-color: #c80410;
+    color: white;
+    height: 0.6rem;
+    position: relative;
+}
+.guajian2 .g-t2{
+    line-height: 0.6rem;
+    width: 70%;
+    text-align: center;
+    padding: 0 0.2rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.35rem
+}
+.guajian2 .g-p2{
+    width: 2rem;
+    box-sizing: border-box;
+    padding: 0.2rem;
+    position: absolute;
+    height: 1rem;
+    bottom: 0.6rem;
+    right: 0;
+    border-radius: 2rem 2rem 0 0;
+    background-color: #c80410;
+    z-index: 3;
+    text-align: center;
+    font-size: 0.35rem
+}
+.guajian2 .g-p2 .g-p2-t1{
+    margin-top: 0.2rem
+} 
+.guajian2 .g-p2 .g-p2-t2{
+    margin-left: -0.2rem;
+    text-decoration: line-through
+}
+.swiper-wrapper,
+.sw-list.swiper-slide {
+    height: 100%;
+}
+
+.swiper-wrapper .sw-list.swiper-slide img {
+    height: 100%;
+    width: 100%;
+}
+
+.hd {
+    height: 1.5rem;
+    background-image: url(../imgs/tupian1.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white
+}
+
+.hd .hd-left {
+    width: 61%;
+    float: left;
+    font-size: 0.6rem;
+    line-height: 1.5rem;
+    padding-left: 0.1rem;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.hd .hd-right {
+    width: 39%;
+    float: left;
+    padding-right: 0.1rem;
+    box-sizing: border-box;
+}
+
+.hd .hd-left .delete {
+    text-decoration: line-through;
+    font-size: 0.3rem;
+}
+
+.hd .hd-right .count_down {
+    text-align: center
+}
+
+.hd .hd-right .count_down .time {}
+
+.hd .hd-right .count_down .count-t {
+    margin-top: 0.25rem;
+    color: #ee2424;
+    font-size: 0.3rem;
+    display: block;
+    line-height: 1.6
+}
+
+.hd .hd-right .count_down .day_num,
+.hour_num,
+.min_num,
+.sec_num {
+    height: 0.35rem;
+    width: 0.35rem;
+    font-size: 0.25rem;
+    padding: 1px;
+    background-color: #4e2c06;
+    border-radius: 0.1rem;
+    display: inline-block;
+}
+
+.hd .hd-right .count_down i {
+    font-size: 0.2rem;
+    color: #222224;
+}
+
+.attr .attr-1 .weui-cells {
+    margin-top: 0rem;
+}
+
+.attr .attr-2 .weui-cells {
+    margin-top: 0rem;
+}
+
+.attr .attr-3 .weui-cells {
+    margin-top: 0rem;
+}
+
+.weui-cells::before,
+.weui-cells::after
+{
+    z-index: 0
+}
+.attr .attr-1 .weui-cells{
+    line-height: 1.2
+}
+.attr .attr-1 .weui-cells::before,
+.attr .attr-1 .weui-cells::after,
+.attr .attr-2 .weui-cells::before,
+.attr .attr-2 .weui-cells::after,
+.attr .attr-3 .weui-cells::before,
+.attr .attr-3 .weui-cells::after,
+.desc .gz .weui-cells::before,
+.desc .gz .weui-cells::after {
+    border: none;
+}
+
+.attr .attr-1 .weui-cells .weui-cell__hd,
+.attr .attr-1 .weui-cells .weui-cell__bd {
+    font-size: 0.35rem;
+    color: #222;
+}
+
+.attr .attr-1 .weui-cells .weui-cell__hd .icon-remai {
+    color: #ef2324;
+    font-size: 0.9rem
+}
+
+.attr .attr-1 .weui-cells .weui-cell__ft {
+    font-size: 0.3rem;
+    color: #222
+}
+
+.attr .attr-2 .weui-cells {
+    background-color: #fff9fb;
+}
+
+.attr .attr-2 .weui-cells .weui-cell__bd {
+    font-size: 0.4rem;
+    color: #ef2324;
+}
+
+.attr .attr-2 .weui-cells .weui-cell__hd .icon-pin {
+    color: #ef2324;
+    font-size: 0.4rem
+}
+
+.attr .attr-2 .weui-cells .weui-cell__hd .icon-pin::before {
+    position: relative;
+    margin-right: 5px
+}
+
+.attr .attr-3 .weui-cell .weui-cell__hd {
+    padding-right: 10px;
+}
+
+.attr .attr-3 .weui-cell::before {
+    border: none;
+}
+
+.attr .attr-3 .weui-cell {
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    align-items: flex-start;
+}
+
+.attr .attr-3 .weui-cells .weui-cell__hd,
+.attr .attr-3 .weui-cells .weui-cell__bd {
+    font-size: 0.3rem;
+    color: #222;
+}
+
+.attr .attr-3 .weui-cell .icon-huodong {
+    font-size: 0.25rem;
+    color: #ee2424;
+}
+
+.attr .attr-3 .weui-cell .icon-huodong::before {
+    margin-right: 5px;
+}
+
+.pp-logo img {
+    width: 100%;
+}
+
+.desc .details {
+    padding: 0 15px;
+}
+
+.desc .details img {
+    width: 100%;
+}
+
+.desc {
+    font-size: 0.3rem;
+    margin-bottom: 1.5rem;
+}
+
+.desc .dt {
+    text-align: center;
+    padding: 10px 15px;
+    /* display: flex; */
+    /* -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center; */
+}
+
+.desc .dt .line {
+    display: inline-block;
+    width: 39%;
+    height: 1px;
+    background-color: #efefef;
+    position: relative;
+    top: -0.1rem
+}
+
+.desc .dt .icon-xiangqing {
+    font-size: 0.3rem;
+    padding: 0 0.1rem
+}
+
+.desc .dt .icon-xiangqing::before {
+    font-size: 0.3rem;
+    color: #fde0e4;
+    margin-right: 5px
+}
+
+.desc .gz {
+    margin-bottom: 10px;
+}
+
+.desc .gz .weui-cells {
+    margin-top: 0rem;
+    background-color: #fff9fb;
+}
+
+.desc .gz .weui-cells .weui-cell__hd,
+.desc .gz .weui-cells .weui-cell__bd {
+    font-size: 0.3rem;
+    color: #222;
+}
+
+.desc .gz .weui-cell {
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    align-items: flex-start;
+}
+
+.desc .gz .weui-cell .weui-cell__hd {
+    padding-right: 10px;
+}
+
+.desc .gz .weui-cell .icon-guize::before {
+    font-size: 0.4rem;
+    color: #f82728
+}
+
+.db {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1.5rem;
+}
+
+.db .db-left,
+.db .db-right {
+    height: 100%;
+    float: left;
+    box-sizing: border-box;
+}
+
+.db .db-left {
+    background-color: #f82728;
+    width: 65%;
+    color: white;
+    font-size: 0.4rem;
+    padding-left: 15px;
+    padding-top: 0.2rem;
+}
+
+.db .db-left .price .delete {
+    text-decoration: line-through;
+    font-size: 0.3rem;
+    color: #fef1f1
+}
+
+.db .db-right {
+    background-color: #f7ca00;
+    width: 35%;
+    color: white;
+    text-align: center;
+    font-size: 0.4rem;
+    line-height: 1.5rem;
+}
+
+.db .db-right:active {
+    background-color: #e7c012;
+}
+
+.pg-dt .weui-cell__bd .sign-in,
+.pg-dt .weui-cell__ft .num {
+    font-size: 0.32rem;
+}
+
+.pg-dt .weui-media-box_appmsg .weui-media-box__hd,
+#total-sign .weui-media-box_appmsg .weui-media-box__hd {
+    width: 0.8rem;
+    height: 0.8rem;
+}
+
+.animate {
+    overflow: hidden;
+}
+
+.animate .weui-media-box__thumb {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem
+}
+
+.animate .nick {
+    font-size: 0.3rem;
+    width: 40%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.animate .weui-media-box__bd {
+    text-align: center
+}
+
+.animate .weui-media-box__bd .weui-media-box__title {
+    font-size: 0.25rem
+}
+
+.animate .weui-media-box__bd .weui-media-box__title .t1 {
+    color: #ee2424
+}
+
+.animate .weui-media-box__bd .weui-media-box__desc {
+    font-size: 0.3rem;
+    color: #ee2424
+}
+
+.animate .cantuan {
+    padding: 0 0 0 0.2rem;
+    text-align: center
+}
+
+.animate .cantuan .ct-btn {
+    padding: 0.05rem 0.2rem;
+    border-radius: 0.2rem;
+    background-color: #ee2424;
+    color: white;
+    font-size: 0.3rem
+}
+
+.animate .cantuan .ct-btn:active {
+    background-color: #e95959;
+}
+
+.animate .weui-media-box:before {
+    right: 15px;
+}
+
+.animate .weui-panel:after,
+.weui-panel::after {
+    border: none;
+}
+
+.animate .weui-panel::before,
+.weui-panel:before {
+    right: 15px;
+    left: 15px;
+}
+
+#total-sign .sign-in,
+#total-sign .close-popup {
+    font-size: 0.32rem;
+}
+
+#total-sign .animate .weui-media-box {
+    height: 1.4rem;
+}
+
+#total-sign .animate {
+    overflow-y: auto;
+}

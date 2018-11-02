@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/swiper.css">
+    <link rel="stylesheet" href="./css/iconfont.css">
+    <link rel="stylesheet" href="./css/weui.min.css">
+    <link rel="stylesheet" href="./css/jquery-weui.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/base.js"></script>
+    <title>商品详情</title>
+</head>
+
+<body>
+    <!-- 头部轮播 -->
+    <div class="swiper-container">
+        <!-- 挂件1 -->
+        <div class="guajian">
+            <i class="iconfont icon-remai1"></i>
+        </div>
+        <div class="swiper-wrapper">
+            <div class="sw-list swiper-slide">
+                <img src="./imgs/tupian3.png" alt="">
+            </div>
+            <div class="sw-list swiper-slide">
+                <img src="./imgs/tupian8.png" alt="">
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Arrows -->
+        <!-- <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div> -->
+    </div>
+    <!-- 挂件2 -->
+    <div class="guajian2">
+        <p class="g-t2">简约轻奢 时尚定制</p>
+        <div class="g-p2">
+            <p class="g-p2-t1">原件</p>
+            <p class="g-p2-t2">￥3000</p>
+        </div>
+    </div>
+    <div class="hd">
+        <div class="hd-left">
+            ￥10000
+            <span class="delete">￥30000</span>
+        </div>
+        <div class="hd-right">
+            <!-- 倒计时 -->
+            <div class="count_down">
+                <span class="count-t iconfont icon-jishi">距结束还剩</span>
+                <div class="time">
+                    <span class="day_num"></span><i>天</i>
+                    <span class="hour_num"></span><i>时</i>
+                    <span class="min_num"></span><i>分</i>
+                    <span class="sec_num"></span><i>秒</i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 产品服务 -->
+    <div class="attr">
+        <div class="attr-1">
+            <div class="weui-cells">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <i class="iconfont icon-remai
+                        "></i>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <p>简约轻奢 时尚定制</p>
+                    </div>
+                    <div class="weui-cell__ft">月销2402笔</div>
+                </div>
+            </div>
+        </div>
+        <div class="attr-2">
+            <div class="weui-cells">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <i class="iconfont icon-pin
+                                "></i>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <p>限时限量 疯狂抢购</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="attr-3">
+            <div class="weui-cells">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        活动
+                    </div>
+                    <div class="weui-cell__bd">
+                        <p><span class="iconfont icon-huodong"></span>到店下单可得红包等好礼</p>
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        服务
+                    </div>
+                    <div class="weui-cell__bd">
+                        <p>正品保证· 支持 售中未使用退款（退款比例：100%） 支持 过期自动退款（退款比例：100%）</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 拼购动态 -->
+    <div class="pg-dt">
+        <div class="weui-cells">
+            <a class="weui-cell weui-cell_access" href="javascript:totalup();">
+                <div class="weui-cell__bd">
+                    <p class="sign-in">123人已开团</p>
+                </div>
+                <div class="weui-cell__ft">
+                    <p class="num">查看更多</p>
+                </div>
+            </a>
+        </div>
+        <div class="animate" id="box">
+            <ul id="cont1">
+                <div class="weui-panel weui-panel_access">
+                    <div class="weui-panel__bd">
+                        <div class="weui-media-box weui-media-box_appmsg">
+                            <div class="weui-media-box__hd">
+                                <img class="weui-media-box__thumb" src="./imgs/tupian3.png">
+                            </div>
+                            <div class="nick">我的小可爱12321321321</div>
+                            <div class="weui-media-box__bd">
+                                <h4 class="weui-media-box__title">还差<span class="t1">100人</span>拼成</h4>
+                                <p class="weui-media-box__desc">01:02:03</p>
+                            </div>
+                            <div class="cantuan">
+                                <span class="ct-btn">去参团</span>
+                            </div>
+                        </div>
+                        <div class="weui-media-box weui-media-box_appmsg">
+                            <div class="weui-media-box__hd">
+                                <img class="weui-media-box__thumb" src="./imgs/tupian3.png">
+                            </div>
+                            <div class="nick">我的小可爱</div>
+                            <div class="weui-media-box__bd">
+                                <h4 class="weui-media-box__title">还差<span class="t1">100人</span>拼成</h4>
+                                <p class="weui-media-box__desc">01:02:03</p>
+                            </div>
+                            <div class="cantuan">
+                                <span class="ct-btn">去参团</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ul>
+            <ul id="cont2"></ul>
+        </div>
+    </div>
+    <!-- 品牌logo -->
+    <div class="pp-logo">
+        <img src="./imgs/tupian4.png" alt="">
+    </div>
+    <!--  介绍 -->
+    <div class="desc">
+        <div class="dt">
+            <span class="line"></span>
+            <span class="iconfont icon-xiangqing">详情</span>
+            <span class="line"></span>
+        </div>
+        <div class="gz">
+            <div class="weui-cells">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <span class="iconfont icon-guize"></span>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <p>拼购规则：宫廷白 雅致白 梦天灰 绅士灰 威尼 斯恋人 米灰 优雅黄 时尚灰 科技白橡</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="details">
+            <img src="./imgs/tupian5.png" alt="">
+            <img src="./imgs/tupian6.png" alt="">
+            <img src="./imgs/tupian7.png" alt="">
+        </div>
+    </div>
+    <!-- 底部 -->
+    <div class="db">
+        <div class="db-left">
+            <p>活动价</p>
+            <p class="price">
+                <span class="real">￥10000</span>
+                <span class="delete">￥30000</span>
+            </p>
+        </div>
+        <div class="db-right">
+            参加阶梯团
+        </div>
+    </div>
+    <!-- 展示所有报名 -->
+    <div id="total-sign" class="weui-popup__container popup-bottom">
+        <div class="weui-popup__overlay"></div>
+        <div class="weui-popup__modal">
+            <div class="weui-cells">
+                <div class="weui-cell">
+                    <div class="weui-cell__bd">
+                        <p class="sign-in">123人已开团</p>
+                    </div>
+                    <div class="weui-cell__ft">
+                        <a href="javascript:;" class="picker-button close-popup">关闭</a>
+                    </div>
+                </div>
+            </div>
+            <div class="animate">
+                <div class="weui-panel weui-panel_access">
+                    <div class="weui-panel__bd">
+                        <div class="weui-media-box weui-media-box_appmsg">
+                            <div class="weui-media-box__hd">
+                                <img class="weui-media-box__thumb" src="./imgs/tupian3.png">
+                            </div>
+                            <div class="nick">我的小可爱12321321321</div>
+                            <div class="weui-media-box__bd">
+                                <h4 class="weui-media-box__title">还差<span class="t1">100人</span>拼成</h4>
+                                <p class="weui-media-box__desc">01:02:03</p>
+                            </div>
+                            <div class="cantuan">
+                                <span class="ct-btn">去参团</span>
+                            </div>
+                        </div>
+                        <div class="weui-media-box weui-media-box_appmsg">
+                            <div class="weui-media-box__hd">
+                                <img class="weui-media-box__thumb" src="./imgs/tupian3.png">
+                            </div>
+                            <div class="nick">我的小可爱</div>
+                            <div class="weui-media-box__bd">
+                                <h4 class="weui-media-box__title">还差<span class="t1">100人</span>拼成</h4>
+                                <p class="weui-media-box__desc">01:02:03</p>
+                            </div>
+                            <div class="cantuan">
+                                <span class="ct-btn">去参团</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/jquery-2.1.4.js"></script>
+    <script src="./js/jquery-weui.js"></script>
+    <script src="./js/swiper.js"></script>
+    <script src="./js/countDown.js"></script>
+    <script>
+        // 倒计时
+        $(".count_down").countDown({
+            // startTimeStr: '2018/10/14 00:00:00', //开始时间
+            endTimeStr: '2018/10/20 14:28:59', //结束时间
+            daySelector: ".day_num",
+            hourSelector: ".hour_num",
+            minSelector: ".min_num",
+            secSelector: ".sec_num"
+        });
+        // 轮播图 
+        var swiper = new Swiper('.swiper-container', {
+            spaceBetween: 0,
+            centeredSlides: true,
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+        // 无缝滚动效果
+        var area = document.getElementById('box');
+        var cont1 = document.getElementById('cont1');
+        var cont2 = document.getElementById('cont2');
+        if ($(cont1).height() > 150) {
+            $(area).height(150);
+        } else {
+            $(area).height($(cont1).height());
+        }
+        // 克隆cont1给cont2
+        cont2.innerHTML = cont1.innerHTML;
+
+        function myScroll() {
+            if (area.scrollTop >= cont1.scrollHeight - 1) {
+                area.scrollTop = 0.99;
+            } else {
+                area.scrollTop++;
+            }
+        }
+
+        var time = 43;
+        var interval = setInterval('myScroll()', time);
+        // area.onmouseover = function() {
+        //     clearInterval(interval);
+        // };
+
+        // area.onmouseout = function() {
+        //     // 继续执行之前的定时器
+        //     interval = setInterval('myScroll()', time);
+        // };
+        // 展示全部报名的盒子高度计算
+        function totalup() {
+            var thu = $('#total-sign .animate .weui-media-box').outerHeight();
+            if (thu * $('#total-sign .animate .weui-media-box').length <= 350) {
+                $('#total-sign .animate').height(thu * $('#total-sign .animate .weui-media-box').length);
+            } else {
+                $('#total-sign .animate').height(350);
+            }
+            $('#total-sign').popup();
+        }
+        // 终止时间戳拼团（单位秒）
+        var tugouarr = [
+                1539599613,
+                1539699613
+            ]
+            // 拼团倒计时
+        var date = new Date()
+        var sec_to_time = function(s) {
+            var t = '拼购过期';
+            if (s > -1) {
+                var day = Math.floor(s / (24 * 3600));
+                var stime = s % (24 * 3600);
+                var hour = Math.floor(stime / 3600);
+                var min = Math.floor(stime / 60) % 60;
+                var sec = stime % 60;
+                if (hour < 10) {
+                    t = '0' + hour + ":";
+                } else {
+                    t = hour + ":";
+                }
+
+                if (min < 10) {
+                    t += "0";
+                }
+                t += min + ":";
+                if (sec < 10) {
+                    t += "0";
+                }
+                t += sec;
+            }
+            return t;
+        }
+
+        function daojishi() {
+            for (var i = 0; i < tugouarr.length; i++) {
+                var time = tugouarr[i] - Math.ceil(new Date().getTime() / 1000)
+                var formtime = sec_to_time(time)
+                $('#total-sign .weui-media-box .weui-media-box__desc').eq(i).text(formtime)
+                $('#cont1 .weui-media-box .weui-media-box__desc').eq(i).text(formtime)
+                $('#cont2 .weui-media-box .weui-media-box__desc').eq(i).text(formtime)
+            }
+        }
+        daojishi();
+        setInterval(function() {
+            daojishi()
+        }, 1000)
+    </script>
+</body>
+
+</html>

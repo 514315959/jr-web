@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/swiper.css">
+    <link rel="stylesheet" href="./css/weui.min.css">
+    <link rel="stylesheet" href="./css/jquery-weui.min.css">
+    <link rel="stylesheet" href="./css/index1.css">
+    <link rel="stylesheet" href="./css/iconfont1.css">
+    <script src="./js/base.js"></script>
+    <title>商品详情</title>
+</head>
+
+<body>
+    <!-- 头部轮播 -->
+    <div class="swiper-container">
+        <!-- 挂件1 -->
+        <div class="guajian">
+            <img src="./imgs/xt2.png" alt="">
+        </div>
+        <!-- 挂件2 -->
+        <div class="guajian2">
+            <img src="./imgs/xt3.png" alt="">
+        </div>
+        <div class="swiper-wrapper">
+            <div class="sw-list swiper-slide">
+                <img src="./imgs/xt2.jpg" alt="">
+            </div>
+            <div class="sw-list swiper-slide">
+                <img src="./imgs/xt2.jpg" alt="">
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <!-- <div class="swiper-pagination"></div> -->
+        <!-- Add Arrows -->
+        <!-- <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div> -->
+    </div>
+
+    <div class="hd">
+        <div class="hd-left">
+            <p class="pg">拼购价<span>￥7999</span></p>
+            <div class="yg">
+                <p class="yg-t">
+                    <span>原价</span>
+                </p>
+                <p class="yg-t2">
+                    <span>￥16800</span>
+                </p>
+                <p class="xl">
+                    已售15件
+                </p>
+            </div>
+        </div>
+        <div class="hd-right">
+            <!-- 倒计时 -->
+            <div class="count_down">
+                <span class="count-t">距结束还剩:</span>
+                <div class="time">
+                    <span class="day_num"></span><span class="sp">天</span>
+                    <span class="hour_num"></span><span class="sp">:</span>
+                    <span class="min_num"></span><span class="sp">:</span>
+                    <span class="sec_num"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 产品服务 -->
+    <div class="attr">
+        <div class="attr-1">
+            <div class="weui-cells">
+                <div class="weui-cell">
+                    <div class="weui-cell__bd">
+                        <p>简约轻奢 时尚定制</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="attr-2">
+            <div class="weui-cells">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <img src="./imgs/xt5.png" alt="">
+                    </div>
+                    <div class="weui-cell__bd">
+                        <p>限时拼购 <span class="pg-t">限时限量 · 疯狂快抢</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="attr-3">
+            <div class="weui-cells">
+                <a class="weui-cell weui-cell_access" href="javascript:helpJump();">
+                    <div class="weui-cell__bd">
+                        <p><img src="./imgs/xt6.png" />实体店</p>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <p><img src="./imgs/xt6.png" />48小时发货</p>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <p><img src="./imgs/xt6.png" />7天退定金</p>
+                    </div>
+                    <!-- <div class="weui-cell__bd">
+                        <p><img src="./imgs/xt7.png" />不支持7天退换</p>
+                    </div> -->
+                    <div class="weui-cell__ft">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- 拼购动态1 -->
+    <div class="pg-dt">
+        <div class="weui-cells">
+            <a class="weui-cell weui-cell_access" href="javascript:totalup();">
+                <div class="weui-cell__bd">
+                    <p class="sign-in">已有 <span>123</span> 人参与拼购</p>
+                </div>
+                <div class="weui-cell__ft">
+                    <p class="num">查看全部</p>
+                </div>
+            </a>
+        </div>
+        <div class="cy">
+            <div class="cy-box">
+                <div class="cy-li">
+                    <div class="img-box">
+                        <img src="./imgs/xt11.png" alt="">
+                    </div>
+                    <p class="nick">来看撒娇多了金坷垃</p>
+                </div>
+                <div class="cy-li">
+                    <div class="img-box">
+                        <img src="./imgs/xt11.png" alt="">
+                    </div>
+                    <p class="nick">来看撒娇多了金坷垃</p>
+                </div>
+                <div class="cy-li">
+                    <div class="img-box">
+                        <img src="./imgs/xt11.png" alt="">
+                    </div>
+                    <p class="nick">来看撒娇多了金坷垃</p>
+                </div>
+                <div class="cy-li">
+                    <div class="img-box">
+                        <img src="./imgs/xt11.png" alt="">
+                    </div>
+                    <p class="nick">来看撒</p>
+                </div>
+                <div class="cy-li">
+                    <div class="img-box">
+                        <img src="./imgs/xt11.png" alt="">
+                    </div>
+                    <p class="nick">来看撒娇垃</p>
+                </div>
+                <div class="cy-li">
+                    <div class="img-box">
+                        <img src="./imgs/xt11.png" alt="">
+                    </div>
+                    <p class="nick">来看</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 评价 -->
+    <div class="pg-dt">
+        <div class="weui-cells">
+            <a class="weui-cell weui-cell_access" href="javascript:;">
+                <div class="weui-cell__bd">
+                    <p class="sign-in">商品评价（123）</p>
+                </div>
+                <div class="weui-cell__ft">
+                    <p class="num">好评度 <span>99%</span></p>
+                </div>
+            </a>
+        </div>
+        <div class="pj">
+            <div class="pj-li">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <img src="./imgs/xt11.png" alt="">
+                    </div>
+                    <div class="weui-cell__bd">
+                        <p class="sign-in">asdf拉丝机</p>
+                    </div>
+                    <div class="weui-cell__ft">
+                        <p class="hp1">
+                            <span class="iconfont icon-star"></span>
+                            <span class="iconfont icon-star"></span>
+                            <span class="iconfont icon-star"></span>
+                            <span class="iconfont icon-star"></span>
+                            <span class="iconfont icon-star"></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="info">
+                    <p>
+                        非常好撒旦法ad的的按时大撒阿萨德案例吉拉卡的来得及啊垃圾啊的脸孔解放啦看电视离开的房间
+                    </p>
+                    <img src="./imgs/xt12.png">
+                    <img src="./imgs/xt12.png">
+                    <img src="./imgs/xt12.png">
+                    <img src="./imgs/xt12.png">
+                    <img src="./imgs/xt12.png">
+                </div>
+            </div>
+            <div class="pj-li">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <img src="./imgs/xt11.png" alt="">
+                    </div>
+                    <div class="weui-cell__bd">
+                        <p class="sign-in">asdf拉丝机</p>
+                    </div>
+                    <div class="weui-cell__ft">
+                        <p class="hp1">
+                            <span class="iconfont icon-star"></span>
+                            <span class="iconfont icon-star"></span>
+                            <span class="iconfont icon-star"></span>
+                            <span class="iconfont icon-star"></span>
+                            <span class="iconfont icon-star"></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="info">
+                    <p>
+                        非常好撒旦法ad的的按时大撒阿萨德案例吉拉卡的来得及啊垃圾啊的脸孔解放啦看电视离开的房间
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="ck-more">
+            <span class="btn-pj">查看更多评价</span>
+        </div>
+    </div>
+    <!-- 品牌logo -->
+    <div class="pp-logo">
+        <img src="./imgs/xt8.jpg" alt="">
+    </div>
+    <!--  介绍 -->
+    <div class="desc">
+        <div class="details">
+            <img src="./imgs/xt9.png" alt="">
+            <img src="./imgs/xt10.jpg" alt="">
+        </div>
+    </div>
+    <!-- 拼购动态2 -->
+    <div class="pg-dt dt2">
+        <div class="weui-cells">
+            <a class="weui-cell" href="javascript:;">
+                <div class="weui-cell__bd">
+                    <p class="sign-in">拼购成功 <span>123人</span></p>
+                </div>
+                <!-- <div class="weui-cell__ft">
+                    <p class="num">查看更多</p>
+                </div> -->
+            </a>
+        </div>
+        <div class="animate" id="box">
+            <ul id="cont1">
+                <div class="weui-panel weui-panel_access">
+                    <div class="weui-panel__bd">
+                        <div class="weui-media-box weui-media-box_appmsg">
+                            <div class="weui-media-box__hd">
+                                <img class="weui-media-box__thumb" src="./imgs/tupian3.png">
+                            </div>
+                            <div class="nick">我的小可爱12321321321</div>
+                            <div class="weui-media-box__bd">
+                                <p class="weui-media-box__desc">01:02:03</p>
+                            </div>
+                            <div class="cantuan">
+                                <span class="ct-btn">拼购成功</span>
+                            </div>
+                        </div>
+                        <div class="weui-media-box weui-media-box_appmsg">
+                            <div class="weui-media-box__hd">
+                                <img class="weui-media-box__thumb" src="./imgs/tupian3.png">
+                            </div>
+                            <div class="nick">我的小可爱</div>
+                            <div class="weui-media-box__bd">
+                                <p class="weui-media-box__desc">01:02:03</p>
+                            </div>
+                            <div class="cantuan">
+                                <span class="ct-btn">拼购成功</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ul>
+            <ul id="cont2"></ul>
+        </div>
+    </div>
+    <!-- 底部 -->
+    <div class="db">
+        <div class="bk-home">
+            <a href="#">
+                <p class="iconfont icon-shouye"></p>
+                <p>首页</p>
+            </a>
+        </div>
+        <div class="db-left">
+            定金 :
+            <span class="price">￥10</span>
+        </div>
+        <div class="db-right">
+            参与拼购
+        </div>
+    </div>
+    <!-- 展示所有参与拼购 -->
+    <div id="total-sign" class="weui-popup__container popup-bottom">
+        <div class="weui-popup__overlay"></div>
+        <div class="weui-popup__modal">
+            <div class="weui-cells">
+                <div class="weui-cell">
+                    <div class="weui-cell__bd">
+                        <p class="sign-in"><span>123</span>人参与拼购</p>
+                    </div>
+                    <div class="weui-cell__ft">
+                        <a href="javascript:;" class="picker-button close-popup">关闭</a>
+                    </div>
+                </div>
+            </div>
+            <div class="cy">
+                <div class="cy-box">
+                    <div class="cy-li">
+                        <div class="img-box">
+                            <img src="./imgs/xt11.png" alt="">
+                        </div>
+                        <p class="nick">来看撒娇多了金坷垃</p>
+                    </div>
+                    <div class="cy-li">
+                        <div class="img-box">
+                            <img src="./imgs/xt11.png" alt="">
+                        </div>
+                        <p class="nick">来看撒娇多了金坷垃</p>
+                    </div>
+                    <div class="cy-li">
+                        <div class="img-box">
+                            <img src="./imgs/xt11.png" alt="">
+                        </div>
+                        <p class="nick">来看撒娇多了金坷垃</p>
+                    </div>
+                    <div class="cy-li">
+                        <div class="img-box">
+                            <img src="./imgs/xt11.png" alt="">
+                        </div>
+                        <p class="nick">来看撒</p>
+                    </div>
+                    <div class="cy-li">
+                        <div class="img-box">
+                            <img src="./imgs/xt11.png" alt="">
+                        </div>
+                        <p class="nick">来看撒娇垃</p>
+                    </div>
+                    <div class="cy-li">
+                        <div class="img-box">
+                            <img src="./imgs/xt11.png" alt="">
+                        </div>
+                        <p class="nick">来看</p>
+                    </div>
+                    <div class="cy-li">
+                        <div class="img-box">
+                            <img src="./imgs/xt11.png" alt="">
+                        </div>
+                        <p class="nick">来看</p>
+                    </div>
+                    <div class="cy-li">
+                        <div class="img-box">
+                            <img src="./imgs/xt11.png" alt="">
+                        </div>
+                        <p class="nick">来看</p>
+                    </div>
+                    <div class="cy-li">
+                        <div class="img-box">
+                            <img src="./imgs/xt11.png" alt="">
+                        </div>
+                        <p class="nick">来看</p>
+                    </div>
+                    <div class="cy-li">
+                        <div class="img-box">
+                            <img src="./imgs/xt11.png" alt="">
+                        </div>
+                        <p class="nick">来看</p>
+                    </div>
+                    <div class="cy-li">
+                        <div class="img-box">
+                            <img src="./imgs/xt11.png" alt="">
+                        </div>
+                        <p class="nick">来看</p>
+                    </div>
+                    <div class="cy-li">
+                        <div class="img-box">
+                            <img src="./imgs/xt11.png" alt="">
+                        </div>
+                        <p class="nick">来看</p>
+                    </div>
+                    <div class="cy-li">
+                        <div class="img-box">
+                            <img src="./imgs/xt11.png" alt="">
+                        </div>
+                        <p class="nick">来看</p>
+                    </div>
+                    <div class="cy-li">
+                        <div class="img-box">
+                            <img src="./imgs/xt11.png" alt="">
+                        </div>
+                        <p class="nick">来看</p>
+                    </div>
+                    <div class="cy-li">
+                        <div class="img-box">
+                            <img src="./imgs/xt11.png" alt="">
+                        </div>
+                        <p class="nick">来看</p>
+                    </div>
+                    <div class="cy-li">
+                        <div class="img-box">
+                            <img src="./imgs/xt11.png" alt="">
+                        </div>
+                        <p class="nick">来看</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 服务说明 -->
+    <div id="help-jump" class="weui-popup__container popup-bottom">
+        <div class="weui-popup__overlay"></div>
+        <div class="weui-popup__modal">
+            <div class="weui-cells">
+                <div class="weui-cell">
+                    <div class="weui-cell__bd">
+                        <p class="sign-in">服务说明</p>
+                    </div>
+                    <div class="weui-cell__ft">
+                        <a href="javascript:;" class="picker-button close-popup iconfont icon-guanbi"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="fw">
+                <ul>
+                    <li class="iconfont icon-yuandianxiao fw-li">
+                        <span class="t1">实体店</span>
+                        <p class="t2">到店付尾款提货</p>
+                    </li>
+                    <li class="iconfont icon-yuandianxiao fw-li">
+                        <span class="t1">48小时发货</span>
+                        <p class="t2">购买后48小时内发货</p>
+                    </li>
+                    <li class="iconfont icon-yuandianxiao fw-li">
+                        <span class="t1">7天退定金</span>
+                        <p class="t2">购买商品七天内有问题退货后，退定金</p>
+                    </li>
+                    <!-- <li class="iconfont icon-yuandianxiao fw-li">
+                        <span class="t1">不支持7天退换</span>
+                        <p class="t2">到店付尾款提货</p>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="./js/jquery-2.1.4.js"></script>
+    <script src="./js/jquery-weui.js"></script>
+    <script src="./js/swiper.js"></script>
+    <script src="./js/countDown.js"></script>
+    <script>
+        // 倒计时
+        $(".count_down").countDown({
+            // startTimeStr: '2018/10/14 00:00:00', //开始时间
+            endTimeStr: '2018/10/29 14:28:59', //结束时间
+            daySelector: ".day_num",
+            hourSelector: ".hour_num",
+            minSelector: ".min_num",
+            secSelector: ".sec_num"
+        });
+        // 轮播图 
+        var swiper = new Swiper('.swiper-container', {
+            spaceBetween: 0,
+            centeredSlides: true,
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+        // 无缝滚动效果
+        var area = document.getElementById('box');
+        var cont1 = document.getElementById('cont1');
+        var cont2 = document.getElementById('cont2');
+        if ($(cont1).height() > 150) {
+            $(area).height(150);
+        } else {
+            $(area).height($(cont1).height());
+        }
+        // 克隆cont1给cont2
+        cont2.innerHTML = cont1.innerHTML;
+
+        function myScroll() {
+            if (area.scrollTop >= cont1.scrollHeight - 1) {
+                area.scrollTop = 0.99;
+            } else {
+                area.scrollTop++;
+            }
+        }
+
+        var time = 43;
+        var interval = setInterval('myScroll()', time);
+        // area.onmouseover = function() {
+        //     clearInterval(interval);
+        // };
+
+        // area.onmouseout = function() {
+        //     // 继续执行之前的定时器
+        //     interval = setInterval('myScroll()', time);
+        // };
+        // 展示全部报名的盒子高度计算
+        function totalup() {
+            $('#total-sign').popup();
+        }
+        // 查看更多评价
+        var pjpage = 2
+        $('.btn-pj').click(function() {
+            $.ajax({
+                type: 'post',
+                url: '',
+                data: {
+                    page: pjpage
+                },
+                success: function() {
+                    // 成功查到数据
+                    if (true) {
+                        $.toast('ok', 'text'); //具体提示后台定
+                        html = `
+                        <div class="pj-li">
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <img src="./imgs/xt11.png" alt="">
+                                </div>
+                                <div class="weui-cell__bd">
+                                    <p class="sign-in">asdf拉丝机</p>
+                                </div>
+                                <div class="weui-cell__ft">
+                                    <p class="hp1">
+                                        <span class="iconfont icon-star"></span>
+                                        <span class="iconfont icon-star"></span>
+                                        <span class="iconfont icon-star"></span>
+                                        <span class="iconfont icon-star"></span>
+                                        <span class="iconfont icon-star"></span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="info">
+                                <p>
+                                    非常好撒旦法ad的的按时大撒阿萨德案例吉拉卡的来得及啊垃圾啊的脸孔解放啦看电视离开的房间
+                                </p>
+                                <img src="./imgs/xt12.png">
+                                <img src="./imgs/xt12.png">
+                                <img src="./imgs/xt12.png">
+                                <img src="./imgs/xt12.png">
+                                <img src="./imgs/xt12.png">
+                            </div>
+                        </div>
+                        <div class="pj-li">
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <img src="./imgs/xt11.png" alt="">
+                                </div>
+                                <div class="weui-cell__bd">
+                                    <p class="sign-in">asdf拉丝机</p>
+                                </div>
+                                <div class="weui-cell__ft">
+                                    <p class="hp1">
+                                        <span class="iconfont icon-star"></span>
+                                        <span class="iconfont icon-star"></span>
+                                        <span class="iconfont icon-star"></span>
+                                        <span class="iconfont icon-star"></span>
+                                        <span class="iconfont icon-star"></span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="info">
+                                <p>
+                                    非常好撒旦法ad的的按时大撒阿萨德案例吉拉卡的来得及啊垃圾啊的脸孔解放啦看电视离开的房间
+                                </p>
+                            </div>
+                        </div>
+                        `
+                        $('.pj').append(html)
+                    } else {
+                        //查数据失败
+                        $.toast('没有更多评价', 'text'); //具体提示后台定
+                    }
+                },
+                error: function() {
+                    $.toast('服务器异常，稍后再试', 'text');
+                }
+            })
+        })
+
+        function helpJump() {
+            $('#help-jump').popup()
+        }
+    </script>
+</body>
+
+</html>

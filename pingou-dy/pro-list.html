@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/swiper.css">
+    <link rel="stylesheet" href="./css/weui.min.css">
+    <link rel="stylesheet" href="./css/jquery-weui.min.css">
+    <title>商品拼购</title>
+    <script src="./js/base.js"></script>
+    <style>
+        body,
+        html {
+            font-family: "微软雅黑";
+            background-color: #eee;
+        }
+        
+        .swiper-container {
+            height: 4.4rem;
+        }
+        
+        .swiper-wrapper,
+        .sw-list.swiper-slide {
+            height: 100%;
+        }
+        
+        .swiper-wrapper .sw-list.swiper-slide img {
+            height: 100%;
+            width: 100%;
+        }
+        
+        .pro-box .pro-li {
+            margin-top: 0.2rem;
+            background-color: white;
+        }
+        
+        .pro-box .pro-li:active {
+            background-color: rgba(235, 231, 231, 0.2)
+        }
+        
+        .pro-box .pro-li img {
+            width: 100%;
+            max-height: 4.4rem;
+            display: block;
+        }
+        
+        .pro-li .weui-cell__bd,
+        .pro-li .weui-cell__ft {
+            font-size: 0.3rem
+        }
+        
+        .pro-li .weui-cell__bd {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+        }
+    </style>
+</head>
+
+<body ontouchstart>
+    <!-- 头部轮播 -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="sw-list swiper-slide">
+                <img src="./imgs/tupian8.png" alt="">
+            </div>
+            <div class="sw-list swiper-slide">
+                <img src="./imgs/tupian10.png" alt="">
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Arrows -->
+        <!-- <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div> -->
+    </div>
+    <!-- 品牌列表 -->
+    <div class="pro-box">
+        <div class="pro-li">
+            <img src="./imgs/tupian9.png" alt="">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <p>标题文字洛杉矶的快乐阿拉斯加达拉斯觉得山卡拉</p>
+                </div>
+                <div class="weui-cell__ft">剩2天</div>
+            </div>
+        </div>
+        <div class="pro-li">
+            <img src="./imgs/tupian10.png" alt="">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <p>标题文字洛杉矶的快乐阿拉斯加达拉斯觉得山卡拉</p>
+                </div>
+                <div class="weui-cell__ft">剩2天</div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/jquery-2.1.4.js"></script>
+    <script src="./js/swiper.js"></script>
+    <script>
+        // 轮播图 
+        var swiper = new Swiper('.swiper-container', {
+            spaceBetween: 0,
+            centeredSlides: true,
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+</body>
+
+</html>

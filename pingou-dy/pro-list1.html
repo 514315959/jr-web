@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/weui.min.css">
+    <link rel="stylesheet" href="./css/jquery-weui.min.css">
+    <link rel="stylesheet" href="./css/iconfont1.css">
+    <title>商品拼购</title>
+    <script src="./js/base.js"></script>
+    <style>
+        body,
+        html {
+            font-family: "微软雅黑";
+            background-color: #eee;
+        }
+        
+        .hd-logo img {
+            width: 100%
+        }
+        
+        .pro-box .pro-li {
+            margin-top: 0.2rem;
+            background-color: white;
+            position: relative;
+        }
+        
+        .pro-box .pro-li .guajian {
+            position: absolute;
+            top: 0.2rem;
+            left: 0.2rem;
+            z-index: 2;
+            width: 0.8rem;
+            height: 0.8rem;
+        }
+        
+        .pro-box .pro-li .guajian img {
+            width: 100%;
+        }
+        
+        .pro-box .pro-li:active {
+            background-color: rgba(235, 231, 231, 0.2)
+        }
+        
+        .pro-box .pro-li img {
+            width: 100%;
+            max-height: 4.4rem;
+            display: block;
+        }
+        
+        .pro-li .weui-cell__bd {
+            font-size: 0.3rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+        }
+        
+        .pro-li .j .weui-cell__bd {
+            text-align: right;
+            margin-bottom: 0.025rem
+        }
+        
+        .pro-li .j {
+            align-items: flex-end;
+            padding-top: 0
+        }
+        
+        .pro-li .weui-cell:before {
+            border: none
+        }
+        
+        .pro-li .weui-cell {
+            font-size: 0.3rem;
+        }
+        
+        .pro-li .weui-cell .y-jg {
+            text-decoration: line-through;
+            color: #888888
+        }
+        
+        .pro-li .weui-cell .jg {
+            color: #e1284a
+        }
+        
+        .pro-li .weui-cell .p-jg {
+            font-size: 0.35rem
+        }
+        
+        .pro-li .j .right-btn {
+            padding: 0.1rem 0.2rem;
+            border-radius: 0.1rem;
+            color: white;
+            background-color: #e1284a;
+            margin-left: 10px;
+            margin-bottom: 0.075rem
+        }
+        
+        .fui-navbar,
+        .fui-footer {
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            height: 1rem;
+            background: #fff;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+            -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+            -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .fui-navbar .nav-item.active,
+        .fui-navbar .nav-item:active {
+            color: red;
+        }
+        
+        .fui-navbar .nav-item {
+            position: relative;
+            display: table-cell;
+            height: 1rem;
+            text-align: center;
+            vertical-align: middle;
+            width: 1%;
+            color: #999;
+        }
+        
+        .fui-navbar .nav-item .icon {
+            font-size: 0.4rem;
+            padding: 0;
+        }
+        
+        .fui-navbar .nav-item .label {
+            display: block;
+            font-size: 0.25rem;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body ontouchstart>
+    <!-- 头部 -->
+    <div class="hd-logo">
+        <img src="./imgs/xt1.png" alt="">
+    </div>
+    <!-- 品牌列表 -->
+    <div class="pro-box">
+        <div class="pro-li">
+            <!-- 挂件 -->
+            <div class="guajian">
+                <img src="./imgs/xt2.png" alt="">
+            </div>
+            <img src="./imgs/xt2.jpg" alt="">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <p>标题文字洛杉矶的快乐阿拉斯加达拉斯觉得山卡拉</p>
+                </div>
+            </div>
+            <div class="weui-cell j">
+                <p class="jg">
+                    拼购价
+                    <span class="p-jg">￥7999</span>
+                    <span class="y-jg">￥16888</span>
+                </p>
+                <div class="weui-cell__bd">
+                    已售15件
+                </div>
+                <div class="right-btn">
+                    去拼团
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fui-navbar">
+        <a href="./index.php?i=7&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=merch&amp;merchid=1" class="external nav-item active">
+            <span class="icon icon-home"></span>
+            <span class="label">首页</span>
+        </a>
+        <a href="./index.php?i=7&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=order&amp;merchid=1" class="external nav-item  ">
+            <span class="icon icon-dingdan1"></span>
+            <span class="label">我的订单</span>
+        </a>
+        <a href="./index.php?i=7&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=member&amp;merchid=1" class="external nav-item  ">
+            <span class="icon icon-person2"></span>
+            <span class="label">会员中心</span>
+        </a>
+    </div>
+    <script src="./js/jquery-2.1.4.js"></script>
+</body>
+
+</html>
