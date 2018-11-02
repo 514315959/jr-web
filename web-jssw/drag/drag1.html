@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>活动详情</title>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="./Dragable/style.css">
+    <link rel="stylesheet" type="text/css" href="../jiemian/css/font-awesome.css">
+    <script type="text/javascript" src="./Dragable/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="./Dragable/freewall.js"></script>
+    <style>
+        #info-page {
+            overflow: hidden;
+            margin: 0 auto;
+            width: 600px;
+            margin-top: 200px;
+        }
+        
+        #container {
+            width: 300px;
+            height: 500px;
+            background-color: antiquewhite;
+            float: left;
+        }
+        
+        #info {
+            width: 300px;
+            height: 500px;
+            background-color: #abc;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="info-page">
+        <div id="container">
+
+        </div>
+        <div id="info">
+            <div class="li">
+                <img src="../jiemian/images/user1.png" alt="">
+                <input name="img-jumpurl" type="text" placeholder="图片链接地址" value="1">
+                <input type="hidden" name="imgurl" value="2">
+                <input type="hidden" name="imgposition" value="3">
+                <input type="hidden" name="imgid" value="4">
+                <i class="fa fa-times"></i>
+            </div>
+            <div class="li">
+                <img src="" alt="">
+                <input name="img-jumpurl" type="text" placeholder="图片链接地址" value="1-1">
+                <input type="hidden" name="imgurl" value="2-1">
+                <input type="hidden" name="imgposition" value="3-1">
+                <input type="hidden" name="imgid" value="4-1">
+                <i class="fa fa-times"></i>
+            </div>
+        </div>
+    </div>
+    <script>
+        // 获取提交信息
+        var count = [];
+        $(".li").each(function(index,_this){
+            var jumpurl = $(_this).find("[name='img-jumpurl']").val();
+            var imgurl = $(_this).find("[name='imgurl']").val();
+            var imgposition = $(_this).find("[name='imgposition']").val();
+            var imgid = $(_this).find("[name='imgid']").val();
+            count[index] = {
+                jumpurl : jumpurl,
+                imgurl : imgurl,
+                imgposition : imgposition,
+                imgid : imgid
+            }
+        })
+        console.log(JSON.stringify(count))
+    </script>
+</body>
+
+</html>

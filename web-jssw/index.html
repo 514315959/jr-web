@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no,width=device-width,initial-scale=1,maximum-scale=1">
+    <meta name="format-detection" content="telephone=yes" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>居然欢乐购</title>
+    <link rel="stylesheet" type="text/css" href="./activity/css/jquery-weui.min.css">
+    <link rel="stylesheet" type="text/css" href="./activity/css/weui.min.css">
+    <link rel="stylesheet" type="text/css" href="./activity/css/reset.css">
+    <!-- <link rel="stylesheet" type="text/css" href="./activity/css/index.css"> -->
+    <link rel="stylesheet" type="text/css" href="./activity/css/swiper.css">
+    <link rel="stylesheet" type="text/css" href="./activity/css/app.css">
+    <link rel="stylesheet" type="text/css" href="./activity/css/iconfont.css">
+    <script type="text/javascript">
+        new function() {
+            var _self = this;
+            console.log(this);
+            _self.width = 750; //设置默认最大宽度
+            _self.fontSize = 100; //默认字体大小
+            _self.widthProportion = function() {
+                var p = (document.body && document.body.clientWidth || document.getElementsByTagName("html")[0].offsetWidth) / _self.width;
+                return p > 1 ? 1 : p < 0.32 ? 0.32 : p;
+            };
+            _self.changePage = function() {
+                document.getElementsByTagName("html")[0].setAttribute("style", "font-size:" + _self.widthProportion() * _self.fontSize + "px !important");
+            }
+            _self.changePage();
+            window.addEventListener('resize', function() {
+                _self.changePage();
+            }, false);
+        };
+    </script>
+</head>
+
+<body>
+    <!-- 活动头部公共部分 -->
+    <header>
+        <!-- 头部轮播 -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="sw-list swiper-slide">
+                    <img src="./activity/images/banner_2.jpg" alt="">
+                </div>
+                <!-- <div class="sw-list swiper-slide">
+                    <img src="./activity/images/zhs.jpg" alt="">
+                </div> -->
+            </div>
+            <!-- Add Pagination -->
+            <!-- <div class="swiper-pagination"></div> -->
+            <!-- Add Arrows -->
+            <!-- <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div> -->
+        </div>
+        <!-- 活动标题 -->
+        <div class="title-1">
+            <p>8月25日居然欢乐购北京站，豪华大奖，嗨欢全场！</p>
+        </div>
+        <!-- 热门指数 -->
+        <div class="hot">
+            <p class="hp1">热门指数：
+                <span class="iconfont icon-star"></span>
+                <span class="iconfont icon-star"></span>
+                <span class="iconfont icon-star"></span>
+                <span class="iconfont icon-star"></span>
+                <span class="iconfont icon-star"></span>
+            </p>
+            <!-- <img src="./activity/images/wujiaox.png" alt=""> -->
+            <p class="hp2">
+                <img src="./activity/images/people.png" alt="">
+                <span style="color:#E72237">123</span> 人次已浏览
+            </p>
+        </div>
+        <!-- 倒计时 -->
+        <div class="count_down" style="background-image:url(./activity/images/count-back.png);">
+            <span class="count-t">活动倒计时：</span>
+            <span class="day_num"></span>
+            <i>天</i>
+            <span class="hour_num"></span>
+            <i>时</i>
+            <span class="min_num"></span>
+            <i>分</i>
+            <span class="sec_num"></span>
+            <i>秒</i>
+        </div>
+        <!-- 活动概况（时间，地点，转发次数） -->
+        <div class="about">
+            <p class="a-left">正在火热报名中</p>
+            <p class="a-right">已转发12123次</p>
+            <div class="detail">
+                <div class="weui-cells">
+                    <div class="weui-cell">
+                        <div class="weui-cell__bd">
+                            <p>活动时间：</p>
+                        </div>
+                        <div class="weui-cell__ft">2018年8月25日</div>
+                    </div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__bd">
+                            <p>联系电话：</p>
+                        </div>
+                        <div class="weui-cell__ft">0471-6546540</div>
+                    </div>
+                    <a class="weui-cell weui-cell_access" href="javascript:;">
+                        <div class="weui-cell__bd">
+                            <p>活动地址：</p>
+                        </div>
+                        <div class="weui-cell__ft">北京市朝阳区大丰坊路106号</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- 报名列表 -->
+        <div class="container">
+            <div class="weui-cells">
+                <a class="weui-cell weui-cell_access" href="javascript:totalup();">
+                    <div class="weui-cell__bd">
+                        <img class="sign-img" src="./activity/images/sign-img.png" alt="">
+                        <p class="sign-in">实时报名</p>
+                    </div>
+                    <div class="weui-cell__ft">
+                        <p class="num">1232人报名</p>
+                        所有报名
+                    </div>
+                </a>
+            </div>
+            <div class="animate" id="box">
+                <ul id="cont1">
+                    <li>
+                        <div class="s-logo">
+                            <img src="./activity/images/zhs.jpg" alt="">
+                        </div>
+                        <span class="ntit">李先生</span>
+                        <span style="margin:0 .4rem;">186******60</span>
+                        <span class="span">已预约</span>
+                    </li>
+                    <li>
+                        <div class="s-logo">
+                            <img src="./activity/images/zhs.jpg" alt="">
+                        </div>
+                        <span class="ntit">1先生</span>
+                        <span style="margin:0 .4rem;">186******60</span>
+                        <span class="span">已预约</span>
+                    </li>
+                    <li>
+                        <div class="s-logo">
+                            <img src="./activity/images/zhs.jpg" alt="">
+                        </div>
+                        <span class="ntit">1先生</span>
+                        <span style="margin:0 .4rem;">186******60</span>
+                        <span class="span">已预约</span>
+                    </li>
+                    <li>
+                        <div class="s-logo">
+                            <img src="./activity/images/zhs.jpg" alt="">
+                        </div>
+                        <span class="ntit">1先生</span>
+                        <span style="margin:0 .4rem;">186******60</span>
+                        <span class="span">已预约</span>
+                    </li>
+                </ul>
+                <ul id="cont2"></ul>
+            </div>
+            <!-- 展示所有报名 -->
+            <div id="total-sign" class="weui-popup__container popup-bottom">
+                <div class="weui-popup__overlay"></div>
+                <div class="weui-popup__modal">
+                    <div class="weui-cells">
+                        <div class="weui-cell">
+                            <div class="weui-cell__bd">
+                                <img class="sign-img" src="./activity/images/sign-img.png" alt="">
+                                <p class="sign-in">已报名用户</p>
+                            </div>
+                            <div class="weui-cell__ft">
+                                <p class="num">1232人已报名</p>
+                                <a href="javascript:;" class="picker-button close-popup">关闭</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="animate">
+                        <ul>
+                            <li>
+                                <div class="s-logo">
+                                    <img src="./activity/images/zhs.jpg" alt="">
+                                </div>
+                                <span class="ntit">李先生</span>
+                                <span style="margin:0 .4rem;">186******60</span>
+                                <span class="span">已预约</span>
+                            </li>
+                            <li>
+                                <div class="s-logo">
+                                    <img src="./activity/images/zhs.jpg" alt="">
+                                </div>
+                                <span class="ntit">1先生</span>
+                                <span style="margin:0 .4rem;">186******60</span>
+                                <span class="span">已预约</span>
+                            </li>
+                            <li>
+                                <div class="s-logo">
+                                    <img src="./activity/images/zhs.jpg" alt="">
+                                </div>
+                                <span class="ntit">李先生</span>
+                                <span style="margin:0 .4rem;">186******60</span>
+                                <span class="span">已预约</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="baomin" class="container baomin">
+            <div class="weui-cells">
+                <div class="weui-cell">
+                    <div class="weui-cell__bd">
+                        <img class="sign-img" src="./activity/images/sign-img.png" alt="">
+                        <p class="sign-in">填写你的信息</p>
+                    </div>
+                    <!-- <div class="weui-cell__ft">
+                        <p class="num">12个品牌</p>
+                    </div> -->
+                </div>
+            </div>
+            <div class="weui-cells weui-cells_form">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <label class="weui-label">姓名</label>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <input id="user" class="weui-input" type="text" placeholder="请输入您的姓名">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <label class="weui-label">手机号</label>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <input id="tel" class="weui-input" type="tel" placeholder="请输入手机号">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <a id="sub1" onclick="insert()" href="javascript:;" class="weui-btn weui-btn_primary">立即报名</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- 音乐部分 -->
+    <div id="right-music">
+        <img id="musicpng" src="./activity/images/music.gif" alt="">
+        <audio id="music" loop="loop" autoplay="autoplay">
+            <!-- <source src="./activity" type="audio/ogg" /> -->
+            <source src="./activity/assets/audio1.mp3" type="audio/mpeg" /> Your browser does not support the audio element.
+        </audio>
+    </div>
+    <!-- 左侧回到顶部 -->
+    <div id="back-to-top">
+        <img src="./activity/images/top.png" alt="">
+        <!-- <a href="">12323</a> -->
+    </div>
+    <!-- 右侧点赞部分 -->
+    <div id="flex-right" style="z-index:9;">
+        <div class="user-top">
+            <div class="user-logo">
+                <img src="./activity/images/banner_2.jpg" alt="">
+            </div>
+            <div class="user-des">
+                <p class="p1">我是雷火</p>
+                <p class="p2">我为
+                    <span style="color:#CF4E5A;font-weight: bold;">芝华仕沙发</span>代言
+                </p>
+            </div>
+        </div>
+        <div class="dianzan">
+            <p>
+                <span id="dz-num">1223213</span>
+            </p>
+            <p>
+                赞
+            </p>
+            <img src="./activity/images/zan.png" alt="" id="clickzan" class="btn-help">
+        </div>
+        <div style="clear:both;"></div>
+        <div id="toright"></div>
+    </div>
+    <!-- 活动详情部分 -->
+    <section>
+        <div class="weui-tab">
+            <div class="weui-navbar">
+                <a class="weui-navbar__item weui-bar__item--on tab1" href="#tab1">
+                    活动详情
+                </a>
+                <a class="weui-navbar__item tab2" href="#tab2">
+                    报名礼品
+                </a>
+            </div>
+            <div class="weui-tab__bd">
+                <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
+                    <!-- <div class="sjx" style="margin-top: .2rem;"></div>
+                    <div>
+                        <p style="font-size: .48rem;text-align: center;margin-top: -.3rem;">活动亮点</p>
+                        <img src="./activity/images/active.png" alt="">
+                    </div>
+                    <div class="sjx"></div>
+                    <p class="title">7月明星工厂家装节 大牌建材团购市场</p>
+                    <img src="./activity/images/logo.jpg" alt="" style="margin-top: .5rem;">
+                    <div class="shop bln">
+                        <div class="sjx"></div>
+                        <img src="./activity/images/blnlg.jpg" alt="" class="img1">
+                        <img src="./activity/images/bln.jpg" alt="" class="img2">
+                        <div class="money" style="margin-top: .1rem;">
+                            <p>型号：真我本色</p>
+                            <span class="span1">惊爆价</span>
+                            <span class="span2">
+                                <span style="font-size: .54rem;font-weight: bold;">12999</span>&nbsp;
+                            <span style="margin-top: .1rem;">&nbsp;元/套</span>
+                            </span>
+                            <span class="span3">立即抢购</span>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div class="shop mkbl">
+                        <div class="sjx"></div>
+                        <img src="./activity/images/mkbllg.jpg" alt="" class="img1">
+                        <img src="./activity/images/mkbl.jpg" alt="" class="img2">
+                        <div class="money">
+                            <p>型号：奥地利米黄,CH8082AS,800×800mm</p>
+                            <span class="span1">惊爆价</span>
+                            <span class="span2">
+                                <span style="font-size: .54rem;font-weight: bold;">58</span>&nbsp;
+                            <span style="margin-top: .1rem;">&nbsp;元/片</span>
+                            </span>
+                            <span class="span3">立即抢购</span>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div class="shop ls">
+                        <div class="sjx"></div>
+                        <img src="./activity/images/lslg.jpg" alt="" class="img1">
+                        <img src="./activity/images/ls.jpg" alt="" class="img2">
+                        <div class="money">
+                            <p>型号：兰舍经典卧室</p>
+                            <span class="span1">惊爆价</span>
+                            <span class="span2">
+                                <span style="font-size: .54rem;font-weight: bold;">2980</span>&nbsp;
+                            <span style="margin-top: .1rem;">&nbsp;元/30米²</span>
+                            </span>
+                            <span class="span3">立即抢购</span>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div class="shop jm">
+                        <div class="sjx"></div>
+                        <img src="./activity/images/jmlg.jpg" alt="" class="img1">
+                        <img src="./activity/images/jm.jpg" alt="" class="img2">
+                        <div class="money">
+                            <p>型号：D7660s</p>
+                            <span class="span1">惊爆价</span>
+                            <span class="span2">
+                                <span style="font-size: .54rem;font-weight: bold;">1079</span>&nbsp;
+                            <span style="margin-top: .1rem;">&nbsp;元/个</span>
+                            </span>
+                            <span class="span3">立即抢购</span>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div class="shop mt">
+                        <div class="sjx"></div>
+                        <img src="./activity/images/mtlg.jpg" alt="" class="img1">
+                        <img src="./activity/images/mt.jpg" alt="" class="img2">
+                        <div class="money">
+                            <p>型号：4p11</p>
+                            <span class="span1">惊爆价</span>
+                            <span class="span2">
+                                <span style="font-size: .54rem;font-weight: bold;">1880</span>&nbsp;
+                            <span style="margin-top: .1rem;">&nbsp;元/樘</span>
+                            </span>
+                            <span class="span3">立即抢购</span>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div class="shop zhs">
+                        <div class="sjx"></div>
+                        <img src="./activity/images/zhslg.jpg" alt="" class="img1">
+                        <img src="./activity/images/zhs.jpg" alt="" class="img2">
+                        <div class="money">
+                            <p>型号：K-652M</p>
+                            <span class="span1">惊爆价</span>
+                            <span class="span2">
+                                <span style="font-size: .54rem;font-weight: bold;">2799</span>&nbsp;
+                            <span style="margin-top: .1rem;">&nbsp;元/个</span>
+                            </span>
+                            <span class="span3">立即抢购</span>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div class="shop dxa">
+                        <div class="sjx"></div>
+                        <img src="./activity/images/dxalg.jpg" alt="" class="img1">
+                        <img src="./activity/images/dxa.jpg" alt="" class="img2">
+                        <div class="money">
+                            <p>型号：DNA501-1.2*2.0</p>
+                            <span class="span1">惊爆价</span>
+                            <span class="span2">
+                                <span style="font-size: .54rem;font-weight: bold;">5999</span>&nbsp;
+                            <span style="margin-top: .1rem;">&nbsp;元/套</span>
+                            </span>
+                            <span class="span3">立即抢购</span>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div class="shop lb">
+                        <div class="sjx"></div>
+                        <img src="./activity/images/lblg.jpg" alt="" class="img1">
+                        <img src="./activity/images/lb.jpg" alt="" class="img2">
+                        <div class="money">
+                            <p>型号：油烟机8020+灶具7B26</p>
+                            <span class="span1">惊爆价</span>
+                            <span class="span2">
+                                <span style="font-size: .54rem;font-weight: bold;">3999</span>&nbsp;
+                            <span style="margin-top: .1rem;">&nbsp;元/套</span>
+                            </span>
+                            <span class="span3">立即抢购</span>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div class="shop xlm">
+                        <div class="sjx"></div>
+                        <img src="./activity/images/xlmlg.jpg" alt="" class="img1">
+                        <img src="./activity/images/xlm.jpg" alt="" class="img2">
+                        <div class="money">
+                            <p>型号：净眠8525</p>
+                            <span class="span1">惊爆价</span>
+                            <span class="span2">
+                                <span style="font-size: .54rem;font-weight: bold;">4598</span>&nbsp;
+                            <span style="margin-top: .1rem;">&nbsp;元/张</span>
+                            </span>
+                            <span class="span3">立即抢购</span>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div class="shop ap">
+                        <div class="sjx"></div>
+                        <img src="./activity/images/aplg.jpg" alt="" class="img1">
+                        <img src="./activity/images/ap.jpg" alt="" class="img2">
+                        <div class="money">
+                            <p>型号：指定扣板4平方399元</p>
+                            <span class="span1">惊爆价</span>
+                            <span class="span2">
+                                <span style="font-size: .54rem;font-weight: bold;">399</span>&nbsp;
+                            <span style="margin-top: .1rem;">&nbsp;元/4m²</span>
+                            </span>
+                            <span class="span3">立即抢购</span>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div class="shop wawj">
+                        <div class="sjx"></div>
+                        <img src="./activity/images/5i5jlg.jpg" alt="" class="img1">
+                        <img src="./activity/images/wawj.jpg" alt="" class="img2">
+                        <div class="money">
+                            <p>型号：SNA602D-1.2*2.0</p>
+                            <span class="span1">惊爆价</span>
+                            <span class="span2">
+                                <span style="font-size: .54rem;font-weight: bold;"> 6999</span>&nbsp;
+                            <span style="margin-top: .1rem;">&nbsp;元/套</span>
+                            </span>
+                            <span class="span3">立即抢购</span>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div class="shop langsi">
+                        <div class="sjx"></div>
+                        <img src="./activity/images/langsilg.jpg" alt="" class="img1">
+                        <img src="./activity/images/langsi.jpg" alt="" class="img2">
+                        <div class="money">
+                            <p>型号：朗斯淋浴房.诺亚系列</p>
+                            <span class="span1">惊爆价</span>
+                            <span class="span2">
+                                <span style="font-size: .54rem;font-weight: bold;"> 1288</span>&nbsp;
+                            <span style="margin-top: .1rem;">&nbsp;元/米²</span>
+                            </span>
+                            <span class="span3">立即抢购</span>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div class="sjx" style="margin-top: .3rem;"></div>
+                    <p class="title" style="font-size: .45rem;">产品任你选 领券更实惠</p>
+                    <div class="favour">
+                        <div class="favour-shop">
+                            <div class="favour-left">
+                                <img src="./activity/images/blnlg.jpg" alt="">
+                            </div>
+                            <div class="favour-center">
+                                <p>博洛尼家具</p>
+                                <p>使用期限：</p>
+                                <p>2018.8.25-2018.9.25</p>
+                            </div>
+                            <div class="favour-right"></div>
+                        </div>
+                    </div>
+                    <div class="favour">
+                        <div class="favour-shop">
+                            <div class="favour-left">
+                                <img src="./activity/images/mkbllg.jpg" alt="">
+                            </div>
+                            <div class="favour-center">
+                                <p>马可波罗</p>
+                                <p>使用期限：</p>
+                                <p>2018.8.25-2018.9.25</p>
+                            </div>
+                            <div class="favour-right"></div>
+                        </div>
+                    </div>
+                    <div class="favour">
+                        <div class="favour-shop">
+                            <div class="favour-left">
+                                <img src="./activity/images/dzrlg.jpg" alt="">
+                            </div>
+                            <div class="favour-center">
+                                <p>大自然地板</p>
+                                <p>使用期限：</p>
+                                <p>2018.8.25-2018.9.25</p>
+                            </div>
+                            <div class="favour-right"></div>
+                        </div>
+                    </div>
+                    <div class="favour">
+                        <div class="favour-shop">
+                            <div class="favour-left">
+                                <img src="./activity/images/lslg.jpg" alt="">
+                            </div>
+                            <div class="favour-center">
+                                <p>兰舍硅藻泥</p>
+                                <p>使用期限：</p>
+                                <p>2018.8.25-2018.9.25</p>
+                            </div>
+                            <div class="favour-right"></div>
+                        </div>
+                    </div>
+                    <div class="favour">
+                        <div class="favour-shop">
+                            <div class="favour-left">
+                                <img src="./activity/images/jmlg.jpg" alt="">
+                            </div>
+                            <div class="favour-center">
+                                <p>九牧卫浴</p>
+                                <p>使用期限：</p>
+                                <p>2018.8.25-2018.9.25</p>
+                            </div>
+                            <div class="favour-right"></div>
+                        </div>
+                    </div>
+                    <div class="favour">
+                        <div class="favour-shop">
+                            <div class="favour-left">
+                                <img src="./activity/images/mtlg.jpg" alt="">
+                            </div>
+                            <div class="favour-center">
+                                <p>梦天木门</p>
+                                <p>使用期限：</p>
+                                <p>2018.8.25-2018.9.25</p>
+                            </div>
+                            <div class="favour-right"></div>
+                        </div>
+                    </div>
+
+                    <div class="favour">
+                        <div class="favour-shop">
+                            <div class="favour-left">
+                                <img src="./activity/images/zhslg.jpg" alt="">
+                            </div>
+                            <div class="favour-center">
+                                <p>芝华士沙发</p>
+                                <p>使用期限：</p>
+                                <p>2018.8.25-2018.9.25</p>
+                            </div>
+                            <div class="favour-right"></div>
+                        </div>
+                    </div>
+                    <div class="favour">
+                        <div class="favour-shop">
+                            <div class="favour-left">
+                                <img src="./activity/images/dxalg.jpg" alt="">
+                            </div>
+                            <div class="favour-center">
+                                <p>多喜爱</p>
+                                <p>使用期限：</p>
+                                <p>2018.8.25-2018.9.25</p>
+                            </div>
+                            <div class="favour-right"></div>
+                        </div>
+                    </div>
+                    <div class="favour">
+                        <div class="favour-shop">
+                            <div class="favour-left">
+                                <img src="./activity/images/lblg.jpg" alt="">
+                            </div>
+                            <div class="favour-center">
+                                <p>老板电器</p>
+                                <p>使用期限：</p>
+                                <p>2018.8.25-2018.9.25</p>
+                            </div>
+                            <div class="favour-right"></div>
+                        </div>
+                    </div>
+                    <div class="favour">
+                        <div class="favour-shop">
+                            <div class="favour-left">
+                                <img src="./activity/images/xlmlg.jpg" alt="">
+                            </div>
+                            <div class="favour-center">
+                                <p>喜临门</p>
+                                <p>使用期限：</p>
+                                <p>2018.8.25-2018.9.25</p>
+                            </div>
+                            <div class="favour-right"></div>
+                        </div>
+                    </div>
+                    <div class="favour">
+                        <div class="favour-shop">
+                            <div class="favour-left">
+                                <img src="./activity/images/aplg.jpg" alt="">
+                            </div>
+                            <div class="favour-center">
+                                <p>奥普吊顶</p>
+                                <p>使用期限：</p>
+                                <p>2018.8.25-2018.9.25</p>
+                            </div>
+                            <div class="favour-right"></div>
+                        </div>
+                    </div>
+                    <div class="favour">
+                        <div class="favour-shop">
+                            <div class="favour-left">
+                                <img src="./activity/images/smslg.jpg" alt="">
+                            </div>
+                            <div class="favour-center">
+                                <p>A.O.史密斯</p>
+                                <p>使用期限：</p>
+                                <p>2018.8.25-2018.9.25</p>
+                            </div>
+                            <div class="favour-right"></div>
+                        </div>
+                    </div>
+                    <div class="favour">
+                        <div class="favour-shop">
+                            <div class="favour-left">
+                                <img src="./activity/images/5i5jlg.jpg" alt="">
+                            </div>
+                            <div class="favour-center">
+                                <p>我爱我家</p>
+                                <p>使用期限：</p>
+                                <p>2018.8.25-2018.9.25</p>
+                            </div>
+                            <div class="favour-right"></div>
+                        </div>
+                    </div>
+                    <div class="favour">
+                        <div class="favour-shop">
+                            <div class="favour-left">
+                                <img src="./activity/images/langsilg.jpg" alt="">
+                            </div>
+                            <div class="favour-center">
+                                <p>朗斯</p>
+                                <p>使用期限：</p>
+                                <p>2018.8.25-2018.9.25</p>
+                            </div>
+                            <div class="favour-right"></div>
+                        </div>
+                    </div>
+                    <div class="sjx" style="margin-top: .3rem;"></div>
+                    <p class="title" style="font-size: .45rem;">活动时间和地址</p>
+                    <div class="map">
+                        <img src="./activity/images/map.jpg?v=1.2" alt="">
+                    </div> -->
+                    <div class="tab1-img1">
+                        <div>
+                            <img src="./activity/images/活动页_01.jpg" alt="">
+                        </div>
+                        <div>
+                            <img src="./activity/images/活动页_02.jpg" alt="">
+                            <img class="img-r-s" src="./activity/images/马可波罗.png" alt="">
+                        </div>
+                        <div>
+                            <img src="./activity/images/活动页_03.jpg" alt="">
+                            <img class="img-l" src="./activity/images/博洛尼.png" alt="">
+                        </div>
+                        <div>
+                            <img src="./activity/images/活动页_04.jpg" alt="">
+                            <img class="img-r" src="./activity/images/梦天木门.png" alt="">
+                        </div>
+                        <div>
+                            <img src="./activity/images/活动页_05.jpg" alt="">
+                            <img class="img-l" src="./activity/images/老板电器.png" alt="">
+                        </div>
+                        <div>
+                            <img src="./activity/images/活动页_06.jpg" alt="">
+                            <img class="img-r" src="./activity/images/朗斯.png" alt="">
+                        </div>
+                        <div>
+                            <img src="./activity/images/活动页_07.jpg" alt="">
+                            <img class="img-l" src="./activity/images/兰舍.png" alt="">
+                        </div>
+                        <div>
+                            <img src="./activity/images/活动页_08.jpg" alt="">
+                            <img class="img-r" src="./activity/images/喜临门.png" alt="">
+                        </div>
+                        <div>
+                            <img src="./activity/images/活动页_09.jpg" alt="">
+                            <img class="img-l" src="./activity/images/多喜爱.png" alt="">
+                        </div>
+                        <div>
+                            <img src="./activity/images/活动页_10.jpg" alt="">
+                            <img class="img-r" src="./activity/images/科勒卫浴.png" alt="">
+                        </div>
+                        <div>
+                            <img src="./activity/images/活动页_11.jpg" alt="">
+                            <img class="img-l" src="./activity/images/芝华士.png" alt="">
+                        </div>
+                    </div>
+                    <div class="tab1-img2">
+                        <div>
+                            <img src="./activity/images/活动页_12.jpg" alt="">
+                        </div>
+                        <div>
+                            <img src="./activity/images/活动页_13.jpg" alt="">
+                            <img class="img-k" src="./activity/images/立即领取.png" alt="">
+                        </div>
+                        <div>
+                            <img src="./activity/images/活动页_14.jpg" alt="">
+                            <img class="img-k" src="./activity/images/立即领取.png" alt="">
+                        </div>
+                        <div>
+                            <img src="./activity/images/活动页_15.jpg" alt="">
+                            <img class="img-k" src="./activity/images/立即领取.png" alt="">
+                        </div>
+                        <div>
+                            <img src="./activity/images/活动页_16.jpg" alt="">
+                            <img class="img-k" src="./activity/images/立即领取.png" alt="">
+                        </div>
+                        <div>
+                            <img src="./activity/images/活动页_17.jpg" alt="">
+                            <img class="img-k" src="./activity/images/立即领取.png" alt="">
+                        </div>
+                        <div>
+                            <img src="./activity/images/活动页_18.jpg" alt="">
+                            <img class="img-k" src="./activity/images/立即领取.png" alt="">
+                        </div>
+                        <div>
+                            <img src="./activity/images/活动页_19.jpg" alt="">
+                            <img class="img-k" src="./activity/images/立即领取.png" alt="">
+                        </div>
+                        <div>
+                            <img src="./activity/images/活动页_20.jpg" alt="">
+                            <img class="img-k" src="./activity/images/立即领取.png" alt="">
+                        </div>
+                        <div>
+                            <img src="./activity/images/活动页_21.jpg" alt="">
+                            <img class="img-k" src="./activity/images/立即领取.png" alt="">
+                        </div>
+                        <div>
+                            <img src="./activity/images/活动页_22.jpg" alt="">
+                            <img class="img-k" src="./activity/images/立即领取.png" alt="">
+                        </div>
+                        <div>
+                            <img src="./activity/images/活动页_23.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div id="tab2" class="weui-tab__bd-item">
+                    <img src="./activity/images/490343gift947-0.jpg" alt="">
+                    <img src="./activity/images/490343gift947-1.jpg" alt="">
+                    <img src="./activity/images/490343gift947-2.jpg" alt="">
+                    <img src="./activity/images/490343gift947-3.jpg" alt="">
+                    <img src="./activity/images/490343gift947-4.jpg" alt="">
+                    <img src="./activity/images/490343gift947-5.jpg" alt="">
+                    <img src="./activity/images/490343gift947-6.jpg" alt="">
+                    <img src="./activity/images/490343gift947-7.jpg" alt="">
+                    <img src="./activity/images/490343gift947-8.jpg" alt="">
+                    <img src="./activity/images/490343gift947-9.jpg" alt="">
+                    <img src="./activity/images/490343gift947-10.jpg" alt="">
+                    <img src="./activity/images/490343gift947-11.jpg" alt="">
+                    <img src="./activity/images/490343gift947-12.jpg" alt="">
+                    <img src="./activity/images/490343gift947-13.jpg" alt="">
+                    <img src="./activity/images/490343gift947-14.jpg" alt="">
+                    <img src="./activity/images/490343gift947-15.jpg" alt="">
+                    <img src="./activity/images/490343gift947-16.jpg" alt="">
+                    <img src="./activity/images/490343gift947-17.jpg" alt="">
+                    <img src="./activity/images/490343gift947-18.jpg" alt="">
+                    <img src="./activity/images/490343gift947-19.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <div style="width: 100%;height: 1rem;"></div>
+    <!-- 底部公共部分 -->
+    <footer>
+        <div class="fixed">
+            <div class="weui-flex">
+                <div class="weui-flex__item">
+                    <div id="f-total">
+                        <div>
+                            <img src="./activity/images/total.png" alt="">
+                        </div>
+                        <p>报名人数65465人</p>
+                    </div>
+                </div>
+                <div>
+                    <span class="telphone">
+                        <a href="tel:158481706" style="color:white;">电话咨询</a>
+                    </span>
+                    <a href="#baomin"><span class="qme">预约抢名额</span></a>
+                    <!-- <span class="qme qme1">预约抢名额</span> -->
+                </div>
+            </div>
+        </div>
+        <!-- 底部弹出框 -->
+        <div class="container">
+            <div id="apply" class="weui-popup__container popup-bottom">
+                <div class="weui-popup__overlay"></div>
+                <div class="weui-popup__modal">
+                    <div class="weui-cells">
+                        <div class="weui-cell">
+                            <div class="weui-cell__bd">
+                                <img class="sign-img" src="./activity/images/sign-img.png" alt="">
+                                <p class="sign-in">填写你的信息</p>
+                            </div>
+                            <div class="weui-cell__ft">
+                                <p class="num">12个品牌</p>
+                                <a href="javascript:;" class="picker-button close-popup">关闭</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="weui-cells weui-cells_form">
+                        <div class="weui-cell">
+                            <a id="pinpai" href="javascript:;" class="weui-btn weui-btn_primary"></a>
+                        </div>
+                        <div id="select-box" style="display: none;">
+                            <div class="weui-grids">
+                                <a href="" class="weui-grid js_grid">
+                                    <p class="weui-grid__label">
+                                        <div class="weui-cells_checkbox">
+                                            <label class="weui-cell weui-check__label" for="s1">
+                                                <div class="weui-cell__hd">
+                                                    <input type="checkbox" name="checkbox1" class="weui-check" id="s1">
+                                                    <i class="weui-icon-checked"></i>
+                                                </div>
+                                                <div class="weui-cell__bd">
+                                                    <p>电视机柜</p>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </p>
+                                </a>
+                                <a href="" class="weui-grid js_grid">
+                                    <p class="weui-grid__label">
+                                        <div class="weui-cells_checkbox">
+                                            <label class="weui-cell weui-check__label" for="s2">
+                                                <div class="weui-cell__hd">
+                                                    <input type="checkbox" name="checkbox1" class="weui-check" id="s2">
+                                                    <i class="weui-icon-checked"></i>
+                                                </div>
+                                                <div class="weui-cell__bd">
+                                                    <p>木制家具</p>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </p>
+                                </a>
+                                <a href="" class="weui-grid js_grid">
+                                    <p class="weui-grid__label">
+                                        <div class="weui-cells_checkbox">
+                                            <label class="weui-cell weui-check__label" for="s3">
+                                                <div class="weui-cell__hd">
+                                                    <input type="checkbox" name="checkbox1" class="weui-check" id="s3">
+                                                    <i class="weui-icon-checked"></i>
+                                                </div>
+                                                <div class="weui-cell__bd">
+                                                    <p>双人床</p>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </p>
+                                </a>
+                                <a href="" class="weui-grid js_grid">
+                                    <p class="weui-grid__label">
+                                        <div class="weui-cells_checkbox">
+                                            <label class="weui-cell weui-check__label" for="s4">
+                                                <div class="weui-cell__hd">
+                                                    <input type="checkbox" name="checkbox1" class="weui-check" id="s4">
+                                                    <i class="weui-icon-checked"></i>
+                                                </div>
+                                                <div class="weui-cell__bd">
+                                                    <p>双人床</p>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </p>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- <div>
+                            <div id="selected" style="display: none;">
+                                <img src="./activity/images/selected.png" alt=""> 已选择意向品牌
+                            </div>
+                            <div id="selected-box">
+
+                            </div>
+                        </div> -->
+                        <div class="weui-cell">
+                            <div class="weui-cell__hd">
+                                <label class="weui-label">姓名</label>
+                            </div>
+                            <div class="weui-cell__bd">
+                                <input id="user" class="weui-input" type="text" placeholder="请输入您的姓名">
+                            </div>
+                        </div>
+                        <div class="weui-cell">
+                            <div class="weui-cell__hd">
+                                <label class="weui-label">手机号</label>
+                            </div>
+                            <div class="weui-cell__bd">
+                                <input id="tel" class="weui-input" type="tel" placeholder="请输入手机号">
+                            </div>
+                        </div>
+                        <div class="weui-cell">
+                            <a id="sub" onclick="insert()" href="javascript:;" class="weui-btn weui-btn_primary">立即报名</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- 领取红包 -->
+    <div class="weui-masks  bk"></div>
+    <div class="weui-dialogs  f-code">
+        <div class="weui-dialog__bd f-code-png">
+            <img src="./activity/images/user-2.png" alt="">
+        </div>
+        <div class="weui-dialog__ft f-code-btn">
+            <a href="javascript:;">扫码关注</a>
+        </div>
+    </div>
+    <!-- 引用外部js -->
+    <script src="./activity/js/jquery-2.1.4.js"></script>
+    <script src="./activity/js/jquery-weui.min.js"></script>
+    <script src="./activity/js/swiper.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="./activity/js/countDown.js"></script>
+    <script src="./activity/js/index.js"></script>
+    <!-- 微信分享 -->
+    <script>
+        wx.config({
+            debug: false,
+            appId: '{$signPackage["appId"]}',
+            timestamp: '{$signPackage["timestamp"]}',
+            nonceStr: '{$signPackage["nonceStr"]}',
+            signature: '{$signPackage["signature"]}',
+            jsApiList: [
+                // 所有要调用的 API 都要加到这个列表中
+                'onMenuShareTimeline', //微信朋友圈
+                'onMenuShareAppMessage', //微信好友
+            ]
+        });
+        wx.ready(function() {
+            // 在这里调用 API
+            wx.onMenuShareTimeline({
+                title: '8月25日居然欢乐购北京站，豪华大奖，嗨欢全场！', // 分享标题
+                link: 'http://www.bpbzx.com/zt/jr825bj/index.php', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                imgUrl: 'http://www.bpbzx.com/zt/jr825bj/images/jjhlgfx.jpg', // 分享图标
+                success: function() {
+                    // 用户点击了分享后执行的回调函数
+                    $.alert({
+                        title: '温馨提示',
+                        text: '分享成功，感谢您的支持'
+                    });
+                },
+            });
+            wx.onMenuShareAppMessage({
+                title: '8月25日居然欢乐购北京站，豪华大奖，嗨欢全场！', // 分享标题
+                desc: '商家优惠券、爆品预约、联购返现，参与活动即可享受工厂直供。', // 分享描述
+                link: 'http://www.bpbzx.com/zt/jr825bj/index.php', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                imgUrl: 'http://www.bpbzx.com/zt/jr825bj/images/jjhlgfx.jpg', // 分享图标
+                success: function() {
+                    $.alert({
+                        title: '温馨提示',
+                        text: '分享成功，感谢您的支持'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

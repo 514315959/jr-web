@@ -1,0 +1,353 @@
+body,
+html {
+    height: 100%;
+    -webkit-tap-highlight-color: transparent;
+    background-color: white;
+}
+
+body {
+    min-width: 320px;
+    max-width: 750px;
+    position: relative;
+    /* background-size: 100% 100%;
+    background-position: center; */
+    margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;
+    /* background-image: url(../images/dabeijing.jpg);
+    background-repeat: no-repeat ;
+    background-origin: padding-box */
+}
+
+section {
+    height: 100%;
+    display: none;
+}
+
+.beijing {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.beijing img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.anniu2 {
+    width: 21.9%;
+    /* height: 16.5%; */
+    margin: 0 auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 48%;
+    animation: btns 1.2s infinite;
+    -webkit-animation: btns 1.2s infinite;
+    -moz-animation: btns 1.2s infinite;
+    -o-animation: btns 1.2s infinite;
+    -ms-animation: btns 1.2s infinite;
+}
+
+.anniu2 img {
+    width: 100%
+}
+
+.hongbao {
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    display: none;
+    top: 50%;
+    max-width: none;
+}
+
+.bk {
+    display: none;
+    background-color: rgba(3, 3, 3, 0.8)
+}
+
+.weui-masks {
+    opacity: 1;
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+    visibility: visible;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.weui-dialogs {
+    position: fixed;
+    z-index: 5000;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    /* background-color: #fff; */
+    text-align: center;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.hongbao-png {
+    box-sizing: border-box;
+    background-image: url(../images/hb-jump.png);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+}
+
+@keyframes btns {
+    0% {
+        transform: scale(1, 1)
+    }
+    50% {
+        transform: scale(0.9, 0.9)
+    }
+    100% {
+        transform: scale(1, 1)
+    }
+}
+
+@-webkit-keyframes btns {
+    0% {
+        -webkit-transform: scale(1, 1)
+    }
+    50% {
+        -webkit-transform: scale(0.9, 0.9)
+    }
+    100% {
+        -webkit-transform: scale(1, 1)
+    }
+}
+
+@-moz-keyframes btns {
+    0% {
+        -moz-transform: scale(1, 1)
+    }
+    50% {
+        -moz-transform: scale(0.9, 0.9)
+    }
+    100% {
+        -moz-transform: scale(1, 1)
+    }
+}
+
+@-o-keyframes btns {
+    0% {
+        -o-transform: scale(1, 1)
+    }
+    50% {
+        -o-transform: scale(0.9, 0.9)
+    }
+    100% {
+        -o-transform: scale(1, 1)
+    }
+}
+
+@-ms-keyframes btns {
+    0% {
+        -ms-transform: scale(1, 1)
+    }
+    50% {
+        -ms-transform: scale(0.9, 0.9)
+    }
+    100% {
+        -ms-transform: scale(1, 1)
+    }
+}
+
+
+/* 加载数据动画样式 */
+
+@keyframes lds-spin {
+    0% {
+        opacity: 1;
+        -webkit-transform: scale(1.1, 1.1);
+        transform: scale(1.1, 1.1);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(1, 1);
+        transform: scale(1, 1);
+    }
+}
+
+@-webkit-keyframes lds-spin {
+    0% {
+        opacity: 1;
+        -webkit-transform: scale(1.1, 1.1);
+        transform: scale(1.1, 1.1);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(1, 1);
+        transform: scale(1, 1);
+    }
+}
+
+.lds-spin {
+    position: relative;
+}
+
+.lds-spin div>div {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #43cdf0;
+    -webkit-animation: lds-spin 1.1s linear infinite;
+    animation: lds-spin 1.1s linear infinite;
+}
+
+.lds-spin div:nth-child(1)>div {
+    left: 140px;
+    top: 80px;
+    -webkit-animation-delay: -0.9625s;
+    animation-delay: -0.9625s;
+}
+
+.lds-spin>div:nth-child(1) {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transform-origin: 160px 100px;
+    transform-origin: 160px 100px;
+}
+
+.lds-spin div:nth-child(2)>div {
+    left: 122.42640685999999px;
+    top: 122.42640685999999px;
+    -webkit-animation-delay: -0.825s;
+    animation-delay: -0.825s;
+}
+
+.lds-spin>div:nth-child(2) {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transform-origin: 142.42640686px 142.42640686px;
+    transform-origin: 142.42640686px 142.42640686px;
+}
+
+.lds-spin div:nth-child(3)>div {
+    left: 80px;
+    top: 140px;
+    -webkit-animation-delay: -0.6875s;
+    animation-delay: -0.6875s;
+}
+
+.lds-spin>div:nth-child(3) {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    -webkit-transform-origin: 100px 160px;
+    transform-origin: 100px 160px;
+}
+
+.lds-spin div:nth-child(4)>div {
+    left: 37.57359314px;
+    top: 122.42640685999999px;
+    -webkit-animation-delay: -0.55s;
+    animation-delay: -0.55s;
+}
+
+.lds-spin>div:nth-child(4) {
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+    -webkit-transform-origin: 57.57359314px 142.42640686px;
+    transform-origin: 57.57359314px 142.42640686px;
+}
+
+.lds-spin div:nth-child(5)>div {
+    left: 20px;
+    top: 80px;
+    -webkit-animation-delay: -0.4125s;
+    animation-delay: -0.4125s;
+}
+
+.lds-spin>div:nth-child(5) {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    -webkit-transform-origin: 40px 100px;
+    transform-origin: 40px 100px;
+}
+
+.lds-spin div:nth-child(6)>div {
+    left: 37.57359314px;
+    top: 37.57359314px;
+    -webkit-animation-delay: -0.275s;
+    animation-delay: -0.275s;
+}
+
+.lds-spin>div:nth-child(6) {
+    -webkit-transform: rotate(225deg);
+    transform: rotate(225deg);
+    -webkit-transform-origin: 57.57359314px 57.57359314px;
+    transform-origin: 57.57359314px 57.57359314px;
+}
+
+.lds-spin div:nth-child(7)>div {
+    left: 80px;
+    top: 20px;
+    -webkit-animation-delay: -0.1375s;
+    animation-delay: -0.1375s;
+}
+
+.lds-spin>div:nth-child(7) {
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg);
+    -webkit-transform-origin: 100px 40px;
+    transform-origin: 100px 40px;
+}
+
+.lds-spin div:nth-child(8)>div {
+    left: 122.42640685999999px;
+    top: 37.57359314px;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+
+.lds-spin>div:nth-child(8) {
+    -webkit-transform: rotate(315deg);
+    transform: rotate(315deg);
+    -webkit-transform-origin: 142.42640686px 57.57359314px;
+    transform-origin: 142.42640686px 57.57359314px;
+}
+
+.lds-spin div:nth-child(9)>div {
+    left: 140px;
+    top: 80px;
+    -webkit-animation-delay: 0.1375s;
+    animation-delay: 0.1375s;
+}
+
+.lds-spin>div:nth-child(9) {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+    -webkit-transform-origin: 160px 100px;
+    transform-origin: 160px 100px;
+}
+
+.lds-spin {
+    width: 65px !important;
+    height: 65px !important;
+    -webkit-transform: translate(-32.5px, -32.5px) scale(0.325) translate(32.5px, 32.5px);
+    transform: translate(-32.5px, -32.5px) scale(0.325) translate(32.5px, 32.5px);
+    margin: 0 auto;
+    top: 40%;
+}
+
+.loading {
+    position: absolute;
+    z-index: 11;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+}

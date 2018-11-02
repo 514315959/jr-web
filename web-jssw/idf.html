@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="./activity/css/jquery-weui.min.css">
+    <link rel="stylesheet" type="text/css" href="./activity/css/weui.min.css">
+    <style>
+        body {
+            min-width: 320px;
+            max-width: 750px;
+            position: relative;
+            margin-top: 0;
+            margin-right: auto;
+            margin-bottom: 0;
+            margin-left: auto;
+            background-color: #f8f8f8;
+        }
+        
+        header .h-t {
+            background-color: #e04c4c;
+            text-align: center;
+            height: 45px;
+            line-height: 45px;
+        }
+        
+        header .h-t p {
+            color: #ffffff;
+            font-size: 20px;
+        }
+        /* .set .s1{
+            margin: 10px 0;
+        } */
+        
+        .toolbar .cancel-picker {
+            right: auto;
+            color: #1b1a1a
+        }
+        
+        .weui-label {
+            color: #8a8a8a
+        }
+        
+        .weui-cell__bd input {
+            color: #b5b5b5
+        }
+        
+        .weui-cell:before {
+            left: 0;
+        }
+        
+        #city {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        .weui-uploader__title {
+            color: #333333;
+        }
+        
+        .weui-uploader__title span {
+            color: #cccccc
+        }
+        
+        .weui-uploader__file {
+            /* border: 1px solid #d9d9d9; */
+        }
+        
+        footer {
+            padding: 0 15px;
+            margin: 10px 0;
+        }
+        
+        .weui-toast {
+            top: 45%;
+            margin: 0;
+        }
+        
+        .weui-toast--text {
+            min-height: 1em;
+        }
+        
+        .bd-city:before {
+            content: " ";
+            display: inline-block;
+            height: 6px;
+            width: 6px;
+            border-width: 2px 2px 0 0;
+            border-color: #c8c8cd;
+            border-style: solid;
+            -webkit-transform: matrix(.71, .71, -.71, .71, 0, 0);
+            transform: matrix(.71, .71, -.71, .71, 0, 0);
+            position: relative;
+            top: -2px;
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            margin-top: -4px;
+        }
+    </style>
+    <title>认证资料</title>
+</head>
+
+<body>
+    <header>
+        <div class="h-t">
+            <p>认证资料</p>
+        </div>
+    </header>
+    <div class="set">
+        <div class="weui-cells weui-cells_form">
+            <div class="s1">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">您的城市</label></div>
+                    <div class="weui-cell__bd bd-city">
+                        <input id="city" name="city" class="weui-input" type="text" placeholder="请选择你所在城市">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">装修小区</label></div>
+                    <div class="weui-cell__bd">
+                        <input id="area" name="area" class="weui-input" type="text" placeholder="请填写小区名称">
+                    </div>
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <div class="weui-uploader">
+                        <div class="weui-uploader__hd">
+                            <p class="weui-uploader__title">购房合同 <span>（含有房屋详细地址页）</span></p>
+                        </div>
+                        <div class="weui-uploader__bd">
+                            <ul class="weui-uploader__files" id="uploaderFiles1">
+                                <!-- <li class="weui-uploader__file" style="background-image:url(./images/pic_160.png)"></li>
+                                <li class="weui-uploader__file" style="background-image:url(./images/pic_160.png)"></li>
+                                <li class="weui-uploader__file" style="background-image:url(./images/pic_160.png)"></li>
+                                <li class="weui-uploader__file weui-uploader__file_status" style="background-image:url(./images/pic_160.png)">
+                                    <div class="weui-uploader__file-content">
+                                        <i class="weui-icon-warn"></i>
+                                    </div>
+                                </li> -->
+                                <li id="st1" class="weui-uploader__file" style="background-image:url(./activity/images/picture.png)">
+                                    <!-- <div class="weui-uploader__file-content"></div> -->
+                                </li>
+                            </ul>
+                            <div class="weui-uploader__input-box">
+                                <input id="uploaderInput1" class="weui-uploader__input" type="file" accept="image/*" multiple="multiple" "capture=camera">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <div class="weui-uploader">
+                        <div class="weui-uploader__hd">
+                            <p class="weui-uploader__title">装修现场</p>
+                        </div>
+                        <div class="weui-uploader__bd">
+                            <ul class="weui-uploader__files" id="uploaderFiles2">
+                                <!-- <li class="weui-uploader__file" style="background-image:url(./images/pic_160.png)"></li>
+                                    <li class="weui-uploader__file" style="background-image:url(./images/pic_160.png)"></li>
+                                    <li class="weui-uploader__file" style="background-image:url(./images/pic_160.png)"></li>
+                                    <li class="weui-uploader__file weui-uploader__file_status" style="background-image:url(./images/pic_160.png)">
+                                        <div class="weui-uploader__file-content">
+                                            <i class="weui-icon-warn"></i>
+                                        </div>
+                                    </li> -->
+                                <li id="st2" class="weui-uploader__file" style="background-image:url(./activity/images/picture.png)">
+                                    <!-- <div class="weui-uploader__file-content"></div> -->
+                                </li>
+                            </ul>
+                            <div class="weui-uploader__input-box">
+                                <input id="uploaderInput2" class="weui-uploader__input" type="file" accept="image/*" multiple="multiple">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <a id="sub" href="javascript:;" class="weui-btn weui-btn_warn">下一步</a>
+    </footer>
+    <script src="./activity/js/jquery-2.1.4.js"></script>
+    <script src="./activity/js/jquery-weui.js"></script>
+    <script src="./activity/js/city-picker2.js"></script>
+    <script>
+        // 选择城市
+        var cityvalue = "";
+        var citycode = "";
+        var citycodes = "";
+        // $("#home-city").val("北京 北京市");
+
+        function close() {
+            $("#city").attr('data-code', citycode);
+            $("#city").attr('data-codes', citycodes);
+            // var citycode = $("#city").attr('data-code');
+            // console.log($(".com-picker").html())
+            $("#city").val(cityvalue);
+            // alert(citycode)
+        }
+        $("#city").cityPicker({
+            title: "选择区域", //标题名称
+            showDistrict: false, //显示到城市
+            toolbarTemplate: '<div class="toolbar">\
+            <div class="toolbar-inner">\
+            <a href="javascript:;" class="picker-button close-picker cancel-picker">取消</a>\
+            <a href="javascript:close();" class="picker-button com-picker close-picker">{{closeText}}</a>\
+            <h1 class="title">{{title}}</h1>\
+            </div>\
+            </div>',
+            onChange: function(picker, values, displayValues) {
+                $("#city").attr('data-code', $("#city").attr('data-code'));
+                $("#city").attr('data-codes', $("#city").attr('data-codes'));
+            },
+            onClose: function(picker) {
+                //关闭时触发
+                cityvalue = picker.cols[0].displayValue + ' ' + picker.cols[1].displayValue;
+                citycode = picker.cols[0].value;
+                citycodes = picker.value.join(',');
+                // console.log(picker)
+            }
+        });
+        // 图片提交进度onchange事件
+        var reader = null;
+        var max = 0;
+        var imgarr1 = {};
+        var imgarr2 = {};
+        // filereader是否支持，并将数据存为全局变量
+        function readerBinary(file, ulboxid, stid) {
+            if (FileReader) {
+                reader = new FileReader();
+            } else {
+                $.toast("您手机不支持图片展示功能，请更新软件再试", 'text');
+                return false;
+            }
+            var i = 0;
+            var imgl1 = Object.keys(imgarr1).length;
+            var imgl2 = Object.keys(imgarr2).length;
+            for (i = 0; i < file.length; i++) {
+                if (stid == '#st1') {
+                    imgarr1[imgl1] = file[i];
+                    var datacode = 1;
+                    sFile(file[i], stid, imgl1, ulboxid, datacode);
+                    imgl1++;
+                } else if (stid == '#st2') {
+                    imgarr2[imgl2] = file[i];
+                    var datacode = 2;
+                    sFile(file[i], stid, imgl2, ulboxid, datacode);
+                    imgl2++;
+                }
+            }
+        }
+        // 图片处理为url格式数据，并注册点击事件
+        function sFile(file, stid, i, box, datacode) {
+            return new Promise(function(resolve, reject) {
+                let reader = new FileReader()
+                reader.readAsDataURL(file)
+                reader.onloadstart = function() {
+                    $(stid).css('display', 'block');
+                    $(stid).addClass("weui-uploader__file_status");
+                }
+                var max = file.size;
+                reader.onprogress = function(e) {
+                    var per = Math.ceil(e.loaded / max * 100) + '%';
+                    $(stid).html('<div class="weui-uploader__file-content">' + per + '</div>');
+                }
+
+                reader.onload = function() {
+                    var list = `
+                            <li data-code="${datacode}" data-index="${i}" class="weui-uploader__file del-img"></li>
+                        `;
+
+                    var item = $(list);
+                    item.css('backgroundImage', 'url(' + this.result + ')')
+                    $(box).prepend(item)
+                    $(stid).css('display', 'none');
+                    resolve(this.result)
+                        // 注册删除图片事件
+                    item.click(function() {
+                        var self = this;
+                        $.confirm({
+                            title: '提示',
+                            text: '确认要删除该图片么？',
+                            onOK: function() {
+                                var datacode = $(self).attr('data-code');
+                                var dataindex = $(self).attr('data-index');
+                                var imgarr = eval('imgarr'+datacode)
+                                imgarr[dataindex] = null;
+                                if( Object.keys(imgarr).length == 0 ){
+                                    $(stid).removeClass("weui-uploader__file_status");
+                                    $(stid).html("");
+                                    $(stid).css('display', 'block');
+                                }else if( checkimg(imgarr) ){
+                                    $(stid).removeClass("weui-uploader__file_status");
+                                    $(stid).html("");
+                                    $(stid).css('display', 'block');
+                                }
+                                // console.log(imgarr1,imgarr2)
+                                $(self).remove();
+                                $('#uploaderInput'+datacode).val('');
+                            },
+                            onCancel: function() {}
+                        });
+                    })
+                }
+            })
+        }
+        // 如果此处需要图片单独上传，请在onchange里ajax，ajax成功后执行里面的方法即可
+        document.getElementById("uploaderInput1").onchange = function() {
+            var nimgarr1 = document.getElementById("uploaderInput1").files
+            readerBinary(nimgarr1, "#uploaderFiles1", "#st1")
+        }
+        document.getElementById("uploaderInput2").onchange = function() {
+            var nimgarr2 = document.getElementById("uploaderInput2").files
+            readerBinary(nimgarr2, "#uploaderFiles2", "#st2")
+        }
+        // 遍历图片存储对象里是否都有值
+        function checkimg(imgarr){
+            var len = Object.keys(imgarr).length;
+            var i = 0;
+            for( var a in imgarr){
+                if( imgarr[a] == null ){
+                    i++;
+                }
+            }
+            if( len == i ){
+                return true;
+            }
+            return false;
+        }
+        // 提交数据
+        $('#sub').click(function() {
+            var city = $("#city").val();
+            var area = $("#area").val();
+            var image1 = $("#uploaderInput1").val();
+            var image2 = $("#uploaderInput2").val();
+            if (city == '') {
+                $.toast("请选择城市", 'text');
+                return false;
+            }
+            if (area == '') {
+                $.toast("请填写小区信息", 'text');
+                return false;
+            }
+            if (Object.keys(imgarr1).length == 0) {
+                $.toast("请上传购房合同图片", 'text');
+                return false;
+            }else{
+                if( checkimg(imgarr1) ){
+                    $.toast("请上传购房合同图片", 'text');
+                    return false;
+                }
+            }
+            
+            if (Object.keys(imgarr2).length == 0) {
+                $.toast("请上传装修现场图片", 'text');
+                return false;
+            }else{
+                if( checkimg(imgarr2) ){
+                    $.toast("请上传装修现场图片", 'text');
+                    return false;
+                }
+            }
+            // 这里你可以用form表单提交（form标签，里的method，action,这个可能简单，但是name命名，要以name[]命名），或者用ajax模拟表单（domos）
+            var formData = new FormData();
+            // var imgarr1 = document.getElementById("uploaderInput1").files
+            // var imgarr2 = document.getElementById("uploaderInput2").files
+            for (i in imgarr1) {
+                formData.append("file1-" + i, imgarr1[i]);
+            }
+            for (i in imgarr2) {
+                formData.append("file2-" + i, imgarr2[i]);
+            }
+            formData.append("city", city);
+            formData.append("area", area);
+            // formData.append("Secret", Secret);
+            // formData.append("AppID", AppID);
+            $.ajax({
+                url: "http://172.30.1.115/web-jssw/index.php",
+                data: formData,
+                type: "POST",
+                contentType: false, //这里
+                processData: false, //这两个一定设置为false
+                success: function(info) {
+                    console.log(info)
+                    if (true) {
+                        //提交成功
+                        $.alert({
+                            title: '提示',
+                            text: '提交成功，等待审核' // 具体信息由后台自定
+                        });
+                    } else {
+                        //提交失败
+                        $.alert({
+                            title: '提示',
+                            text: '提交失败，稍后再试' // 具体信息由后台自定
+                        });
+                    }
+                },
+                error: function() {
+                    //请求失败
+                    $.alert({
+                        title: '提示',
+                        text: '请求失败，稍后再试'
+                    });
+                }
+            });
+        })
+    </script>
+</body>
+
+</html>

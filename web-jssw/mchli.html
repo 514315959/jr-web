@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="./activity/css/jquery-weui.min.css">
+    <link rel="stylesheet" type="text/css" href="./activity/css/weui.min.css">
+    <link rel="stylesheet" type="text/css" href="./activity/css/font-awesome.css">
+    <style>
+        body {
+            background-color: #f2f2f2;
+        }
+
+        .weui-media-box:before {
+            border-top: 1px solid #bdbdbd;
+            left: 0;
+        }
+
+        .weui-cells {
+            margin-top: 0;
+        }
+
+        .weui-panel__hd {
+            color: #161616;
+            font-size: 17px;
+            /* text-align: center; */
+            background-color: #bababa;
+        }
+
+        .back {
+            float: left;
+            font-size: 30px;
+            color: black;
+        }
+
+        .weui-panel {
+            background-color: transparent;
+        }
+
+        .icon-angle-left:before {
+            position: relative;
+            top: -2px;
+        }
+
+        .weui-cells_form .weui-cell__hd .weui-label {
+            width: auto;
+        }
+
+        #home-city {
+            font-size: 15px;
+            color: #6c6c6c;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .weui-cell__bd,
+        .weui-cell__hd {
+            line-height: 25px
+        }
+
+        .weui-toast {
+            top: 45%;
+            margin: 0;
+        }
+
+        .weui-toast--text {
+            min-height: 1em;
+        }
+        .toolbar .picker-button.cancel-picker{
+            right: auto;
+            color: #161616
+        }
+    </style>
+    <title>商家信息列表</title>
+</head>
+
+<body ontouchstart>
+    <div class="page__bd">
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label for="home-city" class="weui-label">
+                        <i class="icon-map-marker"></i>
+                        当前定位城市：
+                    </label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" id="home-city" type="text" value="">
+                </div>
+            </div>
+        </div>
+        <div class="weui-panel weui-panel_access">
+            <div class="weui-panel__hd">
+                <!-- <span class="back icon-angle-left"></span> -->
+                商家信息
+            </div>
+            <div class="weui-panel__bd">
+                <div class="weui-media-box weui-media-box_text">
+                    <h4 class="weui-media-box__title">商家1</h4>
+                    <p class="weui-media-box__desc">地址：质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+                </div>
+                <div class="weui-media-box weui-media-box_text">
+                    <h4 class="weui-media-box__title">商家2</h4>
+                    <p class="weui-media-box__desc">地址：质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+                </div>
+                <div class="weui-media-box weui-media-box_text">
+                    <h4 class="weui-media-box__title">商家2</h4>
+                    <p class="weui-media-box__desc">地址：质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+                </div>
+                <div class="weui-media-box weui-media-box_text">
+                    <h4 class="weui-media-box__title">商家2</h4>
+                    <p class="weui-media-box__desc">地址：质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+                </div>
+                <div class="weui-media-box weui-media-box_text">
+                    <h4 class="weui-media-box__title">商家2</h4>
+                    <p class="weui-media-box__desc">地址：质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+                </div>
+                <div class="weui-media-box weui-media-box_text">
+                    <h4 class="weui-media-box__title">商家2</h4>
+                    <p class="weui-media-box__desc">地址：质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+                </div>
+                <div class="weui-media-box weui-media-box_text">
+                    <h4 class="weui-media-box__title">商家2</h4>
+                    <p class="weui-media-box__desc">地址：质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+                </div>
+                <div class="weui-media-box weui-media-box_text">
+                    <h4 class="weui-media-box__title">商家2</h4>
+                    <p class="weui-media-box__desc">地址：质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+                </div>
+                <div class="weui-media-box weui-media-box_text">
+                    <h4 class="weui-media-box__title">商家2</h4>
+                    <p class="weui-media-box__desc">地址：质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="./activity/js/jquery-2.1.4.js"></script>
+    <script src="./activity/js/jquery-weui.js"></script>
+    <script src="./activity/js/city-picker.js"></script>
+    <script>
+        var cityvalue = "";
+        $("#home-city").val("北京 北京市");
+        function close(){
+            var citycode = $("#home-city").attr('data-code');
+            console.log($(".com-picker").html())
+            $("#home-city").val(cityvalue);
+            alert(citycode)
+        }
+        $("#home-city").cityPicker({
+            title: "选择区域",//标题名称
+            showDistrict: false,//显示到城市
+            toolbarTemplate: '<div class="toolbar">\
+            <div class="toolbar-inner">\
+            <a href="javascript:;" class="picker-button close-picker cancel-picker">取消</a>\
+            <a href="javascript:close();" class="picker-button com-picker close-picker">{{closeText}}</a>\
+            <h1 class="title">{{title}}</h1>\
+            </div>\
+            </div>',
+            // onChange: function (picker, values, displayValues) {
+            //     // picker值改变时触发，values区域编码数组，displayValues区域名称数组,values ['100000','100000']...具体看consolelog
+            //     console.log(values, displayValues);
+            //     // 此处调用数据接口，根据values或者displayValues,来筛选地址列表
+            //     $.showLoading();
+            //     $.ajax({
+            //         url: 'mchli.html',
+            //         type: 'post',
+            //         data: '',
+            //         success: function (msg) {
+            //             $.hideLoading();
+            //             // url为接口地址。msg为返回参数
+            //             //有数据
+            //             if (true) {
+            //                 // 通过循环，将数据放到，html里,这里demos写的是固定值
+            //                 $('.weui-panel .weui-panel__bd').html(`
+            //                 <div class="weui-media-box weui-media-box_text">
+            //                     <h4 class="weui-media-box__title">商家2</h4>
+            //                     <p class="weui-media-box__desc">地址：质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+            //                 </div>
+            //                 <div class="weui-media-box weui-media-box_text">
+            //                     <h4 class="weui-media-box__title">商家2</h4>
+            //                     <p class="weui-media-box__desc">地址：质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+            //                 </div>
+            //                 <div class="weui-media-box weui-media-box_text">
+            //                     <h4 class="weui-media-box__title">商家2</h4>
+            //                     <p class="weui-media-box__desc">地址：质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+            //                 </div>
+            //                 `)
+            //             } else {
+            //                 setTimeout(() => {
+            //                     // 无数据，或者其他
+            //                     $.toast("暂无数据", 'text');// 提示信息由后台定
+            //                     // 同时清除列表html
+            //                     $('.weui-panel .weui-panel__bd').html('')
+            //                 }, 500); 
+            //             }
+            //         },
+            //         error: function () {
+            //             $.hideLoading();
+            //             setTimeout(() => {
+            //                 $.toast("服务器错误，稍后再试", 'text');// 提示信息由后台定
+            //             }, 500);
+            //         }
+            //     })
+            // },
+            onClose:function (picker) {
+                //关闭时触发
+                cityvalue = picker.cols[0].displayValue+' '+picker.cols[1].displayValue
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/weui.min.css">
+    <link rel="stylesheet" href="./css/jquery-weui.min.css">
+    <link rel="stylesheet" href="./css/iconfont.css">
+    <!-- 字体基准 -->
+    <script src="./js/base.js"></script>
+    <title>活动列表</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            -webkit-tap-highlight-color: transparent;
+            background-color: #f5f5f5;
+        }
+        
+        .weui-navbar .weui-navbar__item {
+            font-size: 0.3rem;
+            color: #626262;
+            background-color: white;
+            padding: 0.3rem 0;
+        }
+        
+        .weui-navbar__item.weui-bar__item--on {
+            color: black;
+            border-bottom: 1px solid #69c1ff;
+        }
+        
+        .weui-navbar:after {
+            border: none
+        }
+        
+        .weui-pull-to-refresh__layer {
+            font-size: 0.3rem;
+            padding: 0.3rem 0;
+            height: auto;
+            line-height: 1;
+            background-color: white;
+        }
+        
+        .weui-navbar+.weui-tab__bd {
+            padding-top: 1rem
+        }
+        
+        .weui-tab__bd-item {
+            width: 100%;
+        }
+        
+        .weui-toast--text {
+            font-size: 0.3rem
+        }
+        
+        .weui-loadmore {
+            display: none;
+            font-size: 0.3rem;
+            padding: 0.3rem 0.3rem 0.6rem 0.3rem;
+        }
+        
+        .weui-nomore {
+            text-align: center;
+            font-size: 0.3rem;
+            padding: 0.3rem 0.3rem 1.2rem 0.3rem;
+            display: none;
+        }
+        
+        .add-hd-bt-box {
+            position: fixed;
+            bottom: 0.2rem;
+            width: 100%;
+        }
+        
+        .add-hd {
+            width: 90%;
+            margin: 0 auto;
+            font-size: 0.3rem;
+            background-color: #69c1ff;
+        }
+        
+        .weui-btn_primary:not(.weui-btn_disabled):active {
+            color: hsla(0, 0%, 100%, .6);
+            background-color: #0979c9
+        }
+        
+        .hd-info-box {
+            margin-top: 0.2rem;
+            background-color: white;
+            text-align: center;
+            padding-top: 0.25rem;
+            padding: 0.25rem 0.3rem;
+        }
+        
+        .hd-info-box p {
+            margin-top: 0.15rem;
+            font-size: 0.3rem
+        }
+        
+        .hd-info-box img {
+            width: 0.9rem;
+            height: 0.9rem;
+        }
+        
+        .hd-data-box {
+            padding: 0.2rem 0.3rem;
+            margin-top: 0.2rem;
+            background-color: white;
+        }
+        
+        .hd-data-box .weui-flex__item .tag {
+            text-align: center;
+            font-size: 0.3rem;
+            height: 0.6rem;
+            line-height: 0.6rem;
+        }
+        
+        .hd-data-box .weui-flex__item .data {
+            margin: 0 auto;
+            height: 1rem;
+            width: 1rem;
+            line-height: 1rem;
+            text-align: center;
+            border-radius: 1rem;
+            background-color: #e7e7e7;
+            font-size: 0.25rem
+        }
+        
+        .hd-data-box .weui-flex__item .data-on {
+            background-color: #69c1ff;
+            color: white;
+        }
+        
+        .hd-z-box .weui-cells {
+            margin-top: 0;
+        }
+        
+        .hd-z-box .weui-cells::before,
+        .hd-sj-li .weui-cells::before {
+            border: none
+        }
+        
+        .hd-z-box .weui-cells::after,
+        .hd-sj-li .weui-cells::after {
+            border: none
+        }
+        
+        .hd-z-box .weui-cells .weui-cell,
+        .hd-sj-li .weui-cells .weui-cell,
+        .hd-sk-li .weui-cells .weui-cell,
+        .hd-qd-li .weui-cells .weui-cell {
+            padding: 0.2rem 0.3rem;
+        }
+        
+        .hd-z-box .weui-cells .weui-cell::before {
+            left: 0;
+        }
+        
+        .hd-sk-li .weui-cells .weui-cell::before,
+        .hd-qd-li .weui-cells .weui-cell::before {
+            left: 0.3rem;
+            right: 0.3rem;
+        }
+        
+        .hd-sk-li .weui-cells::before,
+        .hd-qd-li .weui-cells::before {
+            left: 0.3rem;
+            right: 0.3rem;
+        }
+        
+        .hd-z-li {
+            background-color: white;
+            margin-top: 0.2rem;
+        }
+        
+        .hd-z-li .weui-cell__bd,
+        .hd-z-li .weui-cell__ft,
+        .hd-z-li .weui-cell__hd {
+            font-size: 0.3rem
+        }
+        
+        .hd-z-li .iconfont::before,
+        .hd-sj-li .iconfont::before,
+        .hd-sk-li .iconfont::before,
+        .hd-qd-li .iconfont::before {
+            position: relative;
+            margin-right: 0.15rem;
+            color: #69c1ff;
+        }
+        
+        .hd-z-li .iconfont,
+        .hd-sj-li .iconfont,
+        .hd-sk-li .iconfont,
+        .hd-qd-li .iconfont {
+            font-size: 0.3rem;
+        }
+        
+        .hd-img-box .img-li {
+            padding: 0.2rem 0.3rem;
+            background-color: white;
+            width: 100%;
+            margin-top: 0.2rem;
+            box-sizing: border-box
+        }
+        
+        .hd-sj-li {
+            margin-top: 0.2rem;
+            background-color: white;
+        }
+        
+        .hd-sj-li .weui-cells__title,
+        #tab2 .weui-cells__title,
+        #tab3 .weui-cells__title {
+            font-size: 0.3rem;
+            padding: 0.2rem 0.3rem;
+            color: black;
+            background-color: white;
+        }
+        
+        .hd-sj-li .weui-cells__title .weui-cells__title-1,
+        #tab2 .weui-cells__title .weui-cells__title-1,
+        #tab3 .weui-cells__title .weui-cells__title-1 {
+            border-left: 1px solid #69c1ff;
+            padding-left: 0.15rem
+        }
+        
+        .hd-sj-li .weui-cell__bd,
+        .hd-sj-li .weui-cell__ft,
+        .hd-sj-li .weui-cell__hd,
+        .hd-sk-li .weui-cell__bd,
+        .hd-sk-li .weui-cell__ft,
+        .hd-sk-li .weui-cell__hd,
+        .hd-qd-li .weui-cell__bd,
+        .hd-qd-li .weui-cell__ft,
+        .hd-qd-li .weui-cell__hd {
+            font-size: 0.28rem
+        }
+        
+        .hd-sj-li .weui-cell__ft {
+            width: 1.5rem;
+            text-align: left;
+            color: black;
+        }
+        
+        .hd-sj-li .weui-cell__bd {
+            color: #626262
+        }
+        
+        .hd-sj-li .weui-cells .weui-cell::before {
+            border: none;
+        }
+        
+        .hd-sk-li .weui-cells,
+        .hd-qd-li .weui-cells {
+            margin-top: 0;
+        }
+        
+        #tab2 .weui-cells__title,
+        #tab3 .weui-cells__title {
+            margin-bottom: 0;
+            margin-top: 0;
+        }
+        
+        .hd-sk-li .weui-cell__ft {
+            width: 2.5rem
+        }
+        
+        .hd-sk-li .weui-cell__ft.ft {
+            font-size: 0.2rem
+        }
+        
+        .hd-sk-li,
+        .hd-qd-li {
+            margin-bottom: 0.2rem
+        }
+        
+        .weui-search-bar_focusing {
+            font-size: 0.3rem;
+        }
+        
+        .weui-btn.weui-btn_primary.qd {
+            font-size: 0.25rem;
+            background-color: #69c1ff;
+            padding: 0rem 0.4rem;
+            margin-left: 0.2rem;
+            border-radius: 0.4rem;
+            width: 2rem
+        }
+        
+        .weui-btn.weui-btn_primary.zt {
+            font-size: 0.25rem;
+            background-color: #69c1ff;
+            padding: 0rem 0.4rem;
+            margin-left: 0.2rem;
+            border-radius: 0.4rem;
+            width: 2rem;
+            margin-top: 0
+        }
+        
+        .weui-btn_primary.qd:not(.weui-btn_disabled):active,
+        .weui-btn_primary.zt:not(.weui-btn_disabled):active {
+            color: hsla(0, 0%, 100%, .6);
+            background-color: #0979c9
+        }
+        
+        .weui-search-bar__box.qd-box {
+            padding-top: 0.05rem;
+            padding-bottom: 0.05rem
+        }
+        
+        #tab3 .weui-search-bar__form:after,
+        #tab2 .weui-search-bar__form:after {
+            border-radius: 0.8rem;
+        }
+        
+        #tab3 .weui-cell__hd .iconfont.icon-qiahao {
+            -webkit-transform: scale(0.2, 0.2);
+            -ms-transform: scale(0.2, 0.2);
+            transform: scale(0.2, 0.2);
+            font-size: 0.2rem
+        }
+    </style>
+</head>
+
+<body ontouchstart>
+    <div class="weui-tab">
+        <div class="weui-navbar">
+            <div class="weui-navbar__item weui-bar__item--on" href="#detail">
+                活动详情
+            </div>
+            <div class="weui-navbar__item" href="#tab1">
+                商家详情
+            </div>
+            <div class="weui-navbar__item" href="#tab2">
+                售卡信息
+            </div>
+            <div class="weui-navbar__item" href="#tab3">
+                签到信息
+            </div>
+        </div>
+        <div class="weui-tab__bd">
+            <div id="detail" class="weui-tab__bd-item weui-tab__bd-item--active ">
+                <div class="hd-info-box">
+                    <div>
+                        <img src="./assets/images/logo.png" alt="">
+                    </div>
+                    <p>山西晋中榆次火力全开家居建材博览会</p>
+                    <p>负责人：蒲恩燚</p>
+                    <p>2016-04-01 - 2016-04-16</p>
+                    <p>活动地址:居然之家地下停车场（迎宾西街政府向西100米）</p>
+                </div>
+                <div class="hd-data-box">
+                    <div class="weui-flex">
+                        <div class="weui-flex__item">
+                            <p class="tag">活动状态</p>
+                            <div class="data data-on">进行中</div>
+                        </div>
+                        <div class="weui-flex__item">
+                            <p class="tag">活动商家</p>
+                            <div class="data">100家</div>
+                        </div>
+                        <div class="weui-flex__item">
+                            <p class="tag">已售卡</p>
+                            <div class="data">9999</div>
+                        </div>
+                    </div>
+                    <div class="weui-flex">
+                        <div class="weui-flex__item">
+                            <p class="tag">签到</p>
+                            <div class="data">9999</div>
+                        </div>
+                        <div class="weui-flex__item">
+                            <p class="tag">签到率</p>
+                            <div class="data">80.2%</div>
+                        </div>
+                        <div class="weui-flex__item">
+                            <p class="tag">签单量</p>
+                            <div class="data">9999</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hd-z-box">
+                    <div class="hd-z-li">
+                        <div class="weui-cells">
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-kehuxingming"></i>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    <p>执行人</p>
+                                </div>
+                                <div class="weui-cell__ft">123</div>
+                            </div>
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-zhiwei"></i>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    <p>职位</p>
+                                </div>
+                                <div class="weui-cell__ft">12321</div>
+                            </div>
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-lianxifangshi"></i>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    <p>联系电话</p>
+                                </div>
+                                <div class="weui-cell__ft">15848170643</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hd-z-li">
+                        <div class="weui-cells">
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-kehuxingming"></i>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    <p>执行人</p>
+                                </div>
+                                <div class="weui-cell__ft">123</div>
+                            </div>
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-zhiwei"></i>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    <p>职位</p>
+                                </div>
+                                <div class="weui-cell__ft">12321</div>
+                            </div>
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-lianxifangshi"></i>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    <p>联系电话</p>
+                                </div>
+                                <div class="weui-cell__ft">15848170643</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hd-img-box">
+                    <img class="img-li" src="./assets/images/logo.png" alt="">
+                </div>
+            </div>
+            <div id="tab1" class="weui-tab__bd-item weui-tab__bd-items weui-pull-to-refresh infinite">
+                <div class="weui-pull-to-refresh__layer">
+                    <div class='weui-pull-to-refresh__arrow'></div>
+                    <div class='weui-pull-to-refresh__preloader'></div>
+                    <div class="down">下拉刷新</div>
+                    <div class="up">释放刷新</div>
+                    <div class="refresh">正在刷新</div>
+                </div>
+                <div class="content-padded">
+                    <div class="hd-sj-li">
+                        <div class="weui-cells__title">
+                            <div class="weui-cells__title-1">商家1</div>
+                        </div>
+                        <div class="weui-cells">
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-kehuxingming"></i>
+                                </div>
+                                <div class="weui-cell__ft">
+                                    <p>联系人</p>
+                                </div>
+                                <div class="weui-cell__bd">123</div>
+                            </div>
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-lianxifangshi"></i>
+                                </div>
+                                <div class="weui-cell__ft">
+                                    <p>联系电话</p>
+                                </div>
+                                <div class="weui-cell__bd">123</div>
+                            </div>
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-dizhi"></i>
+                                </div>
+                                <div class="weui-cell__ft">
+                                    <p>商家地址</p>
+                                </div>
+                                <div class="weui-cell__bd">123</div>
+                            </div>
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-bianma"></i>
+                                </div>
+                                <div class="weui-cell__ft">
+                                    <p>商家编码</p>
+                                </div>
+                                <div class="weui-cell__bd">123</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hd-sj-li">
+                        <div class="weui-cells__title">
+                            <div class="weui-cells__title-1">商家1</div>
+                        </div>
+                        <div class="weui-cells">
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-kehuxingming"></i>
+                                </div>
+                                <div class="weui-cell__ft">
+                                    <p>联系人</p>
+                                </div>
+                                <div class="weui-cell__bd">123</div>
+                            </div>
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-lianxifangshi"></i>
+                                </div>
+                                <div class="weui-cell__ft">
+                                    <p>联系电话</p>
+                                </div>
+                                <div class="weui-cell__bd">123</div>
+                            </div>
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-dizhi"></i>
+                                </div>
+                                <div class="weui-cell__ft">
+                                    <p>商家地址</p>
+                                </div>
+                                <div class="weui-cell__bd">123</div>
+                            </div>
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-bianma"></i>
+                                </div>
+                                <div class="weui-cell__ft">
+                                    <p>商家编码</p>
+                                </div>
+                                <div class="weui-cell__bd">123</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hd-sj-li">
+                        <div class="weui-cells__title">
+                            <div class="weui-cells__title-1">商家1</div>
+                        </div>
+                        <div class="weui-cells">
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-kehuxingming"></i>
+                                </div>
+                                <div class="weui-cell__ft">
+                                    <p>联系人</p>
+                                </div>
+                                <div class="weui-cell__bd">123</div>
+                            </div>
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-lianxifangshi"></i>
+                                </div>
+                                <div class="weui-cell__ft">
+                                    <p>联系电话</p>
+                                </div>
+                                <div class="weui-cell__bd">123</div>
+                            </div>
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-dizhi"></i>
+                                </div>
+                                <div class="weui-cell__ft">
+                                    <p>商家地址</p>
+                                </div>
+                                <div class="weui-cell__bd">123</div>
+                            </div>
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-bianma"></i>
+                                </div>
+                                <div class="weui-cell__ft">
+                                    <p>商家编码</p>
+                                </div>
+                                <div class="weui-cell__bd">123</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="weui-loadmore">
+                    <i class="weui-loading"></i>
+                    <span class="weui-loadmore__tips">正在加载</span>
+                </div>
+                <div class="weui-nomore">
+                    <span class="weui-loadmore__tips">没有更多数据了...</span>
+                </div>
+                <div class="add-hd-bt-box">
+                    <a id="add-hd" href="./add-sj.html" class="weui-btn weui-btn_primary add-hd">添加商家</a>
+                </div>
+            </div>
+            <div id="tab2" class="weui-tab__bd-item weui-tab__bd-items weui-pull-to-refresh infinite">
+                <div class="weui-pull-to-refresh__layer">
+                    <div class='weui-pull-to-refresh__arrow'></div>
+                    <div class='weui-pull-to-refresh__preloader'></div>
+                    <div class="down">下拉刷新</div>
+                    <div class="up">释放刷新</div>
+                    <div class="refresh">正在刷新</div>
+                </div>
+                <div class="content-padded">
+                    <div class="weui-search-bar" id="searchBar">
+                        <form class="weui-search-bar__form" action="#">
+                            <div class="weui-search-bar__box qd-box">
+                                <i class="weui-icon-search"></i>
+                                <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索：电话/用户" required="">
+                                <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+                            </div>
+                            <!-- <label class="weui-search-bar__label" id="searchText" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);">
+                                    <i class="weui-icon-search"></i>
+                                    <span>搜索：电话/用户</span>
+                                  </label> -->
+                        </form>
+                        <a href="javascript:" class="weui-btn weui-btn_primary qd" id="searchCancel">搜索</a>
+                        <a href="javascript:" id="zt" class="weui-btn weui-btn_primary zt" id="searchCancel">状态</a>
+                    </div>
+                    <div class="weui-cells__title">
+                        <div class="weui-cells__title-1">已提交</div>
+                    </div>
+                    <div class="hd-sk-li">
+                        <div class="weui-cells">
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-kehuxingming"></i>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    <p>用户1</p>
+                                </div>
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-lianxifangshi"></i>
+                                </div>
+                                <div class="weui-cell__ft">
+                                    15848170643
+                                </div>
+                            </div>
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-gonghao"></i>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    <p>售卡人：某某</p>
+                                </div>
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-time"></i>
+                                </div>
+                                <div class="weui-cell__ft ft">
+                                    2018-02-03 14:23:01
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hd-sk-li">
+                        <div class="weui-cells">
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-kehuxingming"></i>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    <p>用户1</p>
+                                </div>
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-lianxifangshi"></i>
+                                </div>
+                                <div class="weui-cell__ft">
+                                    15848170643
+                                </div>
+                            </div>
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-gonghao"></i>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    <p>售卡人：某某</p>
+                                </div>
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-time"></i>
+                                </div>
+                                <div class="weui-cell__ft ft">
+                                    2018-02-03 14:23:01
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="weui-loadmore">
+                    <i class="weui-loading"></i>
+                    <span class="weui-loadmore__tips">正在加载</span>
+                </div>
+                <div class="weui-nomore">
+                    <span class="weui-loadmore__tips">没有更多数据了...</span>
+                </div>
+                <div class="add-hd-bt-box">
+                    <a id="add-hd" href="./add-info.html" class="weui-btn weui-btn_primary add-hd">录入售卡信息</a>
+                </div>
+            </div>
+            <div id="tab3" class="weui-tab__bd-item weui-tab__bd-items weui-pull-to-refresh infinite">
+                <div class="weui-pull-to-refresh__layer">
+                    <div class='weui-pull-to-refresh__arrow'></div>
+                    <div class='weui-pull-to-refresh__preloader'></div>
+                    <div class="down">下拉刷新</div>
+                    <div class="up">释放刷新</div>
+                    <div class="refresh">正在刷新</div>
+                </div>
+                <div class="content-padded">
+                    <div class="weui-search-bar weui-search-bar_focusing">
+                        <form class="weui-search-bar__form" action="#">
+                            <div class="weui-search-bar__box qd-box">
+                                <input type="text" class="weui-search-bar__input" id="qdInput" placeholder="输入卡号" required="">
+                                <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+                            </div>
+                        </form>
+                        <a href="javascript:" class="weui-btn weui-btn_primary qd" id="qd">签到</a>
+                    </div>
+                    <div class="weui-cells__title">
+                        <div class="weui-cells__title-1">已签到</div>
+                    </div>
+                    <div class="hd-qd-li">
+                        <div class="weui-cells">
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-kehuxingming"></i>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    <p>用户1</p>
+                                </div>
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-lianxifangshi"></i>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    15848170643
+                                </div>
+                            </div>
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-qiahao"></i>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    <p>123456789</p>
+                                </div>
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-gonghao"></i>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    售卡人：某某
+                                </div>
+                            </div>
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-dizhi"></i>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    <p>呼和浩特</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hd-qd-li">
+                        <div class="weui-cells">
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-kehuxingming"></i>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    <p>用户1</p>
+                                </div>
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-lianxifangshi"></i>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    15848170643
+                                </div>
+                            </div>
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-qiahao"></i>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    <p>123456789</p>
+                                </div>
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-gonghao"></i>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    售卡人：某某
+                                </div>
+                            </div>
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-dizhi"></i>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    <p>呼和浩特</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hd-qd-li">
+                        <div class="weui-cells">
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-kehuxingming"></i>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    <p>用户1</p>
+                                </div>
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-lianxifangshi"></i>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    15848170643
+                                </div>
+                            </div>
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-qiahao"></i>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    <p>123456789</p>
+                                </div>
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-gonghao"></i>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    售卡人：某某
+                                </div>
+                            </div>
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-dizhi"></i>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    <p>呼和浩特</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hd-qd-li">
+                        <div class="weui-cells">
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-kehuxingming"></i>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    <p>用户1</p>
+                                </div>
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-lianxifangshi"></i>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    15848170643
+                                </div>
+                            </div>
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-qiahao"></i>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    <p>123456789</p>
+                                </div>
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-gonghao"></i>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    售卡人：某某
+                                </div>
+                            </div>
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <i class="iconfont icon-dizhi"></i>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    <p>呼和浩特</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="weui-loadmore">
+                    <i class="weui-loading"></i>
+                    <span class="weui-loadmore__tips">正在加载</span>
+                </div>
+                <div class="weui-nomore">
+                    <span class="weui-loadmore__tips">没有更多数据了...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./js/jquery-2.1.4.js"></script>
+<script src="./js/fastclick.js"></script>
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+</script>
+<script src="./js/jquery-weui.js"></script>
+
+<script>
+    // 初始页面
+    var page1 = 2,
+        page2 = 2,
+        page3 = 2;
+    $('.weui-tab__bd-items').pullToRefresh().on('pull-to-refresh', function(done) {
+        var self = this
+            // type类型（1商家详情，2售卡信息，3签到信息）
+        var type = this.id == 'tab1' ? 1 : (this.id == 'tab2' ? 2 : (this.id == 'tab3' ? 3 : 1))
+        console.log(type)
+            // 此处模仿数据刷新,所有计时器只是用于异步获取数据，接口地址为真实的时候可以去掉计时器
+        $(self).find('.weui-nomore').css('display', 'none');
+        $.ajax({
+            url: 'http://172.30.1.115/kpi-mb/hd-index.html',
+            data: {
+                page: 1,
+                type: type
+            },
+            // dataType: 'json',
+            success: (d) => {
+                // 具体提示信息由后台提供
+                setTimeout(() => {
+                    if (true) {
+                        // 此处替换数据
+                        setTimeout(function() {
+                            $(self).pullToRefreshDone();
+                        }, 1000)
+                        self.loadnomore = false;
+                        self.id == 'tab1' ? page1 = 2 : (this.id == 'tab2' ? page2 = 2 : (this.id == 'tab3' ? page3 = 2 : page1 = 2))
+                    } else if (false) {
+                        // 没有更多数据
+                        $(self).find('.weui-nomore').css('display', 'block');
+                        self.loadnomore = true;
+                        setTimeout(function() {
+                            $(self).pullToRefreshDone();
+                        }, 1000)
+                    } else {
+                        self.loadnomore = false;
+                        $.toast('加载数据失败', 'text');
+                        setTimeout(function() {
+                            $(self).pullToRefreshDone();
+                        }, 1000)
+                    }
+                }, 1500);
+            },
+            error: () => {
+                self.loadnomore = false;
+                $.toast('服务器异常', 'text');
+                setTimeout(function() {
+                    $(self).pullToRefreshDone();
+                }, 2000)
+            }
+        })
+    })
+    $(".infinite").infinite().on("infinite", function() {
+        var self = this;
+        // type类型（1商家详情，2售卡信息，3签到信息）
+        var type = this.id == 'tab1' ? 1 : (this.id == 'tab2' ? 2 : (this.id == 'tab3' ? 3 : 1))
+            // console.log(type)
+            // 此处防止多次滚动加载数据
+        if (self.loading || self.loadnomore) return;
+        // console.log(self)
+        self.loading = true;
+        //加载数据
+        $(this).find('.weui-loadmore').css('display', 'block');
+        var page = this.id == 'tab1' ? page1 : (this.id == 'tab2' ? page2 : (this.id == 'tab3' ? page3 : page1))
+        $.ajax({
+            url: 'http://172.30.1.115/kpi-mb/hd-index.html',
+            data: {
+                page: page,
+                type: type
+            },
+            success: (d) => {
+                // 具体提示信息由后台提供
+                setTimeout(() => {
+                    if (false) {
+                        // 此处替换数据(需要根据类型替换)
+                        if (type == 1) {
+                            var html = `
+                            <div class="hd-sj-li">
+                                <div class="weui-cells__title">
+                                    <div class="weui-cells__title-1">商家1</div>
+                                </div>
+                                <div class="weui-cells">
+                                    <div class="weui-cell">
+                                        <div class="weui-cell__hd">
+                                            <i class="iconfont icon-kehuxingming"></i>
+                                        </div>
+                                        <div class="weui-cell__ft">
+                                            <p>联系人</p>
+                                        </div>
+                                        <div class="weui-cell__bd">123</div>
+                                    </div>
+                                    <div class="weui-cell">
+                                        <div class="weui-cell__hd">
+                                            <i class="iconfont icon-lianxifangshi"></i>
+                                        </div>
+                                        <div class="weui-cell__ft">
+                                            <p>联系电话</p>
+                                        </div>
+                                        <div class="weui-cell__bd">123</div>
+                                    </div>
+                                    <div class="weui-cell">
+                                        <div class="weui-cell__hd">
+                                            <i class="iconfont icon-dizhi"></i>
+                                        </div>
+                                        <div class="weui-cell__ft">
+                                            <p>商家地址</p>
+                                        </div>
+                                        <div class="weui-cell__bd">123</div>
+                                    </div>
+                                    <div class="weui-cell">
+                                        <div class="weui-cell__hd">
+                                            <i class="iconfont icon-bianma"></i>
+                                        </div>
+                                        <div class="weui-cell__ft">
+                                            <p>商家编码</p>
+                                        </div>
+                                        <div class="weui-cell__bd">123</div>
+                                    </div>
+                                </div>
+                            </div>
+                            `;
+                        } else if (type == 2) {
+                            var html = `
+                            <div class="hd-sk-li">
+                                <div class="weui-cells">
+                                    <div class="weui-cell">
+                                        <div class="weui-cell__hd">
+                                            <i class="iconfont icon-kehuxingming"></i>
+                                        </div>
+                                        <div class="weui-cell__bd">
+                                            <p>用户1</p>
+                                        </div>
+                                        <div class="weui-cell__hd">
+                                            <i class="iconfont icon-lianxifangshi"></i>
+                                        </div>
+                                        <div class="weui-cell__ft">
+                                            15848170643
+                                        </div>
+                                    </div>
+                                    <div class="weui-cell">
+                                        <div class="weui-cell__hd">
+                                            <i class="iconfont icon-gonghao"></i>
+                                        </div>
+                                        <div class="weui-cell__bd">
+                                            <p>售卡人：某某</p>
+                                        </div>
+                                        <div class="weui-cell__hd">
+                                            <i class="iconfont icon-time"></i>
+                                        </div>
+                                        <div class="weui-cell__ft ft">
+                                            2018-02-03 14:23:01
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            `;
+                        } else if (type == 3) {
+                            var html = `
+                            <div class="hd-qd-li">
+                                <div class="weui-cells">
+                                    <div class="weui-cell">
+                                        <div class="weui-cell__hd">
+                                            <i class="iconfont icon-kehuxingming"></i>
+                                        </div>
+                                        <div class="weui-cell__bd">
+                                            <p>用户1</p>
+                                        </div>
+                                        <div class="weui-cell__hd">
+                                            <i class="iconfont icon-lianxifangshi"></i>
+                                        </div>
+                                        <div class="weui-cell__bd">
+                                            15848170643
+                                        </div>
+                                    </div>
+                                    <div class="weui-cell">
+                                        <div class="weui-cell__hd">
+                                            <i class="iconfont icon-qiahao"></i>
+                                        </div>
+                                        <div class="weui-cell__bd">
+                                            <p>123456789</p>
+                                        </div>
+                                        <div class="weui-cell__hd">
+                                            <i class="iconfont icon-gonghao"></i>
+                                        </div>
+                                        <div class="weui-cell__bd">
+                                            售卡人：某某
+                                        </div>
+                                    </div>
+                                    <div class="weui-cell">
+                                        <div class="weui-cell__hd">
+                                            <i class="iconfont icon-dizhi"></i>
+                                        </div>
+                                        <div class="weui-cell__bd">
+                                            <p>呼和浩特</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            `;
+                        }
+                        setTimeout(function() {
+                            $(self).find(".content-padded").append(html);
+                            $(self).find('.weui-loadmore').css('display', 'none');
+                            self.loading = false;
+                            console.log(page)
+                            self.id == 'tab1' ? page1++ : (self.id == 'tab2' ? page2++ : (self.id == 'tab3' ? page3++ : page1++));
+                        }, 2000); //模拟延迟
+                    } else if (true) {
+                        // 没有更多数据了
+                        $(self).find('.weui-loadmore').css('display', 'none');
+                        $(self).find('.weui-nomore').css('display', 'block');
+                        self.loading = false;
+                        self.loadnomore = true;
+                    } else {
+                        $.toast('加载数据失败', 'text');
+                        $(self).find('.weui-loadmore').css('display', 'none');
+                        self.loading = false;
+                    }
+                }, 1500);
+            },
+            error: () => {
+                $.toast('服务器异常', 'text');
+                $(self).find('.weui-loadmore').css('display', 'none');
+                self.loading = false;
+            }
+        })
+    });
+    // 签到
+    $('#qd').click(() => {
+        var qdinfo = $('#qdInput').val()
+        if (qdinfo == '') {
+            $.toast('请输入卡号', 'text');
+            return false;
+        }
+        // 数据提交
+        $.showLoading('签到中...');
+        $.ajax({
+            url: 'http://172.30.1.115/kpi-mb/hd-index.html',
+            data: {
+                qdinfo: qdinfo
+            },
+            // dataType: 'json',
+            success: (d) => {
+
+                // 具体提示信息由后台提供
+                setTimeout(() => {
+                    $.hideLoading();
+                    if (true) {
+                        // 此处签到成功（局部刷新页面，将签到成功的一条数据返回，放到列表最前端）
+                        setTimeout(function() {
+
+                            $.toast('签到成功', 'text');
+                        }, 1000)
+                    } else {
+                        $.toast('签到失败', 'text');
+                    }
+                }, 1500);
+            },
+            error: () => {
+                $.hideLoading();
+                $.toast('服务器异常', 'text');
+            }
+        })
+    })
+    $(document).on("click", "#zt", function() {
+        $.actions({
+            actions: [{
+                text: "全部",
+                onClick: function() {
+                    $.ajax({
+                        url: '',
+                        data: '',
+                        method: 'post',
+                        success: function(d) {
+                            // 注销成功
+                            $.toast('操作成功', 'text');
+                        },
+                        error: function() {
+                            $.toast('服务器异常，稍后再试', 'text');
+                        }
+                    })
+                }
+            }, {
+                text: "已售出",
+                onClick: function() {
+                    //do something
+                }
+            }, {
+                text: "未售出",
+                onClick: function() {
+                    //do something
+                }
+            }]
+        });
+    });
+</script>
+
+</html>

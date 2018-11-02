@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../activity/css/weui.min.css">
+    <link rel="stylesheet" href="../activity/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="./css/jiemian.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+    <title>导购注册</title>
+</head>
+
+<body>
+    <!-- 加载动画 -->
+    <div class="lds-css ng-scope loading">
+        <div class="lds-spin">
+            <div>
+                <div></div>
+            </div>
+            <div>
+                <div></div>
+            </div>
+            <div>
+                <div></div>
+            </div>
+            <div>
+                <div></div>
+            </div>
+            <div>
+                <div></div>
+            </div>
+            <div>
+                <div></div>
+            </div>
+            <div>
+                <div></div>
+            </div>
+            <div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <div class="beijing">
+        <img src="./images/beijing2.png" alt="">
+    </div>
+    <div class="logo">
+        <img src="./images/logo1.png" alt="">
+    </div>
+    <div class="sign">
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">
+                        <img src="./images/name1.png" alt="">
+                    </label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input id="user" class="weui-input" type="text" placeholder="请输入姓名">
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">
+                        <img id="p-img" src="./images/phone1.png" alt="">
+                    </label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input id="tel" class="weui-input" type="tel" placeholder="请输入手机号">
+                </div>
+            </div>
+            <div class="weui-cell weui-cell_vcode">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">
+                        <img src="./images/code1.png" alt="">
+                    </label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input id="code" class="weui-input" type="number" placeholder="验证码">
+                </div>
+                <div class="weui-cell__ft" id="getcode">
+                    <button id="codetit" class="weui-vcode-btn">获取验证码</button>
+                </div>
+            </div>
+            <div class="weui-cell" id="sub">
+                <a href="signup2.html" class="weui-btn weui-btn_warn">下一步</a>
+            </div>
+        </div>
+    </div>
+    <script src="../activity/js/jquery-2.1.4.js"></script>
+    <script src="../activity/js/jquery-weui.min.js"></script>
+    <script src="./js/jiemian.js"></script>
+</body>
+
+</html>

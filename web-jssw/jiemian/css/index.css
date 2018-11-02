@@ -1,0 +1,342 @@
+body, html {
+    height: 100%;
+    -webkit-tap-highlight-color: transparent;
+    background-color: white;
+}
+body {
+    min-width: 320px;
+    max-width: 750px;
+    position: relative;
+    margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;
+}
+/* 导航 */
+.fa-user,.fa-trophy,.fa-home{
+    font-size: 27px;
+    color: #bbb;
+}
+.fa.fa-users{
+    font-size: 25px;
+    color: #bbb;
+}
+.weui-tabbar__item.weui-bar__item--on .weui-tabbar__label{
+    color: #ea3e3e;
+}
+.weui-tabbar__item.weui-bar__item--on .weui-tabbar__icon p{
+    color: #ea3e3e;
+}
+.weui-tabbar{
+    background-color: #fff;
+}
+.fa-users:before{
+    position: relative;
+    top: 2px;
+}
+/* 活动页面标题 */
+.tab1-header{
+    height: 25px;
+    padding: 10px 5px;
+}
+.tab1-header img{
+    vertical-align: -3px;
+    width: 15px;
+}
+.tab1-header span{
+    color: #e04c4c;
+}
+.weui-cell_select .weui-cell__bd:after{
+    content: "\f04b";
+    font-family: 'FontAwesome';
+    border: none;
+    transform: rotate(90deg);
+    font-size: 12px;
+    top: 40%;
+    right:0px
+}
+.tab1-header .weui-cell:before{
+    border: none;
+}
+.tab1-header .weui-cell_select{
+    float: right;
+    height: 25px;
+    line-height: 25px;
+    width: 30%;
+    overflow: hidden;
+}
+/* 活动页面列表 */
+.activity{
+    padding: 5px 5px 10px;
+    color: #333;
+}
+.activity .ac-f{
+    width: 100%;
+    /* height: 180px; */
+    display: block;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.ac-t{
+    background-color: #f0f0f0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.ac-t .weui-flex,.ac-t .ac-l{
+    padding: 5px ;
+}
+.ac-t .weui-flex .title{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    font-weight: bold;
+}
+.ac-t .weui-flex .riqi{
+    font-weight: bold;
+}
+.ac-t .ac-l .eye-p{
+    width: 15px;
+    vertical-align: 0.5px;
+}
+.ac-t .ac-l .share-p{
+    margin-left: 5px;
+    height: 12px;
+    vertical-align: 0.2px;
+}
+.ac-t .ac-l .cap-p{
+    margin-left: 5px;
+    width: 12px;
+    height: 15px;
+    vertical-align: -2px;
+}
+.clear{
+    height: 53px;
+}
+.weui-media-box:before{
+    left: 0;
+}
+.weui-panel__hd:after{
+    left: 0;
+}
+/* 页面2，我的客户 */
+#tab2 .weui-media-box:before{
+    border-top: 1px solid #dcdcdc
+}
+#tab2 .weui-media-box__hd{
+    width: 40px;
+    height: 40px;
+}
+#tab2 .weui-media-box__hd .weui-media-box__thumb{
+    border-radius: 20px
+}
+/* 页面2，排行榜 */
+#tab3 .weui-media-box__hd{
+    width: 40px;
+    height: 40px;
+}
+#tab3 .weui-media-box__hd .weui-media-box__thumb{
+    border-radius: 20px
+}
+#tab3 .money{
+    color:#e04c4c;
+}
+#tab3 .grade{
+    width: 45px;
+    text-align: center;
+    margin-right: 10px;
+}
+#tab3 .grade img{
+    width: 25px;
+}
+#tab3 .weui-panel__hd {
+    text-align: center;
+}
+#tab3 .weui-panel__hd .pm{
+    width: 45px;
+}
+#tab3 .weui-panel__hd .weui-flex{
+    color: #232323;
+    /* font-weight: bold; */
+    font-size: 17px;
+}
+.tab3-hd{
+    height: 45px;
+    line-height: 45px;
+    background-color: #e04c4c;
+    font-size: 20px;
+    color:#fff;
+    text-align: center;
+}
+/* 活动推广页面 */
+.tg-img{
+    height: 180px;
+    padding: 10px 5px;
+}
+.tg-img img{
+    display: block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+.tg-btn .weui-grid__icon{
+    width: 60px;
+    height: 60px;
+}
+.tg-btn .weui-grids:before {
+    border: none;
+}
+.tg-btn .weui-grid:after{
+    border: none;
+}
+.tg-btn .weui-grid:before{
+    border: none;
+}
+/* 个人中心 */
+#tab4{
+    /* padding: 0px 5px 10px; */
+    /* box-sizing: border-box; */
+}
+#tab4 .tab4-sta,
+.tab4-op{
+    padding: 0px 5px;
+}
+#tab4 .tab4-sta{
+    text-align: center;
+}
+/* #tab4 .tab4-sta .st1-img,#tab4 .tab4-sta .st1-s{
+    float: left;
+}
+#tab4 .tab4-sta .st2-img,#tab4 .tab4-sta .st2-s{
+    float: left;
+} */
+#tab4 .st1-s p,#tab4 .st2-s p,#tab4 .st3-s p{
+    margin-top: 5px;
+}
+#tab4 .st1-s .t1,#tab4 .st2-s .t1,#tab4 .st3-s .t1{
+    margin-top: 20px;
+}
+#tab4 .st1-s .t1{
+    color: #ff571a;
+    font-weight: 600
+}
+#tab4 .st2-s .t1{
+    color: #83bc2f;
+    font-weight: 600
+}
+#tab4 .st3-s .t1{
+    color: #ff9300;
+    font-weight: 600
+}
+#tab4 .tab4-sta .st1-img img,#tab4 .tab4-sta .st2-img img{
+    width: 30px;
+    display: block;
+    margin-top: 25px;
+    margin-right: 10px;
+}
+#tab4 .tab4-sta .st1-img img{
+    margin-top: 32px;
+}
+#tab4 .tab4-sta .weui-flex__item{
+    /* padding-left: 20px; */
+}
+#tab4 .weui-cell_access #in-ft:after{
+    border: none;
+}
+#tab4 .weui-cell_access #in-ft{
+    padding-right: 0;
+    margin-right: -5px
+}
+#tab4 .weui-cell:before{
+    left: 0;
+}
+#tab4 .weui-cells:before{
+    border: none;
+}
+#tab4 .weui-cells:after{
+    border: none;
+}
+#tab4 .op1{
+    background-color: #f2f2f2;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    margin-top:20px;
+}
+#tab4 .weui-cells {
+    margin-top: 0;
+}
+#tab4 .tab4-hd{
+    background-image: url(../images/s-bck.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+}
+#tab4 .tab4-hd .h-img{
+    height: 100px;
+    position: relative;
+}
+#tab4 .tab4-hd .h-img .weui-flex{
+    height: 100%;
+}
+#tab4 .tab4-hd .h-img .weui-flex__item{
+    background-color: #e04c4c;
+    height: 100%;
+}
+#tab4 .tab4-hd .h-img .h-left{
+    border-bottom-right-radius: 60px
+}
+#tab4 .tab4-hd .h-img .h-right{
+    border-bottom-left-radius: 60px
+}
+#tab4 .tab4-hd .h-img img{
+    position: absolute;
+    display: block;
+    /* padding: 5px; */
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    border-radius: 80px;
+    top:45px;
+}  
+#tab4 .tab4-hd .h-img .h-clear{
+    position: absolute;
+    top: 0;
+    background-color: #e04c4c;
+    height: 55px;
+    width: 100%;
+}
+#tab4 .tab4-hd .h-img .h-set{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+#tab4 .tab4-hd .h-img .h-set i{
+    padding: 5px;
+}
+#tab4 .h-des{
+    margin-top:30px;
+    padding-bottom: 30px;
+    text-align: center;
+    color: white;
+} 
+#tab4 .h-des .h-name{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 0 50px;
+}   
+#tab4 .h-des .h-tel{
+    margin-top: 5px;
+    font-size: 12px;
+}
+#tab4 .h-des .h-tel img{
+    width: 18px;
+    vertical-align: -1px;
+}

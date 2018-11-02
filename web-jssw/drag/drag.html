@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<!-- saved from url=(0074)http://www.jq22.com/demo/jqueryfreewall201806031501/example/draggable.html -->
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Dragable demo with freewall</title>
+
+    <meta name="description" content="Freewall demo for draggable">
+    <!-- <meta name="viewport" content="initial-scale=0.5; maximum-scale=0.5; user-scalable=0;"> -->
+    <meta name="keywords" content="javascript, dynamic, grid, layout, jquery plugin, flex layouts">
+    <link rel="icon" href="http://www.jq22.com/demo/jqueryfreewall201806031501/example/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="./Dragable/style.css">
+    <script type="text/javascript" src="./Dragable/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="./Dragable/freewall.js"></script>
+    <style type="text/css">
+        .free-wall {
+            margin: 15px;
+        }
+        
+        .cell {
+            cursor: move;
+        }
+        
+        .cell .cover {
+            padding: 15px;
+        }
+        
+        .handle {
+            border: 1px dotted orange;
+            padding: 4px
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="clearfix">
+            <div class="float-left">
+                <h1>
+                    <a href="http://vnjs.net/www/project/freewall/">Free Wall</a>
+                </h1>
+                <div class="target">Creating dynamic grid layouts.</div>
+            </div>
+        </div>
+    </div>
+    <div class="layout">
+        <div id="freewall" class="free-wall" data-min-width="1840" data-total-col="12" data-total-row="10" data-wall-width="1873" data-wall-height="1559" style="position: relative; height: 1559px;">
+            <div class="cell" style="width: 299.67px; height: 299.67px; background-color: rgb(142, 68, 173); position: absolute; opacity: 1; top: 0px; left: 0px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s;" data-handle=".handle" data-delay="1"
+                data-height="300" data-width="300" data-state="move" id="1-2">
+                <div class="cover">
+                    <div class="handle">Drag item handle</div>
+                </div>
+            </div>
+            <div class="cell" style="width: 142.33px; height: 299.67px; background-color: rgb(142, 68, 173); position: absolute; opacity: 1; top: 0px; left: 472px; z-index: auto; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s;" data-handle=".handle"
+                data-delay="2" data-height="300" data-width="142" data-state="move" data-position="0-3" id="2-2">
+                <div class="cover">
+                    <div class="handle">Drag item handle</div>
+                </div>
+            </div>
+            <div class="cell" style="width: 457px; height: 142.33px; background-color: rgb(142, 68, 173); position: absolute; opacity: 1; top: 0px; left: 629.33px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s;" data-handle=".handle" data-delay="3"
+                data-height="150" data-width="450" data-state="move" id="3-2">
+                <div class="cover">
+                    <div class="handle">Drag item handle</div>
+                </div>
+            </div>
+            <div class="cell" style="width: 142.33px; height: 142.33px; background-color: rgb(41, 128, 185); position: absolute; opacity: 1; top: 1258.67px; left: 1101.33px; z-index: auto; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s;" data-delay="4"
+                data-height="142" data-width="143" data-state="move" data-position="8-7" id="4-2">
+                <div class="cover">Demo draggable</div>
+            </div>
+            <div class="cell" style="width: 142.33px; height: 299.67px; background-color: rgb(41, 128, 185); position: absolute; opacity: 1; top: 0px; left: 314.67px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s;" data-delay="5" data-height="300"
+                data-width="150" data-state="move" id="5-2">
+                <div class="cover">Demo draggable</div>
+            </div>
+            <div class="cell" style="width: 142.33px; height: 299.67px; background-color: rgb(135, 0, 0); position: absolute; opacity: 1; top: 0px; left: 1101.33px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s;" data-delay="6" data-height="300"
+                data-width="150" data-state="move" id="6-2">
+                <div class="cover">Demo draggable</div>
+            </div>
+            <div class="cell" style="width: 142.33px; height: 142.33px; background-color: rgb(243, 156, 18); position: absolute; opacity: 1; top: 0px; left: 1258.67px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s;" data-delay="7" data-height="150"
+                data-width="150" data-state="move" id="7-2">
+                <div class="cover">Demo draggable</div>
+            </div>
+            <div class="cell" style="width: 457px; height: 142.33px; background-color: rgb(192, 57, 43); position: absolute; opacity: 1; top: 0px; left: 1416px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s;" data-delay="8" data-height="150"
+                data-width="450" data-state="move" id="8-2">
+                <div class="cover">Demo draggable</div>
+            </div>
+            <div class="cell" style="width: 142.33px; height: 299.67px; background-color: rgb(192, 57, 43); position: absolute; opacity: 1; top: 157.33px; left: 629.33px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s;" data-delay="9" data-height="300"
+                data-width="150" data-state="move" id="9-2">
+                <div class="cover">Demo draggable</div>
+            </div>
+            <div class="cell" style="width: 142.33px; height: 142.33px; background-color: rgb(0, 106, 63); position: absolute; opacity: 1; top: 157.33px; left: 786.67px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s;" data-delay="10" data-height="150"
+                data-width="150" data-state="move" id="10-2">
+                <div class="cover">Demo draggable</div>
+            </div>
+            <div class="cell" style="width: 142.33px; height: 299.67px; background-color: rgb(243, 156, 18); position: absolute; opacity: 1; top: 157.33px; left: 944px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s;" data-delay="11" data-height="300"
+                data-width="150" data-state="move" id="11-2">
+                <div class="cover">Demo draggable</div>
+            </div>
+            <div class="cell" style="width: 299.67px; height: 457px; background-color: rgb(135, 0, 0); position: absolute; opacity: 1; top: 157.33px; left: 1258.67px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s;" data-delay="12" data-height="450"
+                data-width="300" data-state="move" id="12-2">
+                <div class="cover">Demo draggable</div>
+            </div>
+            <div class="cell" style="width: 299.67px; height: 457px; background-color: rgb(135, 0, 0); position: absolute; opacity: 1; top: 157.33px; left: 1573.33px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s;" data-delay="13" data-height="450"
+                data-width="300" data-state="move" id="13-2">
+                <div class="cover">Demo draggable</div>
+            </div>
+            <div class="cell" style="width: 142.33px; height: 142.33px; background-color: rgb(192, 57, 43); position: absolute; opacity: 1; top: 314.67px; left: 0px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s;" data-delay="14" data-height="150"
+                data-width="150" data-state="move" id="14-2">
+                <div class="cover">Demo draggable</div>
+            </div>
+            <div class="cell" style="width: 142.33px; height: 142.33px; background-color: rgb(0, 106, 63); position: absolute; opacity: 1; top: 314.67px; left: 157.33px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s;" data-delay="15" data-height="150"
+                data-width="150" data-state="move" id="15-2">
+                <div class="cover">Demo draggable</div>
+            </div>
+            <div class="cell" style="width: 457px; height: 142.33px; background-color: rgb(243, 156, 18); position: absolute; opacity: 1; top: 472px; left: 0px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s;" data-delay="16" data-height="150"
+                data-width="450" data-state="move" id="16-2">
+                <div class="cover">Demo draggable</div>
+            </div>
+            <div class="cell" style="width: 457px; height: 299.67px; background-color: rgb(135, 0, 0); position: absolute; opacity: 1; top: 629.33px; left: 0px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s;" data-delay="17" data-height="300"
+                data-width="450" data-state="move" id="17-2">
+                <div class="cover">Demo draggable</div>
+            </div>
+            <div class="cell" style="width: 457px; height: 457px; background-color: rgb(211, 84, 0); position: absolute; opacity: 1; top: 629.33px; left: 944px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s;" data-delay="18" data-height="450"
+                data-width="450" data-state="move" id="18-2">
+                <div class="cover">Demo draggable</div>
+            </div>
+            <div class="cell" style="width: 457px; height: 457px; background-color: rgb(135, 0, 0); position: absolute; opacity: 1; top: 629.33px; left: 1416px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s;" data-delay="19" data-height="450"
+                data-width="450" data-state="move" id="19-2">
+                <div class="cover">Demo draggable</div>
+            </div>
+            <div class="cell" style="width: 299.67px; height: 142.33px; background-color: rgb(39, 174, 96); position: absolute; opacity: 1; top: 314.67px; left: 314.67px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s;" data-delay="20" data-height="150"
+                data-width="300" data-state="move" id="20-2">
+                <div class="cover">Demo draggable</div>
+            </div>
+            <div class="cell" style="width: 142.33px; height: 142.33px; background-color: rgb(0, 106, 63); position: absolute; opacity: 1; top: 786.67px; left: 786.67px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s;" data-delay="21" data-height="150"
+                data-width="450" data-state="move" id="21-2">
+                <div class="cover">Demo draggable</div>
+            </div>
+            <div class="cell" style="width: 457px; height: 299.67px; background-color: rgb(39, 174, 96); position: absolute; opacity: 1; top: 944px; left: 0px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s;" data-delay="22" data-height="300"
+                data-width="450" data-state="move" id="22-2">
+                <div class="cover">Demo draggable</div>
+            </div>
+            <div class="cell" style="width: 457px; height: 457px; background-color: rgb(243, 156, 18); position: absolute; opacity: 1; top: 944px; left: 472px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s;" data-delay="23" data-height="450"
+                data-width="450" data-state="move" id="23-2">
+                <div class="cover">Demo draggable</div>
+            </div>
+            <div class="cell" style="width: 142.33px; height: 142.33px; background-color: rgb(135, 0, 0); position: absolute; opacity: 1; top: 1101.33px; left: 944px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s;" data-delay="24" data-height="150"
+                data-width="450" data-state="move" id="24-2">
+                <div class="cover">Demo draggable</div>
+            </div>
+            <div class="cell" style="width: 142.33px; height: 457px; background-color: rgb(39, 174, 96); position: absolute; opacity: 1; top: 314.67px; left: 786.67px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s;" data-delay="25" data-height="450"
+                data-width="150" data-state="move" id="25-2">
+                <div class="cover">Demo draggable</div>
+            </div>
+            <div class="cell" style="width: 299.67px; height: 142.33px; background-color: rgb(243, 156, 18); position: absolute; opacity: 1; top: 472px; left: 472px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s;" data-delay="26" data-height="150"
+                data-width="300" data-state="move" id="26-2">
+                <div class="cover">Demo draggable</div>
+            </div>
+            <div class="cell" style="width: 299.67px; height: 142.33px; background-color: rgb(211, 84, 0); position: absolute; opacity: 1; top: 472px; left: 944px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s;" data-delay="27" data-height="150"
+                data-width="300" data-state="move" id="27-2">
+                <div class="cover">Demo draggable</div>
+            </div>
+            <div class="cell" style="width: 142.33px; height: 142.33px; background-color: rgb(135, 0, 0); position: absolute; opacity: 1; top: 314.67px; left: 1101.33px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s;" data-delay="28" data-height="150"
+                data-width="150" data-state="move" id="28-2">
+                <div class="cover">Demo draggable</div>
+            </div>
+            <div class="cell" style="width: 299.67px; height: 299.67px; background-color: rgb(0, 106, 63); position: absolute; opacity: 1; top: 629.33px; left: 472px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s;" data-delay="29" data-height="300"
+                data-width="300" data-state="move" id="29-2">
+                <div class="cover">Demo draggable</div>
+            </div>
+            <div class="cell" style="width: 457px; height: 457px; background-color: rgb(39, 174, 96); position: absolute; opacity: 1; top: 1101.33px; left: 1416px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s;" data-delay="30" data-height="450"
+                data-width="450" data-state="move" id="30-2">
+                <div class="cover">Demo draggable</div>
+            </div>
+            <div class="cell" style="width: 299.67px; height: 142.33px; background-color: rgb(192, 57, 43); position: absolute; opacity: 1; top: 1101.33px; left: 1101.33px; transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s, opacity 0.5s;" data-delay="31" data-height="150"
+                data-width="300" data-state="move" id="31-2">
+                <div class="cover">Demo draggable</div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var temp = "<div class='cell' style='width:{width}px; height: {height}px; background-color: {color}'><div class='cover'>Demo draggable</div></div>";
+        var colour = [
+            "rgb(243, 156, 18)",
+            "rgb(211, 84, 0)",
+            "rgb(0, 106, 63)",
+            "rgb(41, 128, 185)",
+            "rgb(192, 57, 43)",
+            "rgb(135, 0, 0)",
+            "rgb(39, 174, 96)"
+        ];
+
+        var w = 1,
+            h = 1,
+            color = '',
+            limitItem = 28;
+        for (var i = 0; i < limitItem; ++i) {
+            h = 1 + 3 * Math.random() << 0;
+            w = 1 + 3 * Math.random() << 0;
+            color = colour[colour.length * Math.random() << 0];
+            html = temp.replace(/\{height\}/g, h * 150).replace(/\{width\}/g, w * 150).replace("{color}", color);
+            $("#freewall").append(html);
+        }
+
+
+        var wall = new Freewall("#freewall");
+        wall.reset({
+            draggable: true,
+            selector: '.cell',
+            animate: true,
+            cellW: 150,
+            cellH: 150,
+            onResize: function() {
+                wall.refresh();
+            },
+            onBlockMove: function() {
+                console.log(this);
+            }
+        });
+        wall.fitWidth();
+        // for scroll bar appear;
+        $(window).trigger("resize");
+    </script>
+
+
+</body>
+
+</html>

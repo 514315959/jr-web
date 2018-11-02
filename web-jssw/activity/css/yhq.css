@@ -1,0 +1,180 @@
+body,
+        html {
+            height: 100%;
+            -webkit-tap-highlight-color: transparent;
+            background-color: white;
+        }
+        
+        body {
+            min-width: 320px;
+            max-width: 750px;
+            position: relative;
+            margin-top: 0;
+            margin-right: auto;
+            margin-bottom: 0;
+            margin-left: auto;
+            background-color: white;
+        }
+        /* 头部 页面1*/
+        
+        #page1 .logo {
+            padding: 10px 10px;
+        }
+        
+        #page1 .h-t {
+            padding: 0px 10px 10px;
+        }
+        
+        #page1 .logo img {
+            width: 50%;
+        }
+        
+        #page1 .h-t img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        #page1 .h-t .h-price p {
+            font-size: 0.3rem;
+            color: #eb3b44;
+        }
+        
+        #page1 .h-t .h-title {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            margin-right: 10px;
+        }
+        
+        #page1 .h-t .h-price {
+            text-align: right;
+        }
+        
+        #page1 .h-t .h-title p {
+            font-size: 0.3rem
+        }
+        
+        #page1 .h-t .weui-flex {
+            padding-top: 5px;
+            font-weight: 600;
+        }
+        
+        #page1 .h-t .h-price .h-sale {
+            font-size: 0.4rem;
+        }
+        /* 优惠券 */
+        
+        #page1 .quan {
+            padding: 0px 10px 10px;
+        }
+        
+        #page1 .quan img {
+            width: 100%;
+        }
+        /* 其他产品 */
+        
+        #page1 .other-goods {
+            padding: 0px 10px 10px;
+            color: #333333;
+        }
+        
+        #page1 .o-t p {
+            font-size: 0.3rem;
+        }
+        
+        #page1 .other-goods .list-img img {
+            width: 100%;
+            display: block;
+            /* vertical-align: top; */
+        }
+        /* 底部 */
+        
+        #page1 .footer {
+            text-align: center;
+            padding-bottom: 20px
+        }
+        
+        #page1 .footer p {
+            color: #333333;
+            font-size: 0.3rem;
+        }
+        /* 页面1结束 */
+        /* 导航及页面2 */
+        /* 导航 */
+        
+        .weui-tabbar__item.weui-bar__item--on .weui-tabbar__label {
+            color: #ea3e3e;
+        }
+        
+        .weui-tabbar__item.weui-bar__item--on .weui-tabbar__icon p {
+            color: #ea3e3e;
+        }
+        
+        .weui-tabbar {
+            z-index: 9;
+            background-color: #fff;
+        }
+        
+        .weui-tabbar a {
+            font-size: 25px;
+            color: #bbb;
+        }
+        
+        .icon-Group-,
+        .icon-hongbao,
+        .icon-paixingbang {
+            font-size: 25px
+        }
+        
+        .icon-Group-:before {
+            position: relative;
+            top: 2px;
+        }
+        
+        .weui-tabbar a.hb-box {
+            position: relative;
+        }
+        
+        .weui-tabbar__icon.hb {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            top: -22px;
+            padding: 10px;
+            border-radius: 50%;
+            background-color: #fff;
+        }
+        
+        .weui-tabbar a.hb-box .weui-tabbar__label {
+            margin-top: 30px;
+        }
+        
+        .icon-hongbao {
+            font-size: 40px
+        }
+        
+        #page2 {
+            height: 100%;
+        }
+        
+        #page2 .hb-bck {
+            /* height: 100%; */
+            background-image: url(../images/hb-bck-code.png);
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        
+        #page2 .hb-bck img {
+            width: 45.3%;
+            position: absolute;
+            top: 50.6%;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+        }
+        /* 页面2结束 */

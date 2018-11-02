@@ -1,0 +1,104 @@
+body, html {
+    height: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+body {
+    min-width: 320px;
+    max-width: 750px;
+    position: relative;
+    margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;
+}
+section{
+    height: 100%;
+    position: relative;
+    background-image: url(../images/dz-bck.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+}
+section .weui-panel .weui-media-box__hd{
+    width: 40px;
+    height: 40px;
+}
+section .weui-media-box__hd .weui-media-box__thumb{
+    border-radius: 20px
+}
+section .num{
+    text-align: center;
+    width: 55px;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
+    white-space: nowrap;
+}
+section .num .weui-media-box__title{
+    color: #e71f19;
+    font-size: 20px
+}
+section .num .weui-media-box__desc{
+    color: #e04c4c;
+}
+section .grade{
+    width: 45px;
+    text-align: center;
+    margin-right: 10px;
+}
+section .grade img{
+    width: 25px;
+}
+section .grade span{
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    padding: 3px;
+    background-color: #f36a66;
+    border-radius: 12px;
+    color: white;
+}
+section .weui-panel__hd {
+    text-align: center;
+}
+section .weui-panel__hd .pm{
+    width: 45px;
+}
+section .weui-panel__hd .weui-flex{
+    color: #232323;
+    /* font-weight: bold; */
+    font-size: 17px;
+}
+section .tab3-hd{
+    height: 45px;
+    line-height: 45px;
+    background-color: #e04c4c;
+    font-size: 20px;
+    color:#fff;
+    text-align: center;
+}
+section .weui-panel_access{
+    height: 70%;
+    width: 93.7%;
+    position: absolute;
+    top:25%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    overflow-y: auto;
+    background-color: transparent;
+}
+section .weui-panel:before{
+    border: none;
+}
+section .weui-panel:after{
+    border: none;
+}
+section .weui-panel__bd .weui-media-box:before {
+    border-top: 1px solid #f1e0d1;
+    left: 0;
+}
+section .weui-media-box__bd .weui-media-box__desc{
+    margin-top: 2px
+}

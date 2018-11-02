@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no,width=device-width,initial-scale=1,maximum-scale=1">
+    <meta name="format-detection" content="telephone=yes" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>居然欢乐购</title>
+    <link rel="stylesheet" type="text/css" href="./css/jquery-weui.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/weui.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/swiper.css">
+    <link rel="stylesheet" type="text/css" href="./css/app.css">
+    <link rel="stylesheet" type="text/css" href="./css/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="./css/fl.css">
+    <style>
+        body,
+        html {
+            height: 100%;
+            -webkit-tap-highlight-color: transparent;
+            background-color: white;
+        }
+        
+        .weui-navbar p {
+            margin: 0 auto;
+            font-size: 0.35rem;
+            padding: 5px;
+        }
+        
+        .weui-navbar {
+            text-align: center
+        }
+        /* 导航 */
+        
+        .weui-tabbar__item.weui-bar__item--on .weui-tabbar__label {
+            color: #ea3e3e;
+        }
+        
+        .weui-tabbar__item.weui-bar__item--on .weui-tabbar__icon p {
+            color: #ea3e3e;
+        }
+        
+        .weui-tabbar {
+            z-index: 9;
+            background-color: #fff;
+        }
+        
+        .weui-tabbar a {
+            font-size: 25px;
+            color: #bbb;
+        }
+        
+        .icon-Group-,
+        .icon-hongbao,
+        .icon-paixingbang {
+            font-size: 25px
+        }
+        
+        .icon-Group-:before {
+            position: relative;
+            top: 2px;
+        }
+        
+        .weui-tabbar a.hb-box {
+            position: relative;
+        }
+        
+        .weui-tabbar__icon.hb {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            top: -22px;
+            padding: 10px;
+            border-radius: 50%;
+            background-color: #fff;
+        }
+        
+        .weui-tabbar a.hb-box .weui-tabbar__label {
+            margin-top: 30px;
+        }
+        
+        .icon-hongbao {
+            font-size: 40px
+        }
+        
+        #page2 {
+            height: 100%;
+        }
+        
+        #page2 .hb-bck {
+            /* height: 100%;
+            background-image: url(./images/hb-bck-code.png);
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat; */
+            position: relative;
+        }
+        
+        #page2 .hb-qrimg {
+            position: absolute;
+            top: 22.4%;
+            right: 8.4%;
+            width: 17.6%;
+            height: 7.8%;
+        }
+        
+        #page2 .hb-qrimg img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .animate span {
+            display: inline;
+        }
+        
+        .animate span.ntit {
+            display: inline-block;
+        }
+        
+        .bp-box {
+            /* width: 94%;
+            margin: 0 auto; */
+            overflow: hidden;
+        }
+        
+        .bp-box .bp-li {
+            width: 46%;
+            box-sizing: border-box;
+            margin: 0 2%;
+            float: left;
+            background-color: #f2f4f6;
+            padding-bottom: 0.05rem;
+            margin-top: 0.1rem
+        }
+        
+        .bp-box .bp-li:active {
+            background-color: #eef4fa5e
+        }
+        
+        .bp-box .bp-li .bp-info .info-1 .t1 {
+            font-size: 0.25rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            height: 0.4rem;
+            line-height: 0.4rem;
+            white-space: nowrap;
+            color: #222
+        }
+        
+        .bp-box .bp-li .bp-info .info-1 .t2 {
+            font-size: 0.2rem;
+            text-decoration: line-through;
+            color: #888888;
+            margin-top: 0.1rem
+        }
+        
+        .bp-box .bp-li .bp-info .info-2 .t1 {
+            font-size: 0.3rem;
+            width: 60%;
+            box-sizing: border-box;
+            float: left;
+            color: #e72019
+        }
+        
+        .bp-box .bp-li .bp-info .info-2 .t2 {
+            font-size: 0.2rem;
+            width: 40%;
+            box-sizing: border-box;
+            float: left;
+            background-color: #e72019;
+            color: white;
+            padding: 0.1rem;
+            border-radius: 0.15rem;
+            text-align: center;
+        }
+        
+        .bp-box .bp-li .bp-info .info-1 {
+            padding: 0.1rem
+        }
+        
+        .bp-box .bp-li .bp-info .info-2 {
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 0.1rem 0.2rem 0.1rem 0.1rem
+        }
+        
+        .more {
+            font-size: 0.3rem;
+        }
+        
+        .div_more {
+            padding: 0.2rem 0
+        }
+    </style>
+    <script type="text/javascript">
+        new function() {
+            var _self = this;
+            console.log(this);
+            _self.width = 750; //设置默认最大宽度
+            _self.fontSize = 100; //默认字体大小
+            _self.widthProportion = function() {
+                var p = (document.body && document.body.clientWidth || document.getElementsByTagName("html")[0].offsetWidth) / _self.width;
+                return p > 1 ? 1 : p < 0.32 ? 0.32 : p;
+            };
+            _self.changePage = function() {
+                document.getElementsByTagName("html")[0].setAttribute("style", "font-size:" + _self.widthProportion() * _self.fontSize + "px !important");
+            }
+            _self.changePage();
+            window.addEventListener('resize', function() {
+                _self.changePage();
+            }, false);
+        };
+    </script>
+</head>
+
+<body>
+    <div class="weui-tab">
+        <div class="weui-tab__bd">
+            <div id="page1" class="weui-tab__bd-item weui-tab__bd-item--active">
+                <!-- 活动头部公共部分 -->
+                <header>
+                    <!-- 头部轮播 -->
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="sw-list swiper-slide">
+                                <img src="./images/zc/4.jpg" alt="">
+                            </div>
+                            <!-- <div class="sw-list swiper-slide">
+                        <img src="./images/zhs.jpg" alt="">
+                    </div> -->
+                        </div>
+                        <!-- Add Pagination -->
+                        <!-- <div class="swiper-pagination"></div> -->
+                        <!-- Add Arrows -->
+                        <!-- <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div> -->
+                    </div>
+                    <!-- 活动标题 -->
+                    <div class="title-1">
+                        <p>8月25日居然欢乐购北京站，豪华大奖，嗨欢全场！</p>
+                    </div>
+                    <!-- 热门指数 -->
+                    <div class="hot">
+                        <p class="hp1">热门指数：
+                            <span class="iconfont icon-star"></span>
+                            <span class="iconfont icon-star"></span>
+                            <span class="iconfont icon-star"></span>
+                            <span class="iconfont icon-star"></span>
+                            <span class="iconfont icon-star"></span>
+                        </p>
+                        <!-- <img src="./images/wujiaox.png" alt=""> -->
+                        <p class="hp2">
+                            <img src="./images/people.png" alt="">
+                            <span style="color:#E72237">123</span> 人次已浏览
+                        </p>
+                    </div>
+                    <!-- 倒计时 -->
+                    <div class="count_down" style="background-image:url(./images/count-back.png);">
+                        <span class="count-t">活动倒计时：</span>
+                        <span class="day_num"></span>
+                        <i>天</i>
+                        <span class="hour_num"></span>
+                        <i>时</i>
+                        <span class="min_num"></span>
+                        <i>分</i>
+                        <span class="sec_num"></span>
+                        <i>秒</i>
+                    </div>
+                    <!-- 活动概况（时间，地点，转发次数） -->
+                    <div class="about">
+                        <p class="a-left">正在火热报名中</p>
+                        <p class="a-right">已转发12123次</p>
+                        <div class="detail">
+                            <div class="weui-cells">
+                                <div class="weui-cell">
+                                    <div class="weui-cell__bd">
+                                        <p>活动时间：</p>
+                                    </div>
+                                    <div class="weui-cell__ft">2018年8月25日</div>
+                                </div>
+                                <div class="weui-cell">
+                                    <div class="weui-cell__bd">
+                                        <p>联系电话：</p>
+                                    </div>
+                                    <div class="weui-cell__ft">0471-6546540</div>
+                                </div>
+                                <a class="weui-cell weui-cell_access" href="javascript:;">
+                                    <div class="weui-cell__bd">
+                                        <p>活动地址：</p>
+                                    </div>
+                                    <div class="weui-cell__ft">北京市朝阳区大丰坊路106号</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 报名列表 -->
+                    <div class="container">
+                        <div class="weui-cells">
+                            <a class="weui-cell weui-cell_access" href="javascript:totalup();">
+                                <div class="weui-cell__hd">
+                                    <img class="sign-img" src="./images/sign-img.png" alt="">
+                                </div>
+                                <div class="weui-cell__bd">
+                                    <p class="sign-in">实时报名</p>
+                                </div>
+                                <div class="weui-cell__ft">
+                                    <p class="num">1232人报名</p>
+                                    所有报名
+                                </div>
+                            </a>
+                        </div>
+                        <div class="animate" id="box">
+                            <ul id="cont1">
+                                <li>
+                                    <div class="s-logo">
+                                        <img src="./images/zhs.jpg" alt="">
+                                    </div>
+                                    <span class="ntit">李先生</span>
+                                    <span class="phone">186******60</span>
+                                    <span class="span">已拼购</span>
+                                </li>
+                                <li>
+                                    <div class="s-logo">
+                                        <img src="./images/zhs.jpg" alt="">
+                                    </div>
+                                    <span class="ntit">李先生</span>
+                                    <span class="phone">186******60</span>
+                                    <span class="span">已拼购</span>
+                                </li>
+                            </ul>
+                            <ul id="cont2"></ul>
+                        </div>
+                        <!-- 展示所有报名 -->
+                        <div id="total-sign" class="weui-popup__container popup-bottom">
+                            <div class="weui-popup__overlay"></div>
+                            <div class="weui-popup__modal">
+                                <div class="weui-cells">
+                                    <div class="weui-cell">
+                                        <div class="weui-cell__hd">
+                                            <img class="sign-img" src="./images/sign-img.png" alt="">
+                                        </div>
+                                        <div class="weui-cell__bd">
+
+                                            <p class="sign-in">已报名用户</p>
+                                        </div>
+                                        <div class="weui-cell__ft">
+                                            <p class="num">1232人已报名</p>
+                                            <a href="javascript:;" class="picker-button close-popup">关闭</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="animate">
+                                    <ul>
+                                        <li>
+                                            <div class="s-logo">
+                                                <img src="./images/zhs.jpg" alt="">
+                                            </div>
+                                            <span class="ntit">李先生</span>
+                                            <span class="phone">186******60</span>
+                                            <span class="span">已拼购</span>
+                                        </li>
+                                        <li>
+                                            <div class="s-logo">
+                                                <img src="./images/zhs.jpg" alt="">
+                                            </div>
+                                            <span class="ntit">李先生</span>
+                                            <span class="phone">186******60</span>
+                                            <span class="span">已拼购</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="baomin" class="container baomin">
+                        <div class="weui-cells">
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <img class="sign-img" src="./images/sign-img.png" alt="">
+                                </div>
+                                <div class="weui-cell__bd">
+                                    <p class="sign-in">填写你的信息</p>
+                                </div>
+                                <!-- <div class="weui-cell__ft">
+                            <p class="num">12个品牌</p>
+                        </div> -->
+                            </div>
+                        </div>
+                        <div class="weui-cells weui-cells_form">
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <label class="weui-label">姓名</label>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    <input id="user" class="weui-input" type="text" placeholder="请输入您的姓名">
+                                </div>
+                            </div>
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">
+                                    <label class="weui-label">手机号</label>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    <input id="tel" class="weui-input" type="tel" placeholder="请输入手机号">
+                                </div>
+                            </div>
+                            <div class="weui-cell">
+                                <a id="sub1" onclick="insert()" href="javascript:;" class="weui-btn weui-btn_primary">立即报名</a>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <!-- 音乐部分 -->
+                <div id="right-music">
+                    <img id="musicpng" src="./images/music.gif" alt="">
+                    <audio id="music" loop="loop" autoplay="autoplay">
+                        <!-- <source src="." type="audio/ogg" /> -->
+                        <source src="./assets/audio1.mp3" type="audio/mpeg" /> Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <!-- 左侧回到顶部 -->
+                <div id="back-to-top">
+                    <img src="./images/top.png" alt="">
+                    <!-- <a href="">12323</a> -->
+                </div>
+                <!-- 右侧点赞部分 -->
+                <div id="flex-right" style="z-index:9;">
+                    <div class="user-top">
+                        <div class="user-logo">
+                            <img src="./images/banner_2.jpg" alt="">
+                        </div>
+                        <div class="user-des">
+                            <p class="p1">我是雷火</p>
+                            <p class="p2">我为
+                                <span style="color:#CF4E5A;font-weight: bold;">芝华仕沙发</span>代言
+                            </p>
+                        </div>
+                    </div>
+                    <div class="dianzan">
+                        <p>
+                            <span id="dz-num">13</span>
+                        </p>
+                        <p>
+                            赞
+                        </p>
+                        <img src="./images/zan.png" alt="" id="clickzan" class="btn-help">
+                    </div>
+                    <div style="clear:both;"></div>
+                    <div id="toright"></div>
+                </div>
+                <!-- 活动详情部分 -->
+                <div style="width:94%; margin:0 auto" id="activeled">
+                    <div style="margin:10px 0; ">
+                        <div class="mini_border">
+                            <div class="mini_second"></div>
+                        </div>
+                        <div class="mini_text">活动亮点</div>
+                    </div>
+                    <style>
+                        .outer img {
+                            width: 100%
+                        }
+                    </style>
+                    <div class="outer">
+                        <img src="./images/zc/1.jpg"><br>
+                        <img src="./images/zc/2.jpg"><br>
+                    </div>
+                </div>
+                <!-- 代码部分begin -->
+                <div style="width:94%; margin:25px auto 0 auto;" id="pintype">
+                    <div style="margin:10px 0; ">
+                        <div class="mini_border">
+                            <div class="mini_second"></div>
+                        </div>
+                        <div class="mini_text">展示品牌</div>
+                    </div>
+                </div>
+                <div class="w_b">
+                    <div class="brand" style="width:94%; margin:0 auto; padding:10px 0;">
+                        <div style="width:100%">
+                            <div id="brand_menu" class="brand_all active">全部品牌</div>
+                            <div class="brand_min">本届/历届参展品牌（排名不分先后）</div>
+                            <div style="clear:both"></div>
+                        </div>
+                        <div>
+                            <div class="tabs">
+                                <a>卫浴/瓷砖</a>
+                                <a>地板/木门</a>
+                                <a>橱柜/定制</a>
+                                <a>电器/舒适</a>
+                                <a>家具/软体</a>
+                                <!-- <a>墙面材料</a>
+                                <a>装修公司</a> -->
+                                <a>综合材料</a>
+                                <div style="clear:both"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrap">
+                    <div id="brand_content" class="allcontent pincontent">
+                        <div style="width:100%; overflow:hidden;" id="brand_content_0">
+
+                        </div>
+                        <div class="div_more">
+                            <a id="brand_more" class="more" catid="0" page="2" total="3">查看更多</a>
+                        </div>
+                    </div>
+                    <div class="allcontent pincontent">
+                        <div class="swiper-container1 pinlist" style="display: none;">
+                            <div style="width:100%; overflow:hidden;" id="brand_content_12">
+                                <div class="swiper-slide">
+                                    <div class="swiper-slide">
+                                        <div class="swiper-slide">
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/wy/wy (1).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/wy/wy (2).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/wy/wy (3).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/wy/wy (4).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/wy/wy (5).jpg">
+                                            </li>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="swiper-slide">
+                                        <div class="swiper-slide">
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/wy/wy (6).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/wy/wy (7).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/wy/wy (8).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/wy/wy (9).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/wy/wy (10).jpg">
+                                            </li>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-container2 pinlist" style="display: none;">
+                            <div style="width:100%; overflow:hidden;" id="brand_content_13">
+                                <div class="swiper-slide">
+                                    <div class="swiper-slide">
+                                        <div class="swiper-slide">
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/db/db (1).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/db/db (2).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/db/db (3).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/db/db (4).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/db/db (5).jpg">
+                                            </li>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-container3 pinlist" style="display: none;">
+                            <div style="width:100%; overflow:hidden;" id="brand_content_14">
+                                <div class="swiper-slide">
+                                    <div class="swiper-slide">
+                                        <div class="swiper-slide">
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/cg/cg (1).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/cg/cg (2).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/cg/cg (3).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/cg/cg (4).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/cg/cg (5).jpg">
+                                            </li>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="swiper-slide">
+                                        <div class="swiper-slide">
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/cg/cg (6).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/cg/cg (7).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/cg/cg (8).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/cg/cg (9).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/cg/cg (10).jpg">
+                                            </li>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="swiper-slide">
+                                        <div class="swiper-slide">
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/cg/cg (11).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/cg/cg (12).jpg">
+                                            </li>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-container4 pinlist" style="display: none;">
+                            <div style="width:100%; overflow:hidden;" id="brand_content_15">
+                                <div class="swiper-slide">
+                                    <div class="swiper-slide">
+                                        <div class="swiper-slide">
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/dq/dq (1).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/dq/dq (2).jpg">
+                                            </li>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-container5 pinlist" style="display: none;">
+                            <div style="width:100%; overflow:hidden;" id="brand_content_16">
+                                <div class="swiper-slide">
+                                    <div class="swiper-slide">
+                                        <div class="swiper-slide">
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/jj/jj (1).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/jj/jj (2).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/jj/jj (3).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/jj/jj (4).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/jj/jj (5).jpg">
+                                            </li>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="swiper-slide">
+                                        <div class="swiper-slide">
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/jj/jj (6).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/jj/jj (7).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/jj/jj (8).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/jj/jj (9).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/jj/jj (10).jpg">
+                                            </li>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="swiper-slide">
+                                        <div class="swiper-slide">
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/jj/jj (11).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/jj/jj (12).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/jj/jj (13).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/jj/jj (14).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/jj/jj (15).jpg">
+                                            </li>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="swiper-slide">
+                                        <div class="swiper-slide">
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/jj/jj (16).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/jj/jj (17).jpg">
+                                            </li>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-container6 pinlist" style="display: none;">
+                            <div style="width:100%; overflow:hidden;" id="brand_content_17">
+                                <div class="swiper-slide">
+                                    <div class="swiper-slide">
+                                        <div class="swiper-slide">
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/zh/zh (1).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/zh/zh (2).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/zh/zh (3).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/zh/zh (4).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/zh/zh (5).jpg">
+                                            </li>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="swiper-slide">
+                                        <div class="swiper-slide">
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/zh/zh (6).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/zh/zh (7).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/zh/zh (8).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/zh/zh (9).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/zh/zh (10).jpg">
+                                            </li>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="swiper-slide">
+                                        <div class="swiper-slide">
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/zh/zh (11).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/zh/zh (12).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/zh/zh (13).jpg">
+                                            </li>
+                                            <li class="zjjs_ex">
+                                                <img src="./images/pinpai/zh/zh (14).jpg">
+                                            </li>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 产品 begin -->
+                <div style="width:94%; margin:25px auto 0 auto;" id="pintype">
+                    <div style="margin:10px 0; ">
+                        <div class="mini_border">
+                            <div class="mini_second"></div>
+                        </div>
+                        <div class="mini_text">拼购产品</div>
+                    </div>
+                </div>
+                <div class="wrap">
+                    <div id="pro_content" class="allcontentss pincontent">
+                        <div style="width:100%; overflow:hidden;" id="pro_content_0">
+                            <div class="pro_li">
+                                <div class="pro_li_img">
+                                    <img src="./images/thumb_100_100_20180505040029399.jpg" style="width:100%">
+                                </div>
+                                <div class="pri_c_t">
+                                    <div class="pri_c_t_1">凯迪仕智能锁K7</div>
+                                    <div class="pri_c_t_2">
+                                        <span id="tpri830">市场价：2880元</span><br>家博价：<span style="color:red; font-size:0.25rem;">2599元</span>
+                                    </div>
+                                </div>
+                                <div class="pro_li_yue"><a style="padding: 0 18px;" class="suopiaotan">一键拼购</a></div>
+                            </div>
+                        </div>
+                        <!-- <div class="div_more" id="pro_more_0">
+                            <a class="promore" catid="0" page="2" total="29">查看更多</a>
+                        </div> -->
+                    </div>
+                </div>
+                <!-- 产品 end -->
+                <!-- 爆品 start -->
+                <div style="width:94%; margin:25px auto 0 auto;" id="pintype">
+                    <div style="margin:10px 0; ">
+                        <div class="mini_border">
+                            <div class="mini_second"></div>
+                        </div>
+                        <div class="mini_text">活动爆品</div>
+                    </div>
+                </div>
+                <div class="w_b">
+                    <div class="brand" style="width:94%; margin:0 auto; padding:10px 0;">
+                        <div style="width:100%">
+                            <div id="bp_menu" class="brand_all active">全部爆品</div>
+                            <div class="brand_min">本届/历届爆品（排名不分先后）</div>
+                            <div style="clear:both"></div>
+                        </div>
+                        <div>
+                            <div class="bptabsss">
+                                <a class="">卫浴/瓷砖</a>
+                                <a class="">地板/木门</a>
+                                <a>橱柜/定制</a>
+                                <a>电器/舒适</a>
+                                <a>家具/软体</a>
+                                <a>综合材料</a>
+                                <div style="clear:both"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bp-box">
+                    <div id="bp_content" class="bp_allcontentss pincontent">
+                        <div style="width:100%; overflow:hidden;" id="bp_content_0">
+                        </div>
+                        <div class="div_more" id="pro_more_0">
+                            <a id="bp_more" class="more" catid="0" page="2" total="29">查看更多</a>
+                        </div>
+                    </div>
+                    <div class="bp_allcontentss pincontent" id="bp_allcontentss">
+                    </div>
+                </div>
+                <!-- 爆品 end-->
+                <!-- 优惠券 begin -->
+                <div style="width:94%; margin:25px auto 0 auto;" id="pintype">
+                    <div style="margin:10px 0; ">
+                        <div class="mini_border">
+                            <div class="mini_second"></div>
+                        </div>
+                        <div class="mini_text">优惠券</div>
+                    </div>
+                </div>
+                <div class="wrap">
+                    <div id="coupon_content" class="coupon_allcontentss pincontent">
+                        <div style="width:100%; overflow:hidden;" id="coupon_content_0">
+                            <div class="coupon_content">
+                                <div class="coupon_left">
+                                    <div class="coupon_img"><img src="./images/20180801103705654.jpg"></div>
+                                    <div class="coupon_title"><span id="c_title231">红苹果家具</span><br><span class="red">满9999元使用</span><br><em>仅限家博会现场使用</em></div>
+                                </div>
+                                <div class="coupon_right">
+                                    <div class="coupon_price"><span>￥</span>200</div>
+                                    <div class="coupon_ling" onclick="coupontan(231,200)">点击领取</div>
+                                </div>
+                            </div>
+                            <div class="coupon_content">
+                                <div class="coupon_left">
+                                    <div class="coupon_img"><img src="./images/20180730041506175.jpg"></div>
+                                    <div class="coupon_title"><span id="c_title230">钛马迪</span><br><span class="red">满5000元使用</span><br><em>仅限家博会现场使用</em></div>
+                                </div>
+                                <div class="coupon_right">
+                                    <div class="coupon_price"><span>￥</span>200</div>
+                                    <div class="coupon_ling" onclick="coupontan(230,200)">点击领取</div>
+                                </div>
+                            </div>
+                            <div class="coupon_content">
+                                <div class="coupon_left">
+                                    <div class="coupon_img"><img src="./images/20180730034136826.jpg"></div>
+                                    <div class="coupon_title"><span id="c_title228">七彩门窗</span><br><span class="red">满5000元使用</span><br><em>仅限家博会现场使用</em></div>
+                                </div>
+                                <div class="coupon_right">
+                                    <div class="coupon_price"><span>￥</span>100</div>
+                                    <div class="coupon_ling" onclick="coupontan(228,100)">点击领取</div>
+                                </div>
+                            </div>
+                            <div class="coupon_content">
+                                <div class="coupon_left">
+                                    <div class="coupon_img"><img src="./images/20180726023742170.jpg"></div>
+                                    <div class="coupon_title"><span id="c_title215">方太电器</span><br><span class="red">满3999元使用</span><br><em>仅限家博会现场使用</em></div>
+                                </div>
+                                <div class="coupon_right">
+                                    <div class="coupon_price"><span>￥</span>100</div>
+                                    <div class="coupon_ling" onclick="coupontan(215,100)">点击领取</div>
+                                </div>
+                            </div>
+                            <div class="coupon_content">
+                                <div class="coupon_left">
+                                    <div class="coupon_img"><img src="./images/20180730033941383.jpg"></div>
+                                    <div class="coupon_title"><span id="c_title227">尚品宅配</span><br><span class="red">满10000元</span><br><em>仅限家博会现场使用</em></div>
+                                </div>
+                                <div class="coupon_right">
+                                    <div class="coupon_price"><span>￥</span>500</div>
+                                    <div class="coupon_ling" onclick="coupontan(227,500)">点击领取</div>
+                                </div>
+                            </div>
+                            <div class="coupon_content">
+                                <div class="coupon_left">
+                                    <div class="coupon_img"><img src="./images/20180726114833744.jpg"></div>
+                                    <div class="coupon_title"><span id="c_title213">易红堂</span><br><span class="red">满20000元使用</span><br><em>仅限家博会现场使用</em></div>
+                                </div>
+                                <div class="coupon_right">
+                                    <div class="coupon_price"><span>￥</span>500</div>
+                                    <div class="coupon_ling" onclick="coupontan(213,500)">点击领取</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="div_more" id="coupon_more_0">
+                            <a class="couponmore" catid="0" page="2" total="8">查看更多</a>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="daojishi" id="c_tanchuang" style="display:none; position:relative; width:85%; padding-bottom: 10px;">
+                    <a id="close" href="javascript:$(&#39;#c_tanchuang&#39;).close();" style="position:absolute; right:0;"><img src="./images/c-g.png" style="width:20px"></a>
+                    <form method="post" action="http://www.jiashifu.cn/jiabo_bj/index.php?m=formguide&amp;c=index&amp;a=show&amp;formid=14&amp;siteid=1" name="myform4" id="myform4">
+                        <div class="suopiao_cont">
+                            <div id="c_tiptitle" style="font-size:17px; text-align:center;"></div>
+                        </div>
+                        <div class="suopiao_phone"><input type="tel" id="tel4" name="info[tel]" placeholder="请输入手机号" value="" class="input-text phone"></div>
+                        <div class="suopiao_sub"><a onclick="yanzheng(4);"> 免费领取（数量有限） </a></div>
+                        <input type="hidden" name="info[proname]" id="c_lookhouse" value="">
+                        <input type="hidden" name="info[type]" value="2">
+                        <input type="hidden" name="info[price]" id="price">
+                    </form>
+                </div>
+                <div>
+                    <img width="100%" src="./images/zc/3.jpg" alt="">
+                </div>
+                <!-- 优惠券 end -->
+                <div style="width: 100%;height:53px;"></div>
+            </div>
+            <div id="page2" class="weui-tab__bd-item">
+                <div class="hb-bck">
+                    <img src="./images/hb3.jpg" alt="">
+                    <div class="hb-qrimg">
+                        <img src="./images/qrcode.png" alt="">
+                    </div>
+                </div>
+                <div class="page2-clear" style="width: 100%;height: 53px;"></div>
+            </div>
+            <div id="page3" class="weui-tab__bd-item">
+                <div class="sec-dzp">
+                    <header>
+                        <img src="./images/dzp-logo.png" alt="">
+                    </header>
+                    <div class="container-dzp">
+                        <div class="pm">
+                            <div class="weui-panel weui-panel_access">
+                                <div class="weui-panel__bd">
+                                    <p class="pm-empty">暂无排行数据</p>
+                                    <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                                        <div class="grade">
+                                            <img src="./images/f1.png" alt="">
+                                        </div>
+                                        <div class="weui-media-box__hd">
+                                            <img class="weui-media-box__thumb" src="./images/user-1.png" alt="">
+                                        </div>
+                                        <div class="weui-media-box__bd">
+                                            <h4 class="weui-media-box__title">标题一</h4>
+                                            <p class="weui-media-box__desc">15848170643</p>
+                                        </div>
+                                        <div class="num">
+                                            <h4 class="weui-media-box__title">
+                                                <i class="fa fa-thumbs-o-up"></i>
+                                            </h4>
+                                            <p class="weui-media-box__desc">1234567</p>
+                                        </div>
+                                    </a>
+                                    <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                                        <div class="grade">
+                                            <img src="./images/f2.png" alt="">
+                                        </div>
+                                        <div class="weui-media-box__hd">
+                                            <img class="weui-media-box__thumb" src="./images/user-2.png" alt="">
+                                        </div>
+                                        <div class="weui-media-box__bd">
+                                            <h4 class="weui-media-box__title">标题二</h4>
+                                            <p class="weui-media-box__desc">15848170643</p>
+                                        </div>
+                                        <div class="num">
+                                            <h4 class="weui-media-box__title">
+                                                <i class="fa fa-thumbs-o-up"></i>
+                                            </h4>
+                                            <p class="weui-media-box__desc">17</p>
+                                        </div>
+                                    </a>
+                                    <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                                        <div class="grade">
+                                            <img src="./images/f3.png" alt="">
+                                        </div>
+                                        <div class="weui-media-box__hd">
+                                            <img class="weui-media-box__thumb" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAeFBMVEUAwAD///+U5ZTc9twOww7G8MYwzDCH4YcfyR9x23Hw+/DY9dhm2WZG0kbT9NP0/PTL8sux7LFe115T1VM+zz7i+OIXxhes6qxr2mvA8MCe6J6M4oz6/frr+us5zjn2/fa67rqB4IF13XWn6ad83nxa1loqyirn+eccHxx4AAAC/klEQVRo3u2W2ZKiQBBF8wpCNSCyLwri7v//4bRIFVXoTBBB+DAReV5sG6lTXDITiGEYhmEYhmEYhmEYhmEY5v9i5fsZGRx9PyGDne8f6K9cfd+mKXe1yNG/0CcqYE86AkBMBh66f20deBc7wA/1WFiTwvSEpBMA2JJOBsSLxe/4QEEaJRrASP8EVF8Q74GbmevKg0saa0B8QbwBdjRyADYxIhqxAZ++IKYtciPXLQVG+imw+oo4Bu56rjEJ4GYsvPmKOAB+xlz7L5aevqUXuePWVhvWJ4eWiwUQ67mK51qPj4dFDMlRLBZTqF3SDvmr4BwtkECu5gHWPkmDfQh02WLxXuvbvC8ku8F57GsI5e0CmUwLz1kq3kD17R1In5816rGvQ5VMk5FEtIiWislTffuDpl/k/PzscdQsv8r9qWq4LRWX6tQYtTxvI3XyrwdyQxChXioOngH3dLgOFjk0all56XRi/wDFQrGQU3Os5t0wJu1GNtNKHdPqYaGYQuRDfbfDf26AGLYSyGS3ZAK4S8XuoAlxGSdYMKwqZKM9XJMtyqXi7HX/CiAZS6d8bSVUz5J36mEMFDTlAFQzxOT1dzLRljjB6+++ejFqka+mXIe6F59mw22OuOw1F4T6lg/9VjL1rLDoI9Xzl1MSYDNHnPQnt3D1EE7PrXjye/3pVpr1Z45hMUdcACc5NVQI0bOdS1WA0wuz73e7/5TNqBPhQXPEFGJNV2zNqWI7QKBd2Gn6AiBko02zuAOXeWIXjV0jNqdKegaE/kJQ6Bfs4aju04lMLkA2T5wBSYPKDGF3RKhFYEa6A1L1LG2yacmsaZ6YPOSAMKNsO+N5dNTfkc5Aqe26uxHpx7ZirvgCwJpWq/lmX1hA7LyabQ34tt5RiJKXSwQ+0KU0V5xg+hZrd4Bn1n4EID+WkQdgLfRNtvil9SPfwy+WQ7PFBWQz6dGWZBLkeJFXZGCfLUjCgGgqXo5TuSu3cugdcTv/HjqnBTEMwzAMwzAMwzAMwzAMw/zf/AFbXiOA6frlMAAAAABJRU5ErkJggg=="
+                                                alt="">
+                                        </div>
+                                        <div class="weui-media-box__bd">
+                                            <h4 class="weui-media-box__title">标题二十分士大夫士大夫</h4>
+                                            <p class="weui-media-box__desc">15848170643</p>
+                                        </div>
+                                        <div class="num">
+                                            <h4 class="weui-media-box__title">
+                                                <i class="fa fa-thumbs-o-up"></i>
+                                            </h4>
+                                            <p class="weui-media-box__desc">167</p>
+                                        </div>
+                                    </a>
+                                    <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                                        <div class="grade">
+                                            <span>4</span>
+                                        </div>
+                                        <div class="weui-media-box__hd">
+                                            <img class="weui-media-box__thumb" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAeFBMVEUAwAD///+U5ZTc9twOww7G8MYwzDCH4YcfyR9x23Hw+/DY9dhm2WZG0kbT9NP0/PTL8sux7LFe115T1VM+zz7i+OIXxhes6qxr2mvA8MCe6J6M4oz6/frr+us5zjn2/fa67rqB4IF13XWn6ad83nxa1loqyirn+eccHxx4AAAC/klEQVRo3u2W2ZKiQBBF8wpCNSCyLwri7v//4bRIFVXoTBBB+DAReV5sG6lTXDITiGEYhmEYhmEYhmEYhmEY5v9i5fsZGRx9PyGDne8f6K9cfd+mKXe1yNG/0CcqYE86AkBMBh66f20deBc7wA/1WFiTwvSEpBMA2JJOBsSLxe/4QEEaJRrASP8EVF8Q74GbmevKg0saa0B8QbwBdjRyADYxIhqxAZ++IKYtciPXLQVG+imw+oo4Bu56rjEJ4GYsvPmKOAB+xlz7L5aevqUXuePWVhvWJ4eWiwUQ67mK51qPj4dFDMlRLBZTqF3SDvmr4BwtkECu5gHWPkmDfQh02WLxXuvbvC8ku8F57GsI5e0CmUwLz1kq3kD17R1In5816rGvQ5VMk5FEtIiWislTffuDpl/k/PzscdQsv8r9qWq4LRWX6tQYtTxvI3XyrwdyQxChXioOngH3dLgOFjk0all56XRi/wDFQrGQU3Os5t0wJu1GNtNKHdPqYaGYQuRDfbfDf26AGLYSyGS3ZAK4S8XuoAlxGSdYMKwqZKM9XJMtyqXi7HX/CiAZS6d8bSVUz5J36mEMFDTlAFQzxOT1dzLRljjB6+++ejFqka+mXIe6F59mw22OuOw1F4T6lg/9VjL1rLDoI9Xzl1MSYDNHnPQnt3D1EE7PrXjye/3pVpr1Z45hMUdcACc5NVQI0bOdS1WA0wuz73e7/5TNqBPhQXPEFGJNV2zNqWI7QKBd2Gn6AiBko02zuAOXeWIXjV0jNqdKegaE/kJQ6Bfs4aju04lMLkA2T5wBSYPKDGF3RKhFYEa6A1L1LG2yacmsaZ6YPOSAMKNsO+N5dNTfkc5Aqe26uxHpx7ZirvgCwJpWq/lmX1hA7LyabQ34tt5RiJKXSwQ+0KU0V5xg+hZrd4Bn1n4EID+WkQdgLfRNtvil9SPfwy+WQ7PFBWQz6dGWZBLkeJFXZGCfLUjCgGgqXo5TuSu3cugdcTv/HjqnBTEMwzAMwzAMwzAMwzAMw/zf/AFbXiOA6frlMAAAAABJRU5ErkJggg=="
+                                                alt="">
+                                        </div>
+                                        <div class="weui-media-box__bd">
+                                            <h4 class="weui-media-box__title">标题二十分士大夫士大夫</h4>
+                                            <p class="weui-media-box__desc">15848170643</p>
+                                        </div>
+                                        <div class="num">
+                                            <h4 class="weui-media-box__title">
+                                                <i class="fa fa-thumbs-o-up"></i>
+                                            </h4>
+                                            <p class="weui-media-box__desc">1234567</p>
+                                        </div>
+                                    </a>
+                                    <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                                        <div class="grade">
+                                            <span>5</span>
+                                        </div>
+                                        <div class="weui-media-box__hd">
+                                            <img class="weui-media-box__thumb" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAeFBMVEUAwAD///+U5ZTc9twOww7G8MYwzDCH4YcfyR9x23Hw+/DY9dhm2WZG0kbT9NP0/PTL8sux7LFe115T1VM+zz7i+OIXxhes6qxr2mvA8MCe6J6M4oz6/frr+us5zjn2/fa67rqB4IF13XWn6ad83nxa1loqyirn+eccHxx4AAAC/klEQVRo3u2W2ZKiQBBF8wpCNSCyLwri7v//4bRIFVXoTBBB+DAReV5sG6lTXDITiGEYhmEYhmEYhmEYhmEY5v9i5fsZGRx9PyGDne8f6K9cfd+mKXe1yNG/0CcqYE86AkBMBh66f20deBc7wA/1WFiTwvSEpBMA2JJOBsSLxe/4QEEaJRrASP8EVF8Q74GbmevKg0saa0B8QbwBdjRyADYxIhqxAZ++IKYtciPXLQVG+imw+oo4Bu56rjEJ4GYsvPmKOAB+xlz7L5aevqUXuePWVhvWJ4eWiwUQ67mK51qPj4dFDMlRLBZTqF3SDvmr4BwtkECu5gHWPkmDfQh02WLxXuvbvC8ku8F57GsI5e0CmUwLz1kq3kD17R1In5816rGvQ5VMk5FEtIiWislTffuDpl/k/PzscdQsv8r9qWq4LRWX6tQYtTxvI3XyrwdyQxChXioOngH3dLgOFjk0all56XRi/wDFQrGQU3Os5t0wJu1GNtNKHdPqYaGYQuRDfbfDf26AGLYSyGS3ZAK4S8XuoAlxGSdYMKwqZKM9XJMtyqXi7HX/CiAZS6d8bSVUz5J36mEMFDTlAFQzxOT1dzLRljjB6+++ejFqka+mXIe6F59mw22OuOw1F4T6lg/9VjL1rLDoI9Xzl1MSYDNHnPQnt3D1EE7PrXjye/3pVpr1Z45hMUdcACc5NVQI0bOdS1WA0wuz73e7/5TNqBPhQXPEFGJNV2zNqWI7QKBd2Gn6AiBko02zuAOXeWIXjV0jNqdKegaE/kJQ6Bfs4aju04lMLkA2T5wBSYPKDGF3RKhFYEa6A1L1LG2yacmsaZ6YPOSAMKNsO+N5dNTfkc5Aqe26uxHpx7ZirvgCwJpWq/lmX1hA7LyabQ34tt5RiJKXSwQ+0KU0V5xg+hZrd4Bn1n4EID+WkQdgLfRNtvil9SPfwy+WQ7PFBWQz6dGWZBLkeJFXZGCfLUjCgGgqXo5TuSu3cugdcTv/HjqnBTEMwzAMwzAMwzAMwzAMw/zf/AFbXiOA6frlMAAAAABJRU5ErkJggg=="
+                                                alt="">
+                                        </div>
+                                        <div class="weui-media-box__bd">
+                                            <h4 class="weui-media-box__title">标题二</h4>
+                                            <p class="weui-media-box__desc">15848170643</p>
+                                        </div>
+                                        <div class="num">
+                                            <h4 class="weui-media-box__title">
+                                                <i class="fa fa-thumbs-o-up"></i>
+                                            </h4>
+                                            <p class="weui-media-box__desc">1234567</p>
+                                        </div>
+                                    </a>
+                                    <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                                        <div class="grade">
+                                            <span>6</span>
+                                        </div>
+                                        <div class="weui-media-box__hd">
+                                            <img class="weui-media-box__thumb" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAeFBMVEUAwAD///+U5ZTc9twOww7G8MYwzDCH4YcfyR9x23Hw+/DY9dhm2WZG0kbT9NP0/PTL8sux7LFe115T1VM+zz7i+OIXxhes6qxr2mvA8MCe6J6M4oz6/frr+us5zjn2/fa67rqB4IF13XWn6ad83nxa1loqyirn+eccHxx4AAAC/klEQVRo3u2W2ZKiQBBF8wpCNSCyLwri7v//4bRIFVXoTBBB+DAReV5sG6lTXDITiGEYhmEYhmEYhmEYhmEY5v9i5fsZGRx9PyGDne8f6K9cfd+mKXe1yNG/0CcqYE86AkBMBh66f20deBc7wA/1WFiTwvSEpBMA2JJOBsSLxe/4QEEaJRrASP8EVF8Q74GbmevKg0saa0B8QbwBdjRyADYxIhqxAZ++IKYtciPXLQVG+imw+oo4Bu56rjEJ4GYsvPmKOAB+xlz7L5aevqUXuePWVhvWJ4eWiwUQ67mK51qPj4dFDMlRLBZTqF3SDvmr4BwtkECu5gHWPkmDfQh02WLxXuvbvC8ku8F57GsI5e0CmUwLz1kq3kD17R1In5816rGvQ5VMk5FEtIiWislTffuDpl/k/PzscdQsv8r9qWq4LRWX6tQYtTxvI3XyrwdyQxChXioOngH3dLgOFjk0all56XRi/wDFQrGQU3Os5t0wJu1GNtNKHdPqYaGYQuRDfbfDf26AGLYSyGS3ZAK4S8XuoAlxGSdYMKwqZKM9XJMtyqXi7HX/CiAZS6d8bSVUz5J36mEMFDTlAFQzxOT1dzLRljjB6+++ejFqka+mXIe6F59mw22OuOw1F4T6lg/9VjL1rLDoI9Xzl1MSYDNHnPQnt3D1EE7PrXjye/3pVpr1Z45hMUdcACc5NVQI0bOdS1WA0wuz73e7/5TNqBPhQXPEFGJNV2zNqWI7QKBd2Gn6AiBko02zuAOXeWIXjV0jNqdKegaE/kJQ6Bfs4aju04lMLkA2T5wBSYPKDGF3RKhFYEa6A1L1LG2yacmsaZ6YPOSAMKNsO+N5dNTfkc5Aqe26uxHpx7ZirvgCwJpWq/lmX1hA7LyabQ34tt5RiJKXSwQ+0KU0V5xg+hZrd4Bn1n4EID+WkQdgLfRNtvil9SPfwy+WQ7PFBWQz6dGWZBLkeJFXZGCfLUjCgGgqXo5TuSu3cugdcTv/HjqnBTEMwzAMwzAMwzAMwzAMw/zf/AFbXiOA6frlMAAAAABJRU5ErkJggg=="
+                                                alt="">
+                                        </div>
+                                        <div class="weui-media-box__bd">
+                                            <h4 class="weui-media-box__title">标题</h4>
+                                            <p class="weui-media-box__desc">15848170643</p>
+                                        </div>
+                                        <div class="num">
+                                            <h4 class="weui-media-box__title">
+                                                <i class="fa fa-thumbs-o-up"></i>
+                                            </h4>
+                                            <p class="weui-media-box__desc">1</p>
+                                        </div>
+                                    </a>
+                                    <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                                        <div class="grade">
+                                            <span>7</span>
+                                        </div>
+                                        <div class="weui-media-box__hd">
+                                            <img class="weui-media-box__thumb" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAeFBMVEUAwAD///+U5ZTc9twOww7G8MYwzDCH4YcfyR9x23Hw+/DY9dhm2WZG0kbT9NP0/PTL8sux7LFe115T1VM+zz7i+OIXxhes6qxr2mvA8MCe6J6M4oz6/frr+us5zjn2/fa67rqB4IF13XWn6ad83nxa1loqyirn+eccHxx4AAAC/klEQVRo3u2W2ZKiQBBF8wpCNSCyLwri7v//4bRIFVXoTBBB+DAReV5sG6lTXDITiGEYhmEYhmEYhmEYhmEY5v9i5fsZGRx9PyGDne8f6K9cfd+mKXe1yNG/0CcqYE86AkBMBh66f20deBc7wA/1WFiTwvSEpBMA2JJOBsSLxe/4QEEaJRrASP8EVF8Q74GbmevKg0saa0B8QbwBdjRyADYxIhqxAZ++IKYtciPXLQVG+imw+oo4Bu56rjEJ4GYsvPmKOAB+xlz7L5aevqUXuePWVhvWJ4eWiwUQ67mK51qPj4dFDMlRLBZTqF3SDvmr4BwtkECu5gHWPkmDfQh02WLxXuvbvC8ku8F57GsI5e0CmUwLz1kq3kD17R1In5816rGvQ5VMk5FEtIiWislTffuDpl/k/PzscdQsv8r9qWq4LRWX6tQYtTxvI3XyrwdyQxChXioOngH3dLgOFjk0all56XRi/wDFQrGQU3Os5t0wJu1GNtNKHdPqYaGYQuRDfbfDf26AGLYSyGS3ZAK4S8XuoAlxGSdYMKwqZKM9XJMtyqXi7HX/CiAZS6d8bSVUz5J36mEMFDTlAFQzxOT1dzLRljjB6+++ejFqka+mXIe6F59mw22OuOw1F4T6lg/9VjL1rLDoI9Xzl1MSYDNHnPQnt3D1EE7PrXjye/3pVpr1Z45hMUdcACc5NVQI0bOdS1WA0wuz73e7/5TNqBPhQXPEFGJNV2zNqWI7QKBd2Gn6AiBko02zuAOXeWIXjV0jNqdKegaE/kJQ6Bfs4aju04lMLkA2T5wBSYPKDGF3RKhFYEa6A1L1LG2yacmsaZ6YPOSAMKNsO+N5dNTfkc5Aqe26uxHpx7ZirvgCwJpWq/lmX1hA7LyabQ34tt5RiJKXSwQ+0KU0V5xg+hZrd4Bn1n4EID+WkQdgLfRNtvil9SPfwy+WQ7PFBWQz6dGWZBLkeJFXZGCfLUjCgGgqXo5TuSu3cugdcTv/HjqnBTEMwzAMwzAMwzAMwzAMw/zf/AFbXiOA6frlMAAAAABJRU5ErkJggg=="
+                                                alt="">
+                                        </div>
+                                        <div class="weui-media-box__bd">
+                                            <h4 class="weui-media-box__title">标题</h4>
+                                            <p class="weui-media-box__desc">15848170643</p>
+                                        </div>
+                                        <div class="num">
+                                            <h4 class="weui-media-box__title">
+                                                <i class="fa fa-thumbs-o-up"></i>
+                                            </h4>
+                                            <p class="weui-media-box__desc">1</p>
+                                        </div>
+                                    </a>
+                                    <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                                        <div class="grade">
+                                            <span>8</span>
+                                        </div>
+                                        <div class="weui-media-box__hd">
+                                            <img class="weui-media-box__thumb" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAeFBMVEUAwAD///+U5ZTc9twOww7G8MYwzDCH4YcfyR9x23Hw+/DY9dhm2WZG0kbT9NP0/PTL8sux7LFe115T1VM+zz7i+OIXxhes6qxr2mvA8MCe6J6M4oz6/frr+us5zjn2/fa67rqB4IF13XWn6ad83nxa1loqyirn+eccHxx4AAAC/klEQVRo3u2W2ZKiQBBF8wpCNSCyLwri7v//4bRIFVXoTBBB+DAReV5sG6lTXDITiGEYhmEYhmEYhmEYhmEY5v9i5fsZGRx9PyGDne8f6K9cfd+mKXe1yNG/0CcqYE86AkBMBh66f20deBc7wA/1WFiTwvSEpBMA2JJOBsSLxe/4QEEaJRrASP8EVF8Q74GbmevKg0saa0B8QbwBdjRyADYxIhqxAZ++IKYtciPXLQVG+imw+oo4Bu56rjEJ4GYsvPmKOAB+xlz7L5aevqUXuePWVhvWJ4eWiwUQ67mK51qPj4dFDMlRLBZTqF3SDvmr4BwtkECu5gHWPkmDfQh02WLxXuvbvC8ku8F57GsI5e0CmUwLz1kq3kD17R1In5816rGvQ5VMk5FEtIiWislTffuDpl/k/PzscdQsv8r9qWq4LRWX6tQYtTxvI3XyrwdyQxChXioOngH3dLgOFjk0all56XRi/wDFQrGQU3Os5t0wJu1GNtNKHdPqYaGYQuRDfbfDf26AGLYSyGS3ZAK4S8XuoAlxGSdYMKwqZKM9XJMtyqXi7HX/CiAZS6d8bSVUz5J36mEMFDTlAFQzxOT1dzLRljjB6+++ejFqka+mXIe6F59mw22OuOw1F4T6lg/9VjL1rLDoI9Xzl1MSYDNHnPQnt3D1EE7PrXjye/3pVpr1Z45hMUdcACc5NVQI0bOdS1WA0wuz73e7/5TNqBPhQXPEFGJNV2zNqWI7QKBd2Gn6AiBko02zuAOXeWIXjV0jNqdKegaE/kJQ6Bfs4aju04lMLkA2T5wBSYPKDGF3RKhFYEa6A1L1LG2yacmsaZ6YPOSAMKNsO+N5dNTfkc5Aqe26uxHpx7ZirvgCwJpWq/lmX1hA7LyabQ34tt5RiJKXSwQ+0KU0V5xg+hZrd4Bn1n4EID+WkQdgLfRNtvil9SPfwy+WQ7PFBWQz6dGWZBLkeJFXZGCfLUjCgGgqXo5TuSu3cugdcTv/HjqnBTEMwzAMwzAMwzAMwzAMw/zf/AFbXiOA6frlMAAAAABJRU5ErkJggg=="
+                                                alt="">
+                                        </div>
+                                        <div class="weui-media-box__bd">
+                                            <h4 class="weui-media-box__title">标题</h4>
+                                            <p class="weui-media-box__desc">15848170643</p>
+                                        </div>
+                                        <div class="num">
+                                            <h4 class="weui-media-box__title">
+                                                <i class="fa fa-thumbs-o-up"></i>
+                                            </h4>
+                                            <p class="weui-media-box__desc">1</p>
+                                        </div>
+                                    </a>
+                                    <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                                        <div class="grade">
+                                            <span>9</span>
+                                        </div>
+                                        <div class="weui-media-box__hd">
+                                            <img class="weui-media-box__thumb" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAeFBMVEUAwAD///+U5ZTc9twOww7G8MYwzDCH4YcfyR9x23Hw+/DY9dhm2WZG0kbT9NP0/PTL8sux7LFe115T1VM+zz7i+OIXxhes6qxr2mvA8MCe6J6M4oz6/frr+us5zjn2/fa67rqB4IF13XWn6ad83nxa1loqyirn+eccHxx4AAAC/klEQVRo3u2W2ZKiQBBF8wpCNSCyLwri7v//4bRIFVXoTBBB+DAReV5sG6lTXDITiGEYhmEYhmEYhmEYhmEY5v9i5fsZGRx9PyGDne8f6K9cfd+mKXe1yNG/0CcqYE86AkBMBh66f20deBc7wA/1WFiTwvSEpBMA2JJOBsSLxe/4QEEaJRrASP8EVF8Q74GbmevKg0saa0B8QbwBdjRyADYxIhqxAZ++IKYtciPXLQVG+imw+oo4Bu56rjEJ4GYsvPmKOAB+xlz7L5aevqUXuePWVhvWJ4eWiwUQ67mK51qPj4dFDMlRLBZTqF3SDvmr4BwtkECu5gHWPkmDfQh02WLxXuvbvC8ku8F57GsI5e0CmUwLz1kq3kD17R1In5816rGvQ5VMk5FEtIiWislTffuDpl/k/PzscdQsv8r9qWq4LRWX6tQYtTxvI3XyrwdyQxChXioOngH3dLgOFjk0all56XRi/wDFQrGQU3Os5t0wJu1GNtNKHdPqYaGYQuRDfbfDf26AGLYSyGS3ZAK4S8XuoAlxGSdYMKwqZKM9XJMtyqXi7HX/CiAZS6d8bSVUz5J36mEMFDTlAFQzxOT1dzLRljjB6+++ejFqka+mXIe6F59mw22OuOw1F4T6lg/9VjL1rLDoI9Xzl1MSYDNHnPQnt3D1EE7PrXjye/3pVpr1Z45hMUdcACc5NVQI0bOdS1WA0wuz73e7/5TNqBPhQXPEFGJNV2zNqWI7QKBd2Gn6AiBko02zuAOXeWIXjV0jNqdKegaE/kJQ6Bfs4aju04lMLkA2T5wBSYPKDGF3RKhFYEa6A1L1LG2yacmsaZ6YPOSAMKNsO+N5dNTfkc5Aqe26uxHpx7ZirvgCwJpWq/lmX1hA7LyabQ34tt5RiJKXSwQ+0KU0V5xg+hZrd4Bn1n4EID+WkQdgLfRNtvil9SPfwy+WQ7PFBWQz6dGWZBLkeJFXZGCfLUjCgGgqXo5TuSu3cugdcTv/HjqnBTEMwzAMwzAMwzAMwzAMw/zf/AFbXiOA6frlMAAAAABJRU5ErkJggg=="
+                                                alt="">
+                                        </div>
+                                        <div class="weui-media-box__bd">
+                                            <h4 class="weui-media-box__title">标题</h4>
+                                            <p class="weui-media-box__desc">15848170643</p>
+                                        </div>
+                                        <div class="num">
+                                            <h4 class="weui-media-box__title">
+                                                <i class="fa fa-thumbs-o-up"></i>
+                                            </h4>
+                                            <p class="weui-media-box__desc">1</p>
+                                        </div>
+                                    </a>
+                                    <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                                        <div class="grade">
+                                            <span>99</span>
+                                        </div>
+                                        <div class="weui-media-box__hd">
+                                            <img class="weui-media-box__thumb" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAeFBMVEUAwAD///+U5ZTc9twOww7G8MYwzDCH4YcfyR9x23Hw+/DY9dhm2WZG0kbT9NP0/PTL8sux7LFe115T1VM+zz7i+OIXxhes6qxr2mvA8MCe6J6M4oz6/frr+us5zjn2/fa67rqB4IF13XWn6ad83nxa1loqyirn+eccHxx4AAAC/klEQVRo3u2W2ZKiQBBF8wpCNSCyLwri7v//4bRIFVXoTBBB+DAReV5sG6lTXDITiGEYhmEYhmEYhmEYhmEY5v9i5fsZGRx9PyGDne8f6K9cfd+mKXe1yNG/0CcqYE86AkBMBh66f20deBc7wA/1WFiTwvSEpBMA2JJOBsSLxe/4QEEaJRrASP8EVF8Q74GbmevKg0saa0B8QbwBdjRyADYxIhqxAZ++IKYtciPXLQVG+imw+oo4Bu56rjEJ4GYsvPmKOAB+xlz7L5aevqUXuePWVhvWJ4eWiwUQ67mK51qPj4dFDMlRLBZTqF3SDvmr4BwtkECu5gHWPkmDfQh02WLxXuvbvC8ku8F57GsI5e0CmUwLz1kq3kD17R1In5816rGvQ5VMk5FEtIiWislTffuDpl/k/PzscdQsv8r9qWq4LRWX6tQYtTxvI3XyrwdyQxChXioOngH3dLgOFjk0all56XRi/wDFQrGQU3Os5t0wJu1GNtNKHdPqYaGYQuRDfbfDf26AGLYSyGS3ZAK4S8XuoAlxGSdYMKwqZKM9XJMtyqXi7HX/CiAZS6d8bSVUz5J36mEMFDTlAFQzxOT1dzLRljjB6+++ejFqka+mXIe6F59mw22OuOw1F4T6lg/9VjL1rLDoI9Xzl1MSYDNHnPQnt3D1EE7PrXjye/3pVpr1Z45hMUdcACc5NVQI0bOdS1WA0wuz73e7/5TNqBPhQXPEFGJNV2zNqWI7QKBd2Gn6AiBko02zuAOXeWIXjV0jNqdKegaE/kJQ6Bfs4aju04lMLkA2T5wBSYPKDGF3RKhFYEa6A1L1LG2yacmsaZ6YPOSAMKNsO+N5dNTfkc5Aqe26uxHpx7ZirvgCwJpWq/lmX1hA7LyabQ34tt5RiJKXSwQ+0KU0V5xg+hZrd4Bn1n4EID+WkQdgLfRNtvil9SPfwy+WQ7PFBWQz6dGWZBLkeJFXZGCfLUjCgGgqXo5TuSu3cugdcTv/HjqnBTEMwzAMwzAMwzAMwzAMw/zf/AFbXiOA6frlMAAAAABJRU5ErkJggg=="
+                                                alt="">
+                                        </div>
+                                        <div class="weui-media-box__bd">
+                                            <h4 class="weui-media-box__title">标题</h4>
+                                            <p class="weui-media-box__desc">15848170643</p>
+                                        </div>
+                                        <div class="num">
+                                            <h4 class="weui-media-box__title">
+                                                <i class="fa fa-thumbs-o-up"></i>
+                                            </h4>
+                                            <p class="weui-media-box__desc">1</p>
+                                        </div>
+                                    </a>
+                                    <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                                        <div class="grade">
+                                            <span>100</span>
+                                        </div>
+                                        <div class="weui-media-box__hd">
+                                            <img class="weui-media-box__thumb" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAeFBMVEUAwAD///+U5ZTc9twOww7G8MYwzDCH4YcfyR9x23Hw+/DY9dhm2WZG0kbT9NP0/PTL8sux7LFe115T1VM+zz7i+OIXxhes6qxr2mvA8MCe6J6M4oz6/frr+us5zjn2/fa67rqB4IF13XWn6ad83nxa1loqyirn+eccHxx4AAAC/klEQVRo3u2W2ZKiQBBF8wpCNSCyLwri7v//4bRIFVXoTBBB+DAReV5sG6lTXDITiGEYhmEYhmEYhmEYhmEY5v9i5fsZGRx9PyGDne8f6K9cfd+mKXe1yNG/0CcqYE86AkBMBh66f20deBc7wA/1WFiTwvSEpBMA2JJOBsSLxe/4QEEaJRrASP8EVF8Q74GbmevKg0saa0B8QbwBdjRyADYxIhqxAZ++IKYtciPXLQVG+imw+oo4Bu56rjEJ4GYsvPmKOAB+xlz7L5aevqUXuePWVhvWJ4eWiwUQ67mK51qPj4dFDMlRLBZTqF3SDvmr4BwtkECu5gHWPkmDfQh02WLxXuvbvC8ku8F57GsI5e0CmUwLz1kq3kD17R1In5816rGvQ5VMk5FEtIiWislTffuDpl/k/PzscdQsv8r9qWq4LRWX6tQYtTxvI3XyrwdyQxChXioOngH3dLgOFjk0all56XRi/wDFQrGQU3Os5t0wJu1GNtNKHdPqYaGYQuRDfbfDf26AGLYSyGS3ZAK4S8XuoAlxGSdYMKwqZKM9XJMtyqXi7HX/CiAZS6d8bSVUz5J36mEMFDTlAFQzxOT1dzLRljjB6+++ejFqka+mXIe6F59mw22OuOw1F4T6lg/9VjL1rLDoI9Xzl1MSYDNHnPQnt3D1EE7PrXjye/3pVpr1Z45hMUdcACc5NVQI0bOdS1WA0wuz73e7/5TNqBPhQXPEFGJNV2zNqWI7QKBd2Gn6AiBko02zuAOXeWIXjV0jNqdKegaE/kJQ6Bfs4aju04lMLkA2T5wBSYPKDGF3RKhFYEa6A1L1LG2yacmsaZ6YPOSAMKNsO+N5dNTfkc5Aqe26uxHpx7ZirvgCwJpWq/lmX1hA7LyabQ34tt5RiJKXSwQ+0KU0V5xg+hZrd4Bn1n4EID+WkQdgLfRNtvil9SPfwy+WQ7PFBWQz6dGWZBLkeJFXZGCfLUjCgGgqXo5TuSu3cugdcTv/HjqnBTEMwzAMwzAMwzAMwzAMw/zf/AFbXiOA6frlMAAAAABJRU5ErkJggg=="
+                                                alt="">
+                                        </div>
+                                        <div class="weui-media-box__bd">
+                                            <h4 class="weui-media-box__title">标题</h4>
+                                            <p class="weui-media-box__desc">15848170643</p>
+                                        </div>
+                                        <div class="num">
+                                            <h4 class="weui-media-box__title">
+                                                <i class="fa fa-thumbs-o-up"></i>
+                                            </h4>
+                                            <p class="weui-media-box__desc">1</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gift" id="gift">
+                            <a href="#gift">
+                                <p class="gift-t">礼品领取</p>
+                            </a>
+                            <div class="gift-li">
+                                <img src="./images/gift_03.png" alt="">
+                                <img src="./images/gift_05.png" alt="">
+                                <img src="./images/gift_06.png" alt="">
+                                <img src="./images/gift_07.png" alt="">
+                                <img src="./images/gift_08.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="page2-clear" style="width: 100%;height: 53px;"></div>
+            </div>
+        </div>
+
+        <div class="weui-tabbar">
+            <a href="#page1" class="weui-tabbar__item weui-bar__item--on lg-box">
+                <div class="weui-tabbar__icon lg">
+                    <p class="iconfont icon-Group-"></p>
+                </div>
+                <p class="weui-tabbar__label">欢乐购</p>
+            </a>
+            <a href="#page2" class="weui-tabbar__item hb-box">
+                <div class="weui-tabbar__icon hb">
+                    <p class="iconfont icon-hongbao"></p>
+                </div>
+                <p class="weui-tabbar__label">抢红包</p>
+            </a>
+            <a href="#page3" class="weui-tabbar__item">
+                <div class="weui-tabbar__icon">
+                    <p class="iconfont icon-paixingbang"></p>
+                </div>
+                <p class="weui-tabbar__label">排行榜</p>
+            </a>
+        </div>
+    </div>
+    <!-- 引用外部js -->
+    <script src="./js/jquery-2.1.4.js"></script>
+    <script src="./js/jquery-weui.min.js"></script>
+    <script src="./js/swiper.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="./js/countDown.js"></script>
+    <script src="./js/index2.js"></script>
+    <script src="./js/jquery.layerModel.js"></script>
+    <script src="./js/data.js"></script>
+    <!-- 微信分享 -->
+    <script>
+        wx.config({
+            debug: false,
+            appId: '{$signPackage["appId"]}',
+            timestamp: '{$signPackage["timestamp"]}',
+            nonceStr: '{$signPackage["nonceStr"]}',
+            signature: '{$signPackage["signature"]}',
+            jsApiList: [
+                // 所有要调用的 API 都要加到这个列表中
+                'onMenuShareTimeline', //微信朋友圈
+                'onMenuShareAppMessage', //微信好友
+            ]
+        });
+        wx.ready(function() {
+            // 在这里调用 API
+            wx.onMenuShareTimeline({
+                title: '8月25日居然欢乐购北京站，豪华大奖，嗨欢全场！', // 分享标题
+                link: 'http://www.bpbzx.com/zt/jr825bj/index.php', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                imgUrl: 'http://www.bpbzx.com/zt/jr825bj/images/jjhlgfx.jpg', // 分享图标
+                success: function() {
+                    // 用户点击了分享后执行的回调函数
+                    $.alert({
+                        title: '温馨提示',
+                        text: '分享成功，感谢您的支持'
+                    });
+                },
+            });
+            wx.onMenuShareAppMessage({
+                title: '8月25日居然欢乐购北京站，豪华大奖，嗨欢全场！', // 分享标题
+                desc: '商家优惠券、爆品拼购、联购返现，参与活动即可享受工厂直供。', // 分享描述
+                link: 'http://www.bpbzx.com/zt/jr825bj/index.php', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                imgUrl: 'http://www.bpbzx.com/zt/jr825bj/images/jjhlgfx.jpg', // 分享图标
+                success: function() {
+                    $.alert({
+                        title: '温馨提示',
+                        text: '分享成功，感谢您的支持'
+                    });
+                }
+            });
+        });
+    </script>
+    <!-- 领取优惠券 -->
+    <script>
+        function yanzheng(type) {
+            if (type == 4) {
+                if ($('#tel4').val().length == 0) {
+                    $.toast("手机号码不得为空", 'text');
+                    return false;
+                } else {
+                    var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
+                    if (!myreg.test($('#tel4').val())) {
+                        $.toast("手机号码格式不正确", 'text');
+                        return false;
+                    }
+                }
+                $("#c_tanchuang").close()
+                $.alert({
+                    title: '提示',
+                    text: '领取成功'
+                });
+            }
+        }
+
+        function coupontan(num, price) {
+            $(function() {
+                $('#c_tiptitle').text($("#c_title" + num).text() + price + "元代金券");
+                $('#c_lookhouse').val($("#c_title" + num).text() + price);
+                $('#price').val(price);
+                $("#c_tanchuang").layerModel({
+                    isClose: false,
+                    center: true,
+                });
+            });
+        }
+    </script>
+    <script type="text/javascript">
+        // 品牌切换 
+        var pp_page = 1;
+        var bp_page = 1;
+        $(function() {
+            $(".allcontent .pinlist").siblings().hide();
+            $(".tabs a").click(function() {
+                $("#brand_content").hide();
+                $("#brand_menu").removeClass("active");
+                $(this).addClass("active").siblings().removeClass("active");
+                var nr = $(this).index();
+                $(" .allcontent .pinlist").eq(nr).show().siblings().hide();
+            })
+            $("#brand_menu").click(function() {
+                $("#brand_menu").addClass("active");
+                $("#brand_content").show();
+                $(".tabs a").removeClass("active");
+                $(".allcontent .pinlist").siblings().hide();
+            })
+
+            function addpp(page) {
+                if (page > 3) {
+                    $.toast('没有更多了', 'text');
+                    return;
+                }
+                var html = ''
+                for (i = (page - 1) * 20; i < page * 20; i++) {
+                    if (i <= pinpai_list.length - 1) {
+                        html += `
+                        <li class="zjjs_ex">
+                            <img src="${pinpai_list[i]}">
+                        </li> `
+                    }
+                }
+                $('#brand_content_0').append(html);
+                pp_page++
+            }
+            addpp(pp_page)
+            $("#brand_more").click(function() {
+                    addpp(pp_page)
+                })
+                // 爆品切换
+            $(".bp_allcontentss .pinlist").siblings().hide();
+            $(".bptabsss a").click(function() {
+                $("#bp_content").hide();
+                $("#bp_menu").removeClass("active");
+                $(this).addClass("active").siblings().removeClass("active");
+                var nr = $(this).index();
+                $(".bp_allcontentss .pinlist").eq(nr).show().siblings().hide();
+            })
+            $("#bp_menu").click(function() {
+                    $("#bp_menu").addClass("active");
+                    $("#bp_content").show();
+                    $(".bptabsss a").removeClass("active");
+                    $(".bp_allcontentss .pinlist").siblings().hide();
+                })
+                //循环分类数据
+            var bp_html = ''
+            var bp_all = []
+            for (i = 0; i < bp_list.length; i++) {
+                bp_html += `<div class="swiper-container9 pinlist" style="display: none;">
+                                <div style="width:100%; overflow:hidden;" id="pro_content_20">`
+                for (s = 0; s < bp_list[i].length; s++) {
+                    bp_html += `<a href="#baomin"><div class="bp-li">
+                                    <div class="img-box">
+                                        <img src="${bp_list[i][s].src}" alt="">
+                                    </div>
+                                    <div class="bp-info">
+                                        <div class="info-1">
+                                            <p class="t1">${bp_list[i][s].name}</p>
+                                            <p class="t2">${bp_list[i][s].price}</p>
+                                        </div>
+                                        <div class="info-2">
+                                            <p class="t1">${bp_list[i][s].j_price}</p>
+                                            <p class="t2">立即抢购</p>
+                                        </div>
+                                    </div>
+                                </div></a>`
+                    bp_all.push(bp_list[i][s])
+                }
+                bp_html += `</div>
+                                </div>`
+            }
+            $('#bp_allcontentss').html(bp_html)
+                // 循环全部数据
+            function addbp(page) {
+                if (page > 6) {
+                    $.toast('没有更多了', 'text');
+                    return;
+                }
+                var html = ''
+                for (i = (page - 1) * 10; i < page * 10; i++) {
+                    if (i <= bp_all.length - 1) {
+                        html += `<a href="#baomin"><div class="bp-li">
+                                    <div class="img-box">
+                                        <img src="${bp_all[i].src}" alt="">
+                                    </div>
+                                    <div class="bp-info">
+                                        <div class="info-1">
+                                            <p class="t1">${bp_all[i].name}</p>
+                                            <p class="t2">原价${bp_all[i].price}</p>
+                                        </div>
+                                        <div class="info-2">
+                                            <p class="t1">惊爆价${bp_all[i].j_price}</p>
+                                            <p class="t2">立即抢购</p>
+                                        </div>
+                                    </div>
+                                </div></a>`
+                    }
+                }
+                $('#bp_content_0').append(html);
+                bp_page++
+            }
+            addbp(bp_page)
+            $("#bp_more").click(function() {
+                addbp(bp_page)
+            })
+        })
+    </script>
+</body>
+
+</html>

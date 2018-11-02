@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="./activity/css/jquery-weui.min.css">
+    <link rel="stylesheet" type="text/css" href="./activity/css/weui.min.css">
+    <link rel="stylesheet" type="text/css" href="./activity/css/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="./activity/css/yhq.css">
+    <title>芝华士沙发</title>
+    <script>
+        new function() {
+            var _self = this;
+            console.log(this);
+            _self.width = 750; //设置默认最大宽度
+            _self.fontSize = 100; //默认字体大小
+            _self.widthProportion = function() {
+                var p = (document.body && document.body.clientWidth || document.getElementsByTagName("html")[0].offsetWidth) / _self.width;
+                return p > 1 ? 1 : p < 0.32 ? 0.32 : p;
+            };
+            _self.changePage = function() {
+                document.getElementsByTagName("html")[0].setAttribute("style", "font-size:" + _self.widthProportion() * _self.fontSize + "px !important");
+            }
+            _self.changePage();
+            window.addEventListener('resize', function() {
+                _self.changePage();
+            }, false);
+        };
+    </script>
+</head>
+
+<body>
+    <div class="weui-tab">
+        <div class="weui-tab__bd">
+            <div id="page1" class="weui-tab__bd-item weui-tab__bd-item--active">
+                <div class="logo">
+                    <img src="./activity/images/zhs-logo.png" alt="">
+                </div>
+                <div class="h-t">
+                    <img src="./activity/images/h-t1.jpg" alt="">
+                    <div class="weui-flex">
+                        <div class="weui-flex__item h-title">
+                            <p>全名升舱——看世界杯</p>
+                            <p>买指定款3座位送同款单座位</p>
+                        </div>
+                        <div class="h-price">
+                            <p>惊爆价</p>
+                            <p class="h-sale">￥14800</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="quan">
+                    <a href="javascript:receive();">
+                        <img src="./activity/images/h-quan.png" alt="">
+                    </a>
+                </div>
+                <div class="other-goods">
+                    <div class="o-t">
+                        <p>其他产品</p>
+                    </div>
+                    <div class="list-img">
+                        <img src="./activity/images/h-goods.jpg" alt="">
+                    </div>
+                </div>
+                <div class="footer">
+                    <p>更多产品请到店内了解</p>
+                </div>
+                <div class="page2-clear" style="width: 100%;height: 53px;"></div>
+            </div>
+            <div id="page2" class="weui-tab__bd-item">
+                <div class="hb-bck">
+                    <img src="./activity/images/qrcode.png" alt="">
+                </div>
+                <!-- <div class="page2-clear" style="width: 100%;height: 53px;"></div> -->
+            </div>
+            <div id="page3" class="weui-tab__bd-item">
+                <h1>页面3</h1>
+            </div>
+        </div>
+
+        <div class="weui-tabbar">
+            <a href="#page1" class="weui-tabbar__item weui-bar__item--on lg-box">
+                <div class="weui-tabbar__icon lg">
+                    <p class="iconfont icon-Group-"></p>
+                </div>
+                <p class="weui-tabbar__label">优惠券</p>
+            </a>
+            <a href="#page2" class="weui-tabbar__item hb-box">
+                <div class="weui-tabbar__icon hb">
+                    <p class="iconfont icon-hongbao"></p>
+                </div>
+                <p class="weui-tabbar__label">抢红包</p>
+            </a>
+            <a href="#page3" class="weui-tabbar__item">
+                <div class="weui-tabbar__icon">
+                    <p class="iconfont icon-paixingbang"></p>
+                </div>
+                <p class="weui-tabbar__label">页面3</p>
+            </a>
+        </div>
+    </div>
+
+    <script src="./activity/js/jquery-2.1.4.js"></script>
+    <script src="./activity/js/jquery-weui.js"></script>
+    <script>
+        // 图片预加载
+        // 图片预加载
+        var arr = [
+            './activity/images/zhs-logo.png',
+            './activity/images/h-t1.jpg',
+            './activity/images/h-quan.png',
+            './activity/images/h-goods.jpg'
+        ];
+
+        function preimg(arr) {
+            var img = [];
+            for (var i = 0; i < arr.length; i++) {
+                img[i] = new Image();
+                img[i].src = arr[i];
+            }
+        }
+        preimg(arr)
+            // 领取优惠券
+        function receive() {
+            $.ajax({
+                url: 'zhssf.html',
+                type: 'get',
+                data: '',
+                success: function(msg) {
+                    // 领取优惠券
+                    if (true) {
+                        $.alert({
+                            title: '提示',
+                            text: '领取优惠券成功', // 具体信息由后台决定
+                            onOK: function() {
+                                //点击确认的操作在这里写
+                            }
+                        });
+                    } else {
+                        $.alert({
+                            title: '提示',
+                            text: '领取优惠券失败，稍后再试' // 具体信息由后台决定
+                        });
+                    }
+                },
+                error: function() {
+                    $.alert({
+                        title: '提示',
+                        text: '请求失败，稍后再试' // 具体信息由后台决定
+                    });
+                }
+            })
+        }
+        // 计算page2的页面高度
+        var page2 = $('#page2').height();
+        var hbH = page2 - $('.weui-tabbar').outerHeight();
+        $('.hb-bck').height(hbH)
+    </script>
+</body>
+
+</html>
